@@ -79,8 +79,13 @@
 		<dependencies>
 			<dependency>
 				<groupId>de.kisner.xbtjl</groupId>
-				<artifactId>jbtl-xml</artifactId>
-				<version>xbtjl-SNAPSHOT</version>
+				<artifactId>xbtjl-xml</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>de.kisner.xbtjl</groupId>
+				<artifactId>xbtjl-xml</artifactId>
+				<version>${project.version}</version>
 			</dependency>
 			
 			<dependency>
