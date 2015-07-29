@@ -4,7 +4,7 @@ import net.sf.exlp.xml.ns.NsPrefixMapperInterface;
 
 import com.sun.xml.bind.marshaller.NamespacePrefixMapper;
 
-public class JbtlNsPrefixMapper extends NamespacePrefixMapper implements NsPrefixMapperInterface
+public class XbtjlNsPrefixMapper extends NamespacePrefixMapper implements NsPrefixMapperInterface
 {
     public String getPreferredPrefix(String namespaceUri, String suggestion, boolean requirePrefix)
     {
