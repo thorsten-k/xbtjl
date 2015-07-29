@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bt:piece xmlns:bt="http://jbtl.sf.net/bittorrent" index="123" length="123">
+    <bt:hash>myHash</bt:hash>
+</bt:piece>

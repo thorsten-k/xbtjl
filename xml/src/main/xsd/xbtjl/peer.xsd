@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://jbtl.sf.net/peer"
+    xmlns:bt="http://jbtl.sf.net/bittorrent"
+    xmlns:p="http://jbtl.sf.net/peer"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:import namespace="http://jbtl.sf.net/bittorrent" schemaLocation="bittorrent.xsd"/>
+    <xsd:element name="peer">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="bt:pieces" maxOccurs="1"/>
+                <xsd:element ref="p:statistic" maxOccurs="1"/>
+                <xsd:element ref="p:info" maxOccurs="1"/>
+            </xsd:sequence>
+            <xsd:attribute name="peerId" type="xsd:string"/>
+            <xsd:attribute name="listeningPort" type="xsd:int"/>
+            <xsd:attribute name="listeningIp" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="statistic">
+        <xsd:complexType>
+            <xsd:attribute name="sumDl" type="xsd:int"/>
+            <xsd:attribute name="sumUl" type="xsd:int"/>
+            <xsd:attribute name="left" type="xsd:long"/>
+            <xsd:attribute name="rateDl" type="xsd:double"/>
+            <xsd:attribute name="rateUl" type="xsd:double"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="info">
+        <xsd:complexType>
+            <xsd:attribute name="interested" type="xsd:boolean"/>
+            <xsd:attribute name="choked" type="xsd:boolean"/>
+            <xsd:attribute name="interesting" type="xsd:boolean"/>
+            <xsd:attribute name="choking" type="xsd:boolean"/>
+            <xsd:attribute name="connected" type="xsd:boolean"/>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>

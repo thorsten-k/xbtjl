@@ -8,7 +8,7 @@ public class XbtjlNsPrefixMapper extends NamespacePrefixMapper implements NsPref
 {
     public String getPreferredPrefix(String namespaceUri, String suggestion, boolean requirePrefix)
     {
-        if("http://jbtl.sf.net".equals(namespaceUri) ){return "jbtl";}
+        if("http://jbtl.sf.net".equals(namespaceUri) ){return "xbtjl";}
         if("http://jbtl.sf.net/bittorrent".equals(namespaceUri) ){return "bt";}
        
         return suggestion;

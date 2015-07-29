@@ -10,15 +10,15 @@
         </jxb:schemaBindings>
     </jxb:bindings>
     
-    <jxb:bindings schemaLocation="../xsd/jbtl/bittorrent.xsd" node="/xsd:schema">
+    <jxb:bindings schemaLocation="../xsd/xbtjl/bittorrent.xsd" node="/xsd:schema">
         <jxb:schemaBindings>
-            <jxb:package name="net.sf.jbtl.model.xml.bittorrent"/>
+            <jxb:package name="de.kisner.xbtjl.model.xml.bittorrent"/>
         </jxb:schemaBindings>
     </jxb:bindings>
     
-    <jxb:bindings schemaLocation="../xsd/jbtl/peer.xsd" node="/xsd:schema">
+    <jxb:bindings schemaLocation="../xsd/xbtjl/peer.xsd" node="/xsd:schema">
         <jxb:schemaBindings>
-            <jxb:package name="net.sf.jbtl.model.xml.peer"/>
+            <jxb:package name="de.kisner.xbtjl.model.xml.peer"/>
         </jxb:schemaBindings>
     </jxb:bindings>
    

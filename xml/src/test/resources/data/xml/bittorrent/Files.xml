@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bt:files xmlns:bt="http://jbtl.sf.net/bittorrent">
+    <bt:file length="1234">myFileName</bt:file>
+    <bt:file length="1234">myFileName</bt:file>
+</bt:files>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bt:torrent xmlns:bt="http://jbtl.sf.net/bittorrent" totalLength="123">
+    <bt:annouceUrl>myUrl</bt:annouceUrl>
+    <bt:hash>myHash</bt:hash>
+    <bt:file length="1234">myFileName</bt:file>
+    <bt:files/>
+    <bt:meta encoding="myEncoding" created="2011-11-11T11:11:11" createdBy="myName"/>
+    <bt:pieces pieceLength="12"/>
+</bt:torrent>

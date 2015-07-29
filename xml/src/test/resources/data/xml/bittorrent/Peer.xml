@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:peer xmlns:bt="http://jbtl.sf.net/bittorrent" xmlns:ns2="http://jbtl.sf.net/peer" peerId="myId" listeningPort="123" listeningIp="127.0.0.1">
+    <bt:pieces pieceLength="12"/>
+    <ns2:statistic sumDl="1" sumUl="2" left="3" rateDl="2.3" rateUl="4.3"/>
+    <ns2:info interested="true" choked="true" interesting="true" choking="true" connected="true"/>
+</ns2:peer>

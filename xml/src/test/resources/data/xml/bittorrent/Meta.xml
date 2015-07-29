@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bt:meta xmlns:bt="http://jbtl.sf.net/bittorrent" encoding="myEncoding" created="2011-11-11T11:11:11" createdBy="myName">
+    <bt:comment>myComment</bt:comment>
+</bt:meta>

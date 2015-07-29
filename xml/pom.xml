@@ -116,5 +116,18 @@
 			<groupId>commons-jxpath</groupId>
 			<artifactId>commons-jxpath</artifactId>
 		</dependency>
+		
+		<!-- Test -->
+		<dependency>
+			<groupId>net.sf.ahtutils</groupId>
+			<artifactId>ahtutils-test</artifactId>
+			<scope>test</scope>
+			<version>0.2.6-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 </project>

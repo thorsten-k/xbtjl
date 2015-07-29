@@ -1,9 +1,6 @@
 package de.kisner.xbtjl.model.xml.peer;
 
-import java.io.File;
 import java.io.FileNotFoundException;
-
-import net.sf.exlp.util.xml.JaxbUtil;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -11,18 +8,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import de.kisner.xbtjl.model.xml.bittorrent.AbstractXmlBittorrentTest;
-import de.kisner.xbtjl.model.xml.peer.Statistic;
-import de.kisner.xbtjl.test.JbtlXmlTstBootstrap;
+import de.kisner.xbtjl.test.XbtjlXmlTestBootstrap;
+import net.sf.exlp.util.xml.JaxbUtil;
 
 public class TestXmlStatistic extends AbstractXmlBittorrentTest
 {
 	final static Logger logger = LoggerFactory.getLogger(TestXmlStatistic.class);
 	
-	@BeforeClass
-	public static void initFiles()
-	{
-		fXml = new File(rootDir,"statistic.xml");
-	}
+	@BeforeClass public static void initFiles(){setXmlFile(dirSuffix, Statistic.class);}
     
     @Test
     public void xmlTest() throws FileNotFoundException
@@ -47,7 +40,7 @@ public class TestXmlStatistic extends AbstractXmlBittorrentTest
 	
 	public static void main(String[] args)
     {
-		JbtlXmlTstBootstrap.init();
+		XbtjlXmlTestBootstrap.init();
 			
 		TestXmlStatistic.initFiles();	
 		TestXmlStatistic test = new TestXmlStatistic();

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://jbtl.sf.net/bittorrent"
+    xmlns:bt="http://jbtl.sf.net/bittorrent"
+    xmlns:p="http://jbtl.sf.net/peer"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:import namespace="http://jbtl.sf.net/peer" schemaLocation="peer.xsd"/>
+    <xsd:element name="torrent">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="bt:annouceUrl" maxOccurs="1"/>
+                <xsd:element ref="bt:hash" maxOccurs="1"/>
+                <xsd:element ref="bt:file" maxOccurs="1"/>
+                <xsd:element ref="bt:files" maxOccurs="1"/>
+                <xsd:element ref="bt:meta" maxOccurs="1"/>
+                <xsd:element ref="bt:pieces" maxOccurs="1"/>
+            </xsd:sequence>
+            <xsd:attribute name="totalLength" type="xsd:long"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="meta">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="bt:comment" maxOccurs="1"/>
+            </xsd:sequence>
+            <xsd:attribute name="encoding" type="xsd:string"/>
+            <xsd:attribute name="created" type="xsd:dateTime"/>
+            <xsd:attribute name="createdBy" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="annouceUrl">
+        <xsd:complexType>
+            <xsd:simpleContent>
+                <xsd:extension base="xsd:string"/>
+            </xsd:simpleContent>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="hash">
+        <xsd:complexType>
+            <xsd:simpleContent>
+                <xsd:extension base="xsd:string"/>
+            </xsd:simpleContent>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="comment">
+        <xsd:complexType>
+            <xsd:simpleContent>
+                <xsd:extension base="xsd:string"/>
+            </xsd:simpleContent>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="files">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="bt:file" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="file">
+        <xsd:complexType>
+            <xsd:simpleContent>
+                <xsd:extension base="xsd:string">
+                    <xsd:attribute name="length" type="xsd:long" />
+                </xsd:extension>
+            </xsd:simpleContent>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="announce">
+        <xsd:complexType>
+            <xsd:attribute name="interval" type="xsd:long"/>
+            <xsd:attribute name="complete" type="xsd:long"/>
+            <xsd:attribute name="minInterval" type="xsd:long"/>
+            <xsd:attribute name="private" type="xsd:long"/>
+            <xsd:attribute name="incomplete" type="xsd:long"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="trackerRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="bt:torrent" maxOccurs="1"/>
+                <xsd:element ref="p:peer" maxOccurs="1"/>
+            </xsd:sequence>
+            <xsd:attribute name="numWant" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="pieces">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="bt:bitfield" maxOccurs="1"/>
+                <xsd:element ref="bt:piece" maxOccurs="unbounded"/>
+            </xsd:sequence>
+            <xsd:attribute name="pieceLength" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="bitfield">
+        <xsd:complexType>
+            <xsd:simpleContent>
+                <xsd:extension base="xsd:string"/>
+            </xsd:simpleContent>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="piece">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="bt:hash" maxOccurs="1"/>
+            </xsd:sequence>
+            <xsd:attribute name="index" type="xsd:int"/>
+            <xsd:attribute name="length" type="xsd:long"/>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
