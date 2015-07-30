@@ -27,7 +27,7 @@ public abstract class AbstractUtilTest
     public static void initLogger()
 	{
 		LoggerInit loggerInit = new LoggerInit("log4junit.xml");	
-		loggerInit.addAltPath("config.jbtl-util.test");
+		loggerInit.addAltPath("config.xbtjl-util.test");
 		loggerInit.init();
     }
 }
