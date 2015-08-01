@@ -9,9 +9,15 @@ public class XmlPiecesFactory
 {
 	final static Logger logger = LoggerFactory.getLogger(XmlPiecesFactory.class);
 	
-	public static synchronized Pieces create(int pieceLength)
+	public static Pieces build()
 	{	
 		Pieces xml = new Pieces();
+		return xml;
+	}
+	
+	public static Pieces create(int pieceLength)
+	{	
+		Pieces xml = build();
 		xml.setPieceLength(pieceLength);	
 		return xml;
 	}

@@ -19,10 +19,15 @@ public class XmlHashFactory
 	{
 		Hash xml = new Hash();
 		xml.setValue(hash);
-		
 		return xml;
 	}
 	
+	public static Hash hex(byte[] b)
+	{
+		return create(Hex.encodeHexString(b));
+	}
+	
+	@Deprecated
 	public static synchronized Hash createFromBenByte(byte[] b)
 	{
 		return create(Hex.encodeHexString(HashUtil.sha1Byte(b)));

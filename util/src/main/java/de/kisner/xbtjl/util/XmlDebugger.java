@@ -15,7 +15,7 @@ public class XmlDebugger
     {
     	logger.info("*************************************************");
     	Torrent xml = JDomUtil.toJaxb(JaxbUtil.toDocument(torrent),Torrent.class);
-    	if(!withPieces)
+    	if(!withPieces && torrent.isSetPieces())
     	{
     		logger.info("Pieces "+xml.getPieces().getPiece().size());
     		xml.getPieces().unsetPiece();
