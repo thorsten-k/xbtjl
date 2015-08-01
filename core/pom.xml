@@ -9,57 +9,18 @@
         <relativePath>../pom.xml</relativePath>
 	</parent>
 	
-    <artifactId>xbtjl-util</artifactId>
+    <artifactId>xbtjl-core</artifactId>
     <packaging>jar</packaging>
-    <name>XBTJL - Util</name>
-   
-	<build>
-		<plugins>
-	         <plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<inherited>true</inherited>
-				<version>${maven-compiler-plugin.version}</version>
-				<configuration>
-					<source>${compiler-source.version}</source>
-					<target>${compiler-target.version}</target>
-					<encoding>${project.build.sourceEncoding}</encoding>
-				</configuration>
-			</plugin>
-		</plugins>
-   </build>
-   
+    <name>XBTJL - Core</name>
+      
 	<dependencies>
 		<dependency>
 			<groupId>de.kisner.xbtjl</groupId>
-			<artifactId>xbtjl-xml</artifactId>
+			<artifactId>xbtjl-util</artifactId>
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
-		
-		<dependency>
-			<groupId>net.sf.exlp</groupId>
-			<artifactId>exlp-xml</artifactId>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>net.sf.exlp</groupId>
-			<artifactId>exlp-util</artifactId>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.googlecode.jbencode</groupId>
-			<artifactId>jbencode</artifactId>
-			<version>1.0</version>
-		</dependency>
-		
-		<!-- Commons -->
-		<dependency>
-			<groupId>commons-jxpath</groupId>
-			<artifactId>commons-jxpath</artifactId>
-		</dependency>
-		
+				
 		<!-- Test -->
 		<dependency>
 			<groupId>junit</groupId>

@@ -2,12 +2,14 @@ package de.kisner.xbtjl.test;
 
 import java.io.File;
 
+import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import de.kisner.xbtjl.model.xml.XbtjlNsPrefixMapper;
 import net.sf.exlp.util.io.LoggerInit;
+import net.sf.exlp.util.io.StringIO;
 import net.sf.exlp.util.xml.JaxbUtil;
 
 public abstract class AbstractUtilTest
@@ -30,4 +32,10 @@ public abstract class AbstractUtilTest
 		loggerInit.addAltPath("config.xbtjl-util.test");
 		loggerInit.init();
     }
+	
+	protected void assertTxtFile(File f, String actual)
+	{
+		String expected = StringIO.loadTxt(f);
+		Assert.assertEquals(expected, actual);
+	}
 }
