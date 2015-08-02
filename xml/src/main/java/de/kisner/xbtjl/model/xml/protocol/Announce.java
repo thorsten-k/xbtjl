@@ -1,5 +1,5 @@
 
-package de.kisner.xbtjl.model.xml.torrent;
+package de.kisner.xbtjl.model.xml.protocol;
 
 import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;

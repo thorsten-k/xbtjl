@@ -78,35 +78,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TrackerRequest }
-     * 
-     */
-    public TrackerRequest createTrackerRequest() {
-        return new TrackerRequest();
-    }
-
-    /**
-     * Create an instance of {@link Torrent }
-     * 
-     */
-    public Torrent createTorrent() {
-        return new Torrent();
-    }
-
-    /**
      * Create an instance of {@link AnnouceUrl }
      * 
      */
     public AnnouceUrl createAnnouceUrl() {
         return new AnnouceUrl();
-    }
-
-    /**
-     * Create an instance of {@link Meta }
-     * 
-     */
-    public Meta createMeta() {
-        return new Meta();
     }
 
     /**
@@ -118,11 +94,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Announce }
+     * Create an instance of {@link Torrent }
      * 
      */
-    public Announce createAnnounce() {
-        return new Announce();
+    public Torrent createTorrent() {
+        return new Torrent();
+    }
+
+    /**
+     * Create an instance of {@link Meta }
+     * 
+     */
+    public Meta createMeta() {
+        return new Meta();
     }
 
 }

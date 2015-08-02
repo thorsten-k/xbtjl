@@ -1,4 +1,4 @@
-package de.kisner.xbtjl.model.xml.torrent;
+package de.kisner.xbtjl.model.xml.protocol;
 
 import java.io.FileNotFoundException;
 
@@ -7,11 +7,10 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import de.kisner.xbtjl.model.xml.torrent.Announce;
 import de.kisner.xbtjl.test.XbtjlXmlTestBootstrap;
 import net.sf.exlp.util.xml.JaxbUtil;
 
-public class TestXmlAnnounce extends AbstractXmlBittorrentTest
+public class TestXmlAnnounce extends AbstractXmlProtocolTest
 {
 	final static Logger logger = LoggerFactory.getLogger(TestXmlAnnounce.class);
 	

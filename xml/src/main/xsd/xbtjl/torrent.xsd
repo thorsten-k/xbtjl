@@ -64,24 +64,6 @@
             </xsd:simpleContent>
         </xsd:complexType>
     </xsd:element>
-    <xsd:element name="announce">
-        <xsd:complexType>
-            <xsd:attribute name="interval" type="xsd:long"/>
-            <xsd:attribute name="complete" type="xsd:long"/>
-            <xsd:attribute name="minInterval" type="xsd:long"/>
-            <xsd:attribute name="private" type="xsd:long"/>
-            <xsd:attribute name="incomplete" type="xsd:long"/>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="trackerRequest">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element ref="bt:torrent" maxOccurs="1"/>
-                <xsd:element ref="p:peer" maxOccurs="1"/>
-            </xsd:sequence>
-            <xsd:attribute name="numWant" type="xsd:int"/>
-        </xsd:complexType>
-    </xsd:element>
     <xsd:element name="pieces">
         <xsd:complexType>
             <xsd:sequence>

@@ -9,8 +9,8 @@ import de.kisner.xbtjl.exception.XbtjlException;
 import de.kisner.xbtjl.factory.txt.TxtTrackerRequestFactory;
 import de.kisner.xbtjl.model.xml.peer.Peer;
 import de.kisner.xbtjl.model.xml.peer.Statistic;
+import de.kisner.xbtjl.model.xml.protocol.TrackerRequest;
 import de.kisner.xbtjl.model.xml.torrent.Torrent;
-import de.kisner.xbtjl.model.xml.torrent.TrackerRequest;
 
 public class XmlTrackerRequestFactory
 {

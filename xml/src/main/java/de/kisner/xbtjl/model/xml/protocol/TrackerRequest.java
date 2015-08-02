@@ -1,5 +1,5 @@
 
-package de.kisner.xbtjl.model.xml.torrent;
+package de.kisner.xbtjl.model.xml.protocol;
 
 import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -9,6 +9,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import de.kisner.xbtjl.model.xml.peer.Peer;
+import de.kisner.xbtjl.model.xml.torrent.Torrent;
 
 
 /**
@@ -43,7 +44,7 @@ public class TrackerRequest
 {
 
     private final static long serialVersionUID = 1L;
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://xbtjl.kisner.de/torrent", required = true)
     protected Torrent torrent;
     @XmlElement(namespace = "http://xbtjl.kisner.de/peer", required = true)
     protected Peer peer;

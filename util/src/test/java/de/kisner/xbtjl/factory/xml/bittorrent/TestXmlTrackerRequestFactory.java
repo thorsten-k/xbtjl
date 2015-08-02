@@ -10,7 +10,7 @@ import de.kisner.xbtjl.exception.XbtjlException;
 import de.kisner.xbtjl.factory.txt.TestTxtTrackerRequestFactory;
 import de.kisner.xbtjl.factory.txt.TxtTrackerRequestFactory;
 import de.kisner.xbtjl.factory.xml.bittorrent.XmlTrackerRequestFactory;
-import de.kisner.xbtjl.model.xml.torrent.TrackerRequest;
+import de.kisner.xbtjl.model.xml.protocol.TrackerRequest;
 import de.kisner.xbtjl.test.AbstractUtilTest;
 import net.sf.exlp.util.xml.JaxbUtil;
 

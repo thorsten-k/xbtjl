@@ -11,7 +11,7 @@ public class XbtjlNsPrefixMapper extends NamespacePrefixMapper implements NsPref
         if("http://xbtjl.kisner.de".equals(namespaceUri) ){return "xbtjl";}
         if("http://xbtjl.kisner.de/torrent".equals(namespaceUri) ){return "t";}
         if("http://xbtjl.kisner.de/peer".equals(namespaceUri) ){return "p";}
-        
+        if("http://xbtjl.kisner.de/protocol".equals(namespaceUri) ){return "p2p";}
        
         return suggestion;
     }

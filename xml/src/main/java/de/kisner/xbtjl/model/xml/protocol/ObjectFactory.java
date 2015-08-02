@@ -1,5 +1,5 @@
 
-package de.kisner.xbtjl.model.xml.peer;
+package de.kisner.xbtjl.model.xml.protocol;
 
 import javax.xml.bind.annotation.XmlRegistry;
 
@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlRegistry;
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the de.kisner.xbtjl.model.xml.peer package. 
+ * generated in the de.kisner.xbtjl.model.xml.protocol package. 
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -23,34 +23,26 @@ public class ObjectFactory {
 
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: de.kisner.xbtjl.model.xml.peer
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: de.kisner.xbtjl.model.xml.protocol
      * 
      */
     public ObjectFactory() {
     }
 
     /**
-     * Create an instance of {@link Statistic }
+     * Create an instance of {@link TrackerRequest }
      * 
      */
-    public Statistic createStatistic() {
-        return new Statistic();
+    public TrackerRequest createTrackerRequest() {
+        return new TrackerRequest();
     }
 
     /**
-     * Create an instance of {@link Peer }
+     * Create an instance of {@link Announce }
      * 
      */
-    public Peer createPeer() {
-        return new Peer();
-    }
-
-    /**
-     * Create an instance of {@link Info }
-     * 
-     */
-    public Info createInfo() {
-        return new Info();
+    public Announce createAnnounce() {
+        return new Announce();
     }
 
 }

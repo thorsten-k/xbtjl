@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://xbtjl.kisner.de/protocol"
+    xmlns:p2p="http://xbtjl.kisner.de/protocol"
+    xmlns:t="http://xbtjl.kisner.de/torrent"
+    xmlns:p="http://xbtjl.kisner.de/peer"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:import namespace="http://xbtjl.kisner.de/torrent" schemaLocation="torrent.xsd"/>
+    <xsd:import namespace="http://xbtjl.kisner.de/peer" schemaLocation="peer.xsd"/>
+    <xsd:element name="trackerRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="t:torrent" maxOccurs="1"/>
+                <xsd:element ref="p:peer" maxOccurs="1"/>
+            </xsd:sequence>
+            <xsd:attribute name="numWant" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+        <xsd:element name="announce">
+        <xsd:complexType>
+            <xsd:attribute name="interval" type="xsd:long"/>
+            <xsd:attribute name="complete" type="xsd:long"/>
+            <xsd:attribute name="minInterval" type="xsd:long"/>
+            <xsd:attribute name="private" type="xsd:long"/>
+            <xsd:attribute name="incomplete" type="xsd:long"/>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
