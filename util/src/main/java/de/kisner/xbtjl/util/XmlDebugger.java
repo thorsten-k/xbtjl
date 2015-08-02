@@ -13,14 +13,8 @@ public class XmlDebugger
 	
     public static void info(Torrent torrent, boolean withPieces)
     {
-    	logger.info("*************************************************");
     	Torrent xml = JDomUtil.toJaxb(JaxbUtil.toDocument(torrent),Torrent.class);
-    	if(!withPieces && torrent.isSetPieces())
-    	{
-    		logger.info("Pieces "+xml.getPieces().getPiece().size());
-    		xml.getPieces().unsetPiece();
-    	}
+    	if(!withPieces && torrent.isSetPieces()) {xml.getPieces().unsetPiece();}
     	JaxbUtil.info(xml);
-    	logger.info("*************************************************");
     }
 }

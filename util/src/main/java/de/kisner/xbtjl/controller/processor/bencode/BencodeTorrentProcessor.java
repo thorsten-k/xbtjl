@@ -122,7 +122,10 @@ public class BencodeTorrentProcessor
                 	//TODO Error
                     return null;
                 }
-                for (int i=0; i<piecesHash2.length/20; i++)
+                
+                xml.getPieces().setSize(piecesHash2.length/20);
+                
+                for (int i=0; i<xml.getPieces().getSize(); i++)
                 {
                     byte[] temp = Arrays.copyOfRange(piecesHash2, i*20, i*20+20);
                     Piece piece = new Piece();

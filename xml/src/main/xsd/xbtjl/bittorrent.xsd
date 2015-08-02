@@ -89,6 +89,7 @@
                 <xsd:element ref="bt:piece" maxOccurs="unbounded"/>
             </xsd:sequence>
             <xsd:attribute name="pieceLength" type="xsd:int"/>
+            <xsd:attribute name="size" type="xsd:int"/>
         </xsd:complexType>
     </xsd:element>
     <xsd:element name="bitfield">

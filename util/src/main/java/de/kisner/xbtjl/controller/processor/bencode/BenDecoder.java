@@ -45,37 +45,31 @@ import java.util.Map;
  * @author TdC_VgA
  *
  */
-public class BenDecoder {
+public class BenDecoder
+{
 
     private boolean recovery_mode;
 
+    public BenDecoder()
+    {
+    	
+    }
 
-    public static Map
-            decode(
-                    byte[] data)
-
-            throws IOException {
+    public static Map decode(byte[] data) throws IOException
+    {
         return (new BenDecoder().decodeByteArray(data));
     }
 
-    public static Map
-            decode(
-                    BufferedInputStream is)
-
-            throws IOException {
+    public static Map decode(BufferedInputStream is) throws IOException
+    {
         return (new BenDecoder().decodeStream(is));
     }
 
 
-    public
-            BenDecoder() {
-    }
 
-    public Map
-            decodeByteArray(
-                    byte[] data)
 
-            throws IOException {
+    public Map decodeByteArray(byte[] data) throws IOException
+    {
         return (decode(new ByteArrayInputStream(data)));
     }
 

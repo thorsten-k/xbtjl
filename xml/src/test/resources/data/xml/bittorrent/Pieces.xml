@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<bt:pieces xmlns:bt="http://jbtl.sf.net/bittorrent" pieceLength="12">
+<bt:pieces xmlns:bt="http://jbtl.sf.net/bittorrent" pieceLength="12" size="122">
     <bt:bitfield>110111000111</bt:bitfield>
     <bt:piece index="123" length="123"/>
     <bt:piece index="123" length="123"/>
