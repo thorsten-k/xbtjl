@@ -1,106 +1,195 @@
 package de.kisner.xbtjl.controller.processor.bencode;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.io.IOUtils;
+import org.apache.commons.codec.binary.Hex;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import be.olsson.bencoder.Bdecoder;
-import de.kisner.xbtjl.factory.xml.bittorrent.XmlAnnounceUrlFactory;
-import de.kisner.xbtjl.factory.xml.bittorrent.XmlCommentFactory;
+import de.kisner.xbtjl.exception.XbtjlException;
 import de.kisner.xbtjl.factory.xml.bittorrent.XmlFileFactory;
-import de.kisner.xbtjl.factory.xml.bittorrent.XmlFilesFactory;
 import de.kisner.xbtjl.factory.xml.bittorrent.XmlHashFactory;
-import de.kisner.xbtjl.factory.xml.bittorrent.XmlMetaFactory;
-import de.kisner.xbtjl.factory.xml.bittorrent.XmlPieceFactory;
 import de.kisner.xbtjl.factory.xml.bittorrent.XmlPiecesFactory;
-import de.kisner.xbtjl.factory.xml.bittorrent.XmlTorrentFactory;
-import de.kisner.xbtjl.model.xml.bittorrent.Hash;
+import de.kisner.xbtjl.factory.xml.peer.XmlPeerFactory;
+import de.kisner.xbtjl.model.xml.bittorrent.AnnouceUrl;
+import de.kisner.xbtjl.model.xml.bittorrent.Comment;
+import de.kisner.xbtjl.model.xml.bittorrent.Files;
+import de.kisner.xbtjl.model.xml.bittorrent.Meta;
+import de.kisner.xbtjl.model.xml.bittorrent.Piece;
+import de.kisner.xbtjl.model.xml.bittorrent.Pieces;
 import de.kisner.xbtjl.model.xml.bittorrent.Torrent;
+import de.kisner.xbtjl.model.xml.peer.Peer;
 import net.sf.exlp.util.DateUtil;
+import net.sf.exlp.util.io.FileIO;
 
 public class BencodeTorrentProcessor
 {
 	final static Logger logger = LoggerFactory.getLogger(BencodeTorrentProcessor.class);
 	
+	public static final String DEFAULT_ENCODING = "UTF8";
+    public static final String BYTE_ENCODING = "ISO-8859-1";
+    public static Charset BYTE_CHARSET;
+    public static Charset DEFAULT_CHARSET;
 
-	private Torrent torrent;
-	
-	public BencodeTorrentProcessor()
+    static
+    {
+        try
+        {
+            BYTE_CHARSET = Charset.forName(BencodeTorrentProcessor.BYTE_ENCODING);
+            DEFAULT_CHARSET = Charset.forName(BencodeTorrentProcessor.DEFAULT_ENCODING);
+        }
+        catch (Throwable e) {e.printStackTrace();}
+    }
+
+    public static Torrent create(File f) throws IOException, XbtjlException
 	{
-
+		return create(FileIO.loadByte(f));
 	}
 	
-	
-	public Torrent olson(File f) throws FileNotFoundException, IOException
+	public static Torrent create(byte[] bytes) throws IOException, XbtjlException
 	{
-		torrent = XmlTorrentFactory.build();
-		torrent.setMeta(XmlMetaFactory.build());
-		torrent.setPieces(XmlPiecesFactory.build());
-		torrent.setFiles(XmlFilesFactory.build());
+		return BencodeTorrentProcessor.create(BenDecoder.decode(bytes));
+	}
+	
+	public static Torrent create(Map m) throws IOException, XbtjlException
+	{	
+		Torrent xml = new Torrent();
 		
-		byte[] bytes = IOUtils.toByteArray(new FileInputStream(f));
-		Bdecoder dec = new Bdecoder();
-		Map<?,?> map =  (Map<?,?>)dec.decode(bytes);
+		if(m.containsKey("announce"))
+		{
+			xml.setAnnouceUrl(new AnnouceUrl());
+			xml.getAnnouceUrl().setValue(new String((byte[]) m.get("announce")));	
+		}
+		else {throw new XbtjlException("No announce available");}
+		
+		xml.setMeta(createMeta(m));
+		
+		if(m.containsKey("info"))
+        {
+            Map info = (Map) m.get("info");
+            xml.setHash(XmlHashFactory.createFromBenByte(BenEncoder.encode(info)));
+            
+            if (info.containsKey("name")) {xml.setFile(BencodeTorrentProcessor.buildFile(info));}
+            
+            xml.setFiles(new Files());
+            if (info.containsKey("files"))
+            {            	
+                List multFiles = (List) info.get("files");
+                xml.setTotalLength(0);
+                for (int i = 0; i < multFiles.size(); i++)
+                {
+                    xml.setTotalLength(xml.getTotalLength()+ ((Long) ((Map) multFiles.get(i)).get("length")).intValue());
+                    
+                    List path = (List) ((Map) multFiles.get(i)).get("path");
+                    String filePath = "";
+                    for (int j = 0; j < path.size(); j++) {filePath += new String((byte[]) path.get(j)); }
+                    de.kisner.xbtjl.model.xml.bittorrent.File file = new de.kisner.xbtjl.model.xml.bittorrent.File();
+                    file.setValue(filePath);
+                    file.setLength(((Long) ((Map) multFiles.get(i)).get("length")).intValue());
+                   xml.getFiles().getFile().add(file);
+                }
+            }
+            else
+            {
+                xml.setTotalLength(((Long) info.get("length")).intValue());
+                de.kisner.xbtjl.model.xml.bittorrent.File file = new de.kisner.xbtjl.model.xml.bittorrent.File();
+                file.setValue(new String((byte[]) info.get("name")));
+                file.setLength(((Long) info.get("length")).intValue());
+                xml.getFiles().getFile().add(file);
+            }
+            
+            if (info.containsKey("piece length"))
+            {
+            	Pieces pieces = XmlPiecesFactory.create(((Long) info.get("piece length")).intValue());
+                xml.setPieces(pieces);
+            }
+            else
+            {	//TODO Error
+            	return null;
+            }
+            
+            if (info.containsKey("pieces"))
+            {
+                byte[] piecesHash2 = (byte[]) info.get("pieces");
+                if(piecesHash2.length % 20 != 0)
+                {
+                	//TODO Error
+                    return null;
+                }
+                for (int i=0; i<piecesHash2.length/20; i++)
+                {
+                    byte[] temp = Arrays.copyOfRange(piecesHash2, i*20, i*20+20);
+                    Piece piece = new Piece();
+                    piece.setIndex(i);
+                    piece.setHash(XmlHashFactory.create(Hex.encodeHexString(temp)));
+                    xml.getPieces().getPiece().add(piece);
+                }
+                for(int i=0;i<xml.getPieces().getPiece().size();i++)
+                {
+                	if(i != xml.getPieces().getPiece().size() - 1)
+                	{
+                		xml.getPieces().getPiece().get(i).setLength(xml.getPieces().getPieceLength());
+                	}
+                	else
+                	{
+                		xml.getPieces().getPiece().get(i).setLength(((Long) (xml.getTotalLength() % xml.getPieces().getPieceLength())).intValue());
+                	}
+                }
+            }
+            else{return null;}
+        }
 
-		for(Object o : map.keySet())
-		{
-			String key = new String((byte[])o);
-			Object value = map.get(o);
-			if(key.equals("announce")){announce((byte[])value);}
-			else if(key.equals("created by")){createdBy((byte[])value);}
-			else if(key.equals("creation date")){creationDate((Long)value);}
-			else if(key.equals("comment")){comment((byte[])value);}
-			else if(key.equals("info")){info((Map<?,?>)value);}
-			else {logger.info(key+" "+value.getClass().getSimpleName());}
-		}
-		return torrent;
+		return xml;
 	}
 	
-	private void info(Map<?,?> map)
+	private static Meta createMeta(Map m)
 	{
-		for(Object o : map.keySet())
-		{
-			String key = new String((byte[])o);
-			Object value = map.get(o);
-			if(key.equals("name")){infoName((byte[])value);}
-			else if(key.equals("length")){infoLength((Long)value);}
-			else if(key.equals("piece length")){infoPieceLength((Long)value);}
-			else if(key.equals("pieces")){infoPieces((byte[])value);}
-			
-			else {logger.info("info."+key+" "+value.getClass().getSimpleName());}
-		}
+		Meta xml = new Meta();
+		
+		 if(m.containsKey("comment"))
+		 {
+			 Comment comment = new Comment();
+			 comment.setValue(new String((byte[]) m.get("comment")));
+		 }
+		 
+		 if(m.containsKey("created by"))
+		 {
+	            xml.setCreatedBy(new String((byte[]) m.get("created by")));
+		 }
+		 
+	     if(m.containsKey("creation date"))
+	     {
+	           Date d = new Date((Long)m.get("creation date"));
+	           xml.setCreated(DateUtil.getXmlGc4D(d));
+	     }
+	     
+	     if(m.containsKey("encoding"))
+	     {
+	    	 xml.setEncoding(new String((byte[]) m.get("encoding")));
+	     }
+		
+		return xml;
 	}
 	
-	private void infoPieces(byte[] bytes)
+	public static Peer buildPeer(Map<String,?> benMap)
 	{
-		int numberOfPieces = bytes.length/20;
-		for(int i=0;i<numberOfPieces;i++)
-		{
-			Hash hash = XmlHashFactory.hex(Arrays.copyOfRange(bytes, 20*i, (20*i)+20));
-			long length = torrent.getPieces().getPieceLength();
-			if(i==numberOfPieces-1)
-			{
-				length = torrent.getTotalLength()-((numberOfPieces-1)*length);
-			}
-			torrent.getPieces().getPiece().add(XmlPieceFactory.build(i, length, hash));
-		}
+		String id = new String((byte[])benMap.get("peer_id"));
+		String ip = new String((byte[])benMap.get("ip"));
+		int port = ((Long)benMap.get("port")).intValue();
+		
+		Peer xml = XmlPeerFactory.create(id,ip,port);
+		
+		return xml;
 	}
 	
-	public void announce(byte[] bytes){torrent.setAnnouceUrl(XmlAnnounceUrlFactory.create(new String(bytes)));}
-	public void createdBy(byte[] bytes){torrent.getMeta().setCreatedBy(new String(bytes));}
-	public void creationDate(Long l){torrent.getMeta().setCreated(DateUtil.toXmlGc(new Date(l*1000)));}
-	public void comment(byte[] bytes){torrent.getMeta().setComment(XmlCommentFactory.build(new String(bytes)));}
-	public void infoName(byte[] bytes){torrent.setFile(XmlFileFactory.build(new String(bytes)));}
-	private void infoLength(Long l){torrent.setTotalLength(l);}
-	private void infoPieceLength(Long l){torrent.getPieces().setPieceLength(l.intValue());}
-	
-	
+	public static de.kisner.xbtjl.model.xml.bittorrent.File buildFile(Map info)
+	{
+    	return XmlFileFactory.build(new String((byte[]) info.get("name")));
+	}
 }

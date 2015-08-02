@@ -49,12 +49,6 @@
 			<scope>compile</scope>
 		</dependency>
 		
-		<dependency>
-			<groupId>be.olsson.bencoder</groupId>
-			<artifactId>bencoder</artifactId>
-			<version>0.14</version>
-		</dependency>
-		
 		<!-- Commons -->
 		<dependency>
 			<groupId>commons-jxpath</groupId>

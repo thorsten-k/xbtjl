@@ -19,7 +19,7 @@ public class TestBencodeTorrentProcessor extends AbstractUtilTest
     public Torrent jbencode(boolean debug,File f) throws XbtjlException, IOException
     {
     	BencodeTorrentProcessor tp = new BencodeTorrentProcessor();
-    	Torrent xml = tp.olson(f);
+    	Torrent xml = BencodeTorrentProcessor.create(f);
     	
     	if(debug){XmlDebugger.info(xml,false);}
     	
