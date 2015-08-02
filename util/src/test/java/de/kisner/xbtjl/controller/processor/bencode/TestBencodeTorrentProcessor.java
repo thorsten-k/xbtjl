@@ -7,7 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import de.kisner.xbtjl.exception.XbtjlException;
-import de.kisner.xbtjl.model.xml.bittorrent.Torrent;
+import de.kisner.xbtjl.model.xml.torrent.Torrent;
 import de.kisner.xbtjl.test.AbstractUtilTest;
 import de.kisner.xbtjl.test.XbtjlUtilTestBootstrap;
 import de.kisner.xbtjl.util.XmlDebugger;

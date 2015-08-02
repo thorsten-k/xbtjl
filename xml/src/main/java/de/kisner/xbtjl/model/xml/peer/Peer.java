@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
-import de.kisner.xbtjl.model.xml.bittorrent.Pieces;
+import de.kisner.xbtjl.model.xml.torrent.Pieces;
 
 
 /**
@@ -21,9 +21,9 @@ import de.kisner.xbtjl.model.xml.bittorrent.Pieces;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element ref="{http://jbtl.sf.net/bittorrent}pieces"/>
- *         &lt;element ref="{http://jbtl.sf.net/peer}statistic"/>
- *         &lt;element ref="{http://jbtl.sf.net/peer}info"/>
+ *         &lt;element ref="{http://xbtjl.kisner.de/torrent}pieces"/>
+ *         &lt;element ref="{http://xbtjl.kisner.de/peer}statistic"/>
+ *         &lt;element ref="{http://xbtjl.kisner.de/peer}info"/>
  *       &lt;/sequence>
  *       &lt;attribute name="peerId" type="{http://www.w3.org/2001/XMLSchema}string" />
  *       &lt;attribute name="listeningPort" type="{http://www.w3.org/2001/XMLSchema}int" />
@@ -47,7 +47,7 @@ public class Peer
 {
 
     private final static long serialVersionUID = 1L;
-    @XmlElement(namespace = "http://jbtl.sf.net/bittorrent", required = true)
+    @XmlElement(namespace = "http://xbtjl.kisner.de/torrent", required = true)
     protected Pieces pieces;
     @XmlElement(required = true)
     protected Statistic statistic;

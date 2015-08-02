@@ -3,8 +3,8 @@ package de.kisner.xbtjl.factory.xml.peer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import de.kisner.xbtjl.model.xml.bittorrent.Pieces;
 import de.kisner.xbtjl.model.xml.peer.Peer;
+import de.kisner.xbtjl.model.xml.torrent.Pieces;
 
 public class XmlPeerFactory
 {

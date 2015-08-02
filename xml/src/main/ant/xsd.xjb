@@ -6,13 +6,13 @@
     
     <jxb:bindings schemaLocation="../xsd/xsd.xsd" node="/xsd:schema">
         <jxb:schemaBindings>
-            <jxb:package name="net.sf.jbtl.model.xml.jbtl"/>
+            <jxb:package name="de.kisner.xbtjl.model.xml.xbtjl"/>
         </jxb:schemaBindings>
     </jxb:bindings>
     
-    <jxb:bindings schemaLocation="../xsd/xbtjl/bittorrent.xsd" node="/xsd:schema">
+    <jxb:bindings schemaLocation="../xsd/xbtjl/torrent.xsd" node="/xsd:schema">
         <jxb:schemaBindings>
-            <jxb:package name="de.kisner.xbtjl.model.xml.bittorrent"/>
+            <jxb:package name="de.kisner.xbtjl.model.xml.torrent"/>
         </jxb:schemaBindings>
     </jxb:bindings>
     

@@ -17,14 +17,14 @@ import de.kisner.xbtjl.factory.xml.bittorrent.XmlFileFactory;
 import de.kisner.xbtjl.factory.xml.bittorrent.XmlHashFactory;
 import de.kisner.xbtjl.factory.xml.bittorrent.XmlPiecesFactory;
 import de.kisner.xbtjl.factory.xml.peer.XmlPeerFactory;
-import de.kisner.xbtjl.model.xml.bittorrent.AnnouceUrl;
-import de.kisner.xbtjl.model.xml.bittorrent.Comment;
-import de.kisner.xbtjl.model.xml.bittorrent.Files;
-import de.kisner.xbtjl.model.xml.bittorrent.Meta;
-import de.kisner.xbtjl.model.xml.bittorrent.Piece;
-import de.kisner.xbtjl.model.xml.bittorrent.Pieces;
-import de.kisner.xbtjl.model.xml.bittorrent.Torrent;
 import de.kisner.xbtjl.model.xml.peer.Peer;
+import de.kisner.xbtjl.model.xml.torrent.AnnouceUrl;
+import de.kisner.xbtjl.model.xml.torrent.Comment;
+import de.kisner.xbtjl.model.xml.torrent.Files;
+import de.kisner.xbtjl.model.xml.torrent.Meta;
+import de.kisner.xbtjl.model.xml.torrent.Piece;
+import de.kisner.xbtjl.model.xml.torrent.Pieces;
+import de.kisner.xbtjl.model.xml.torrent.Torrent;
 import net.sf.exlp.util.DateUtil;
 import net.sf.exlp.util.io.FileIO;
 
@@ -89,7 +89,7 @@ public class BencodeTorrentProcessor
                     List path = (List) ((Map) multFiles.get(i)).get("path");
                     String filePath = "";
                     for (int j = 0; j < path.size(); j++) {filePath += new String((byte[]) path.get(j)); }
-                    de.kisner.xbtjl.model.xml.bittorrent.File file = new de.kisner.xbtjl.model.xml.bittorrent.File();
+                    de.kisner.xbtjl.model.xml.torrent.File file = new de.kisner.xbtjl.model.xml.torrent.File();
                     file.setValue(filePath);
                     file.setLength(((Long) ((Map) multFiles.get(i)).get("length")).intValue());
                    xml.getFiles().getFile().add(file);
@@ -98,7 +98,7 @@ public class BencodeTorrentProcessor
             else
             {
                 xml.setTotalLength(((Long) info.get("length")).intValue());
-                de.kisner.xbtjl.model.xml.bittorrent.File file = new de.kisner.xbtjl.model.xml.bittorrent.File();
+                de.kisner.xbtjl.model.xml.torrent.File file = new de.kisner.xbtjl.model.xml.torrent.File();
                 file.setValue(new String((byte[]) info.get("name")));
                 file.setLength(((Long) info.get("length")).intValue());
                 xml.getFiles().getFile().add(file);
@@ -191,7 +191,7 @@ public class BencodeTorrentProcessor
 		return xml;
 	}
 	
-	public static de.kisner.xbtjl.model.xml.bittorrent.File buildFile(Map info)
+	public static de.kisner.xbtjl.model.xml.torrent.File buildFile(Map info)
 	{
     	return XmlFileFactory.build(new String((byte[]) info.get("name")));
 	}

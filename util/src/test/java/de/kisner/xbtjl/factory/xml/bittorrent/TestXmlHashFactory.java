@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 
 import de.kisner.xbtjl.exception.XbtjlException;
 import de.kisner.xbtjl.factory.xml.bittorrent.XmlHashFactory;
-import de.kisner.xbtjl.model.xml.bittorrent.Hash;
+import de.kisner.xbtjl.model.xml.torrent.Hash;
 import de.kisner.xbtjl.test.AbstractUtilTest;
 import net.sf.exlp.util.io.HashUtil;
 

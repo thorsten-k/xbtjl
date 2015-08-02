@@ -1,5 +1,5 @@
 
-package de.kisner.xbtjl.model.xml.bittorrent;
+package de.kisner.xbtjl.model.xml.torrent;
 
 import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -20,12 +20,12 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element ref="{http://jbtl.sf.net/bittorrent}annouceUrl"/>
- *         &lt;element ref="{http://jbtl.sf.net/bittorrent}hash"/>
- *         &lt;element ref="{http://jbtl.sf.net/bittorrent}file"/>
- *         &lt;element ref="{http://jbtl.sf.net/bittorrent}files"/>
- *         &lt;element ref="{http://jbtl.sf.net/bittorrent}meta"/>
- *         &lt;element ref="{http://jbtl.sf.net/bittorrent}pieces"/>
+ *         &lt;element ref="{http://xbtjl.kisner.de/torrent}annouceUrl"/>
+ *         &lt;element ref="{http://xbtjl.kisner.de/torrent}hash"/>
+ *         &lt;element ref="{http://xbtjl.kisner.de/torrent}file"/>
+ *         &lt;element ref="{http://xbtjl.kisner.de/torrent}files"/>
+ *         &lt;element ref="{http://xbtjl.kisner.de/torrent}meta"/>
+ *         &lt;element ref="{http://xbtjl.kisner.de/torrent}pieces"/>
  *       &lt;/sequence>
  *       &lt;attribute name="totalLength" type="{http://www.w3.org/2001/XMLSchema}long" />
  *     &lt;/restriction>

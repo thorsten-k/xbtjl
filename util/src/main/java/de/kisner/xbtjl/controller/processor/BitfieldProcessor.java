@@ -5,7 +5,7 @@ import java.util.BitSet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import de.kisner.xbtjl.model.xml.bittorrent.Bitfield;
+import de.kisner.xbtjl.model.xml.torrent.Bitfield;
 
 public class BitfieldProcessor
 {

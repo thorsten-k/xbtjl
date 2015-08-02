@@ -1,5 +1,5 @@
 
-package de.kisner.xbtjl.model.xml.bittorrent;
+package de.kisner.xbtjl.model.xml.torrent;
 
 import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -29,8 +29,8 @@ import javax.xml.bind.annotation.XmlValue;
 @XmlType(name = "", propOrder = {
     "value"
 })
-@XmlRootElement(name = "annouceUrl")
-public class AnnouceUrl
+@XmlRootElement(name = "hash")
+public class Hash
     implements Serializable
 {
 

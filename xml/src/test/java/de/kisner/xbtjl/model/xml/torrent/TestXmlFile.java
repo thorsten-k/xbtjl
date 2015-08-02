@@ -1,4 +1,4 @@
-package de.kisner.xbtjl.model.xml.bittorrent;
+package de.kisner.xbtjl.model.xml.torrent;
 
 import java.io.FileNotFoundException;
 
@@ -14,19 +14,19 @@ public class TestXmlFile extends AbstractXmlBittorrentTest
 {
 	final static Logger logger = LoggerFactory.getLogger(TestXmlFile.class);
 	
-	@BeforeClass public static void initFiles(){setXmlFile(dirSuffix, de.kisner.xbtjl.model.xml.bittorrent.File.class);}
+	@BeforeClass public static void initFiles(){setXmlFile(dirSuffix, de.kisner.xbtjl.model.xml.torrent.File.class);}
     
     @Test
     public void testAclContainer() throws FileNotFoundException
     {
-    	de.kisner.xbtjl.model.xml.bittorrent.File actual = create();
-    	de.kisner.xbtjl.model.xml.bittorrent.File expected = JaxbUtil.loadJAXB(fXml.getAbsolutePath(), de.kisner.xbtjl.model.xml.bittorrent.File.class);
+    	de.kisner.xbtjl.model.xml.torrent.File actual = create();
+    	de.kisner.xbtjl.model.xml.torrent.File expected = JaxbUtil.loadJAXB(fXml.getAbsolutePath(), de.kisner.xbtjl.model.xml.torrent.File.class);
     	assertJaxbEquals(expected, actual);
     }
     
-    public static de.kisner.xbtjl.model.xml.bittorrent.File create()
+    public static de.kisner.xbtjl.model.xml.torrent.File create()
     {
-    	de.kisner.xbtjl.model.xml.bittorrent.File xml = new de.kisner.xbtjl.model.xml.bittorrent.File();
+    	de.kisner.xbtjl.model.xml.torrent.File xml = new de.kisner.xbtjl.model.xml.torrent.File();
     	xml.setValue("myFileName");
     	xml.setLength(1234);
     	return xml;

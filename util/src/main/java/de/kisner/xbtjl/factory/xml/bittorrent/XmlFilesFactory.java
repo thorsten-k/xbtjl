@@ -3,7 +3,7 @@ package de.kisner.xbtjl.factory.xml.bittorrent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import de.kisner.xbtjl.model.xml.bittorrent.Files;
+import de.kisner.xbtjl.model.xml.torrent.Files;
 
 public class XmlFilesFactory
 {

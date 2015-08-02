@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema targetNamespace="http://jbtl.sf.net/peer"
-    xmlns:bt="http://jbtl.sf.net/bittorrent"
-    xmlns:p="http://jbtl.sf.net/peer"
+<xsd:schema targetNamespace="http://xbtjl.kisner.de/peer"
+    xmlns:bt="http://xbtjl.kisner.de/torrent"
+    xmlns:p="http://xbtjl.kisner.de/peer"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <xsd:import namespace="http://jbtl.sf.net/bittorrent" schemaLocation="bittorrent.xsd"/>
+    <xsd:import namespace="http://xbtjl.kisner.de/torrent" schemaLocation="torrent.xsd"/>
     <xsd:element name="peer">
         <xsd:complexType>
             <xsd:sequence>

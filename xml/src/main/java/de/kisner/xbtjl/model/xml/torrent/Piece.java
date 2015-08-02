@@ -1,5 +1,5 @@
 
-package de.kisner.xbtjl.model.xml.bittorrent;
+package de.kisner.xbtjl.model.xml.torrent;
 
 import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element ref="{http://jbtl.sf.net/bittorrent}hash"/>
+ *         &lt;element ref="{http://xbtjl.kisner.de/torrent}hash"/>
  *       &lt;/sequence>
  *       &lt;attribute name="index" type="{http://www.w3.org/2001/XMLSchema}int" />
  *       &lt;attribute name="length" type="{http://www.w3.org/2001/XMLSchema}long" />

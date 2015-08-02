@@ -7,7 +7,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import de.kisner.xbtjl.model.xml.bittorrent.AbstractXmlBittorrentTest;
+import de.kisner.xbtjl.model.xml.torrent.AbstractXmlBittorrentTest;
 import de.kisner.xbtjl.test.XbtjlXmlTestBootstrap;
 import net.sf.exlp.util.xml.JaxbUtil;
 

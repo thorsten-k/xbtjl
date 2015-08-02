@@ -8,7 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import de.kisner.xbtjl.exception.XbtjlException;
-import de.kisner.xbtjl.model.xml.bittorrent.Bitfield;
+import de.kisner.xbtjl.model.xml.torrent.Bitfield;
 import de.kisner.xbtjl.test.AbstractUtilTest;
 
 public class TestXmlBitfieldFactory extends AbstractUtilTest

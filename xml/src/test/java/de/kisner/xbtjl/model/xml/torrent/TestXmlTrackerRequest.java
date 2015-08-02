@@ -1,4 +1,4 @@
-package de.kisner.xbtjl.model.xml.bittorrent;
+package de.kisner.xbtjl.model.xml.torrent;
 
 import java.io.FileNotFoundException;
 
@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import de.kisner.xbtjl.model.xml.peer.TestXmlPeer;
+import de.kisner.xbtjl.model.xml.torrent.TrackerRequest;
 import de.kisner.xbtjl.test.XbtjlXmlTestBootstrap;
 import net.sf.exlp.util.xml.JaxbUtil;
 

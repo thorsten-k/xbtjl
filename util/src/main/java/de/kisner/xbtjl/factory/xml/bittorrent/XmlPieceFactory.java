@@ -3,8 +3,8 @@ package de.kisner.xbtjl.factory.xml.bittorrent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import de.kisner.xbtjl.model.xml.bittorrent.Hash;
-import de.kisner.xbtjl.model.xml.bittorrent.Piece;
+import de.kisner.xbtjl.model.xml.torrent.Hash;
+import de.kisner.xbtjl.model.xml.torrent.Piece;
 
 public class XmlPieceFactory
 {

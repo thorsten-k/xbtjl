@@ -3,7 +3,7 @@ package de.kisner.xbtjl.factory.xml.bittorrent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import de.kisner.xbtjl.model.xml.bittorrent.Meta;
+import de.kisner.xbtjl.model.xml.torrent.Meta;
 
 public class XmlMetaFactory
 {

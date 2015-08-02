@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import de.kisner.xbtjl.controller.processor.BitfieldProcessor;
-import de.kisner.xbtjl.model.xml.bittorrent.Bitfield;
+import de.kisner.xbtjl.model.xml.torrent.Bitfield;
 import net.sf.exlp.util.io.ByteUtil;
 
 public class XmlBitfieldFactory

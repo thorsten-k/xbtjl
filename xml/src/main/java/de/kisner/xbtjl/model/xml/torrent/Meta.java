@@ -1,5 +1,5 @@
 
-package de.kisner.xbtjl.model.xml.bittorrent;
+package de.kisner.xbtjl.model.xml.torrent;
 
 import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -22,7 +22,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element ref="{http://jbtl.sf.net/bittorrent}comment"/>
+ *         &lt;element ref="{http://xbtjl.kisner.de/torrent}comment"/>
  *       &lt;/sequence>
  *       &lt;attribute name="encoding" type="{http://www.w3.org/2001/XMLSchema}string" />
  *       &lt;attribute name="created" type="{http://www.w3.org/2001/XMLSchema}dateTime" />
