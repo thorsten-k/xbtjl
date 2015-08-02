@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<bt:hash xmlns:bt="http://jbtl.sf.net/bittorrent">myHash</bt:hash>
+<t:hash xmlns:t="http://xbtjl.kisner.de/torrent">myHash</t:hash>

@@ -7,12 +7,11 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import de.kisner.xbtjl.model.xml.torrent.AbstractXmlBittorrentTest;
 import de.kisner.xbtjl.model.xml.torrent.TestXmlPieces;
 import de.kisner.xbtjl.test.XbtjlXmlTestBootstrap;
 import net.sf.exlp.util.xml.JaxbUtil;
 
-public class TestXmlPeer extends AbstractXmlBittorrentTest
+public class TestXmlPeer extends AbstractXmlPeerTest
 {
 	final static Logger logger = LoggerFactory.getLogger(TestXmlPeer.class);
 	

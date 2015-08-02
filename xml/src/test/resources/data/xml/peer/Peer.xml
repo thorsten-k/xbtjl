@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<p:peer xmlns:t="http://xbtjl.kisner.de/torrent" xmlns:p="http://xbtjl.kisner.de/peer" peerId="myId" listeningPort="123" listeningIp="127.0.0.1">
+    <t:pieces pieceLength="12" size="122"/>
+    <p:statistic sumDl="1" sumUl="2" left="3" rateDl="2.3" rateUl="4.3"/>
+    <p:info interested="true" choked="true" interesting="true" choking="true" connected="true"/>
+</p:peer>

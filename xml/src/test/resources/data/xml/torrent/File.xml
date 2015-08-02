@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<bt:file xmlns:bt="http://jbtl.sf.net/bittorrent" length="1234">myFileName</bt:file>
+<t:file xmlns:t="http://xbtjl.kisner.de/torrent" length="1234">myFileName</t:file>

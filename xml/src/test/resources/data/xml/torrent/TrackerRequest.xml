@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<bt:trackerRequest xmlns:bt="http://jbtl.sf.net/bittorrent" xmlns:ns2="http://jbtl.sf.net/peer" numWant="123">
-    <bt:torrent totalLength="123"/>
+<t:trackerRequest xmlns:t="http://xbtjl.kisner.de/torrent" xmlns:ns2="http://xbtjl.kisner.de/peer" numWant="123">
+    <t:torrent totalLength="123"/>
     <ns2:peer peerId="myId" listeningPort="123" listeningIp="127.0.0.1"/>
-</bt:trackerRequest>
+</t:trackerRequest>
