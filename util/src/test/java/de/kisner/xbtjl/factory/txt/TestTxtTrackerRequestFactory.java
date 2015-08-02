@@ -8,7 +8,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import de.kisner.xbtjl.exception.XbtjlInternalErrorException;
+import de.kisner.xbtjl.exception.XbtjlException;
 import de.kisner.xbtjl.factory.xml.bittorrent.XmlAnnounceUrlFactory;
 import de.kisner.xbtjl.factory.xml.bittorrent.XmlHashFactory;
 import de.kisner.xbtjl.factory.xml.peer.XmlPeerFactory;
@@ -55,97 +55,97 @@ public class TestTxtTrackerRequestFactory extends AbstractUtilTest
 	}
 	
     @Test
-    public void ok() throws XbtjlInternalErrorException 
+    public void ok() throws XbtjlException 
     {
     	String actual = TxtTrackerRequestFactory.create(xml);
     	assertTxtFile(fString,actual);
     }
     
-    @Test(expected=XbtjlInternalErrorException.class)
-    public void withoutTorrent() throws XbtjlInternalErrorException 
+    @Test(expected=XbtjlException.class)
+    public void withoutTorrent() throws XbtjlException 
     {
     	xml.setTorrent(null);
     	TxtTrackerRequestFactory.create(xml);
     }
     
-    @Test(expected=XbtjlInternalErrorException.class)
-    public void withoutAnnounceUrl() throws XbtjlInternalErrorException 
+    @Test(expected=XbtjlException.class)
+    public void withoutAnnounceUrl() throws XbtjlException 
     {
     	xml.getTorrent().setAnnouceUrl(null);
     	TxtTrackerRequestFactory.create(xml);
     }
     
-    @Test(expected=XbtjlInternalErrorException.class)
-    public void withoutAnnounceUrlValue() throws XbtjlInternalErrorException 
+    @Test(expected=XbtjlException.class)
+    public void withoutAnnounceUrlValue() throws XbtjlException 
     {
     	xml.getTorrent().getAnnouceUrl().setValue(null);
     	TxtTrackerRequestFactory.create(xml);
     }
     
-    @Test(expected=XbtjlInternalErrorException.class)
-    public void withoutHash() throws XbtjlInternalErrorException 
+    @Test(expected=XbtjlException.class)
+    public void withoutHash() throws XbtjlException 
     {
     	xml.getTorrent().setHash(null);
     	TxtTrackerRequestFactory.create(xml);
     }
     
-    @Test(expected=XbtjlInternalErrorException.class)
-    public void withoutHashValue() throws XbtjlInternalErrorException 
+    @Test(expected=XbtjlException.class)
+    public void withoutHashValue() throws XbtjlException 
     {
     	xml.getTorrent().getHash().setValue(null);
     	TxtTrackerRequestFactory.create(xml);
     }
     
-    @Test(expected=XbtjlInternalErrorException.class)
-    public void withoutPeer() throws XbtjlInternalErrorException 
+    @Test(expected=XbtjlException.class)
+    public void withoutPeer() throws XbtjlException 
     {
     	xml.setPeer(null);
     	TxtTrackerRequestFactory.create(xml);
     }
     
-    @Test(expected=XbtjlInternalErrorException.class)
-    public void withoutPeerPeerId() throws XbtjlInternalErrorException 
+    @Test(expected=XbtjlException.class)
+    public void withoutPeerPeerId() throws XbtjlException 
     {
     	xml.getPeer().setPeerId(null);
     	TxtTrackerRequestFactory.create(xml);
     }
     
-    @Test(expected=XbtjlInternalErrorException.class)
-    public void withoutPeerListeningPort() throws XbtjlInternalErrorException 
+    @Test(expected=XbtjlException.class)
+    public void withoutPeerListeningPort() throws XbtjlException 
     {
     	xml.getPeer().unsetListeningPort();
     	TxtTrackerRequestFactory.create(xml);
     }
     
-    @Test(expected=XbtjlInternalErrorException.class)
-    public void withoutPeerStatistic() throws XbtjlInternalErrorException 
+    @Test(expected=XbtjlException.class)
+    public void withoutPeerStatistic() throws XbtjlException 
     {
     	xml.getPeer().setStatistic(null);
     	TxtTrackerRequestFactory.create(xml);
     }
     
-    @Test(expected=XbtjlInternalErrorException.class)
-    public void withoutPeerStatisticSumDl() throws XbtjlInternalErrorException 
+    @Test(expected=XbtjlException.class)
+    public void withoutPeerStatisticSumDl() throws XbtjlException 
     {
     	xml.getPeer().getStatistic().unsetSumDl();
     	TxtTrackerRequestFactory.create(xml);
     }
     
-    @Test(expected=XbtjlInternalErrorException.class)
-    public void withoutPeerStatisticSumUl() throws XbtjlInternalErrorException 
+    @Test(expected=XbtjlException.class)
+    public void withoutPeerStatisticSumUl() throws XbtjlException 
     {
     	xml.getPeer().getStatistic().unsetSumUl();
     	TxtTrackerRequestFactory.create(xml);
     }
     
-    @Test(expected=XbtjlInternalErrorException.class)
-    public void withoutPeerStatisticLeft() throws XbtjlInternalErrorException 
+    @Test(expected=XbtjlException.class)
+    public void withoutPeerStatisticLeft() throws XbtjlException 
     {
     	xml.getPeer().getStatistic().unsetLeft();
     	TxtTrackerRequestFactory.create(xml);
     }
     
-    public void save() throws XbtjlInternalErrorException
+    public void save() throws XbtjlException
     {
     	JaxbUtil.info(xml);
     	String content = TxtTrackerRequestFactory.create(xml);
@@ -153,7 +153,7 @@ public class TestTxtTrackerRequestFactory extends AbstractUtilTest
     	StringIO.writeTxt(fString, content);
     }
 	
-	public static void main(String[] args) throws XbtjlInternalErrorException
+	public static void main(String[] args) throws XbtjlException
     {
 		XbtjlUtilTestBootstrap.init();
 			

@@ -5,7 +5,7 @@ import org.apache.commons.codec.net.URLCodec;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import de.kisner.xbtjl.exception.XbtjlInternalErrorException;
+import de.kisner.xbtjl.exception.XbtjlException;
 import de.kisner.xbtjl.factory.xml.bittorrent.XmlHashFactory;
 import de.kisner.xbtjl.model.xml.bittorrent.AnnouceUrl;
 import de.kisner.xbtjl.model.xml.bittorrent.Hash;
@@ -26,7 +26,7 @@ public class TxtTrackerRequestFactory
 	public static final String urlLeft = "left";
 	public static final String urlNumWant = "numwant";
 	
-	public static synchronized String create(TrackerRequest xml) throws XbtjlInternalErrorException
+	public static synchronized String create(TrackerRequest xml) throws XbtjlException
 	{
 		checkXml(xml);
 		
@@ -46,27 +46,27 @@ public class TxtTrackerRequestFactory
 			if(xml.isSetNumWant()){sb.append("&").append(urlNumWant).append("=").append(xml.getNumWant());}
 			return sb.toString();
 		}
-		catch (EncoderException e) {throw new XbtjlInternalErrorException(e.getMessage());}
+		catch (EncoderException e) {throw new XbtjlException(e.getMessage());}
 		
 	}
 	
-	private static void checkXml(TrackerRequest xml) throws XbtjlInternalErrorException
+	private static void checkXml(TrackerRequest xml) throws XbtjlException
 	{
-		if(!xml.isSetTorrent()){throw new XbtjlInternalErrorException(TrackerRequest.class.getSimpleName()+" does not has a "+Torrent.class.getSimpleName());}
+		if(!xml.isSetTorrent()){throw new XbtjlException(TrackerRequest.class.getSimpleName()+" does not has a "+Torrent.class.getSimpleName());}
 		
-		if(!xml.getTorrent().isSetAnnouceUrl()){throw new XbtjlInternalErrorException(TrackerRequest.class.getSimpleName()+"."+Torrent.class.getSimpleName()+" does not has a "+AnnouceUrl.class.getSimpleName());}
-		if(!xml.getTorrent().getAnnouceUrl().isSetValue()){throw new XbtjlInternalErrorException(TrackerRequest.class.getSimpleName()+"."+Torrent.class.getSimpleName()+"."+AnnouceUrl.class.getSimpleName()+" does not has a value");}
+		if(!xml.getTorrent().isSetAnnouceUrl()){throw new XbtjlException(TrackerRequest.class.getSimpleName()+"."+Torrent.class.getSimpleName()+" does not has a "+AnnouceUrl.class.getSimpleName());}
+		if(!xml.getTorrent().getAnnouceUrl().isSetValue()){throw new XbtjlException(TrackerRequest.class.getSimpleName()+"."+Torrent.class.getSimpleName()+"."+AnnouceUrl.class.getSimpleName()+" does not has a value");}
 		
-		if(!xml.getTorrent().isSetHash()){throw new XbtjlInternalErrorException(TrackerRequest.class.getSimpleName()+"."+Torrent.class.getSimpleName()+" does not has a "+Hash.class.getSimpleName());}
-		if(!xml.getTorrent().getHash().isSetValue()){throw new XbtjlInternalErrorException(TrackerRequest.class.getSimpleName()+"."+Torrent.class.getSimpleName()+"."+Hash.class.getSimpleName()+" does not has a value");}
+		if(!xml.getTorrent().isSetHash()){throw new XbtjlException(TrackerRequest.class.getSimpleName()+"."+Torrent.class.getSimpleName()+" does not has a "+Hash.class.getSimpleName());}
+		if(!xml.getTorrent().getHash().isSetValue()){throw new XbtjlException(TrackerRequest.class.getSimpleName()+"."+Torrent.class.getSimpleName()+"."+Hash.class.getSimpleName()+" does not has a value");}
 		
-		if(!xml.isSetPeer()){throw new XbtjlInternalErrorException(TrackerRequest.class.getSimpleName()+" does not has a "+Peer.class.getSimpleName());}
-		if(!xml.getPeer().isSetPeerId()){throw new XbtjlInternalErrorException(TrackerRequest.class.getSimpleName()+"."+Peer.class.getSimpleName()+" does not has a @peerId");}
-		if(!xml.getPeer().isSetListeningPort()){throw new XbtjlInternalErrorException(TrackerRequest.class.getSimpleName()+"."+Peer.class.getSimpleName()+" does not has a @listeningPort");}
+		if(!xml.isSetPeer()){throw new XbtjlException(TrackerRequest.class.getSimpleName()+" does not has a "+Peer.class.getSimpleName());}
+		if(!xml.getPeer().isSetPeerId()){throw new XbtjlException(TrackerRequest.class.getSimpleName()+"."+Peer.class.getSimpleName()+" does not has a @peerId");}
+		if(!xml.getPeer().isSetListeningPort()){throw new XbtjlException(TrackerRequest.class.getSimpleName()+"."+Peer.class.getSimpleName()+" does not has a @listeningPort");}
 		
-		if(!xml.getPeer().isSetStatistic()){throw new XbtjlInternalErrorException(Peer.class.getSimpleName()+"."+Statistic.class.getSimpleName()+" is not set");}
-		if(!xml.getPeer().getStatistic().isSetSumDl()){throw new XbtjlInternalErrorException(Peer.class.getSimpleName()+"."+Statistic.class.getSimpleName()+" does not has a @sumDl");}
-		if(!xml.getPeer().getStatistic().isSetSumUl()){throw new XbtjlInternalErrorException(Peer.class.getSimpleName()+"."+Statistic.class.getSimpleName()+" does not has a @sumUl");}
-		if(!xml.getPeer().getStatistic().isSetLeft()){throw new XbtjlInternalErrorException(Peer.class.getSimpleName()+"."+Statistic.class.getSimpleName()+" does not has a @left");}
+		if(!xml.getPeer().isSetStatistic()){throw new XbtjlException(Peer.class.getSimpleName()+"."+Statistic.class.getSimpleName()+" is not set");}
+		if(!xml.getPeer().getStatistic().isSetSumDl()){throw new XbtjlException(Peer.class.getSimpleName()+"."+Statistic.class.getSimpleName()+" does not has a @sumDl");}
+		if(!xml.getPeer().getStatistic().isSetSumUl()){throw new XbtjlException(Peer.class.getSimpleName()+"."+Statistic.class.getSimpleName()+" does not has a @sumUl");}
+		if(!xml.getPeer().getStatistic().isSetLeft()){throw new XbtjlException(Peer.class.getSimpleName()+"."+Statistic.class.getSimpleName()+" does not has a @left");}
 	}
 }

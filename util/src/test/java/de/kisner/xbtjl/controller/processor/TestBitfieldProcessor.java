@@ -7,7 +7,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import de.kisner.xbtjl.exception.XbtjlInternalErrorException;
+import de.kisner.xbtjl.exception.XbtjlException;
 import de.kisner.xbtjl.factory.xml.bittorrent.XmlBitfieldFactory;
 import de.kisner.xbtjl.model.xml.bittorrent.Bitfield;
 import de.kisner.xbtjl.test.AbstractUtilTest;
@@ -18,7 +18,7 @@ public class TestBitfieldProcessor extends AbstractUtilTest
 	final static Logger logger = LoggerFactory.getLogger(TestBitfieldProcessor.class);
 	
     @Test
-    public void testSet() throws XbtjlInternalErrorException 
+    public void testSet() throws XbtjlException 
     {
     	Bitfield actual = XmlBitfieldFactory.create("0001101");
     	
@@ -33,7 +33,7 @@ public class TestBitfieldProcessor extends AbstractUtilTest
     }
     
     @Test
-    public void isSet() throws XbtjlInternalErrorException 
+    public void isSet() throws XbtjlException 
     {
     	Bitfield actual = XmlBitfieldFactory.create("0001101");
     	
@@ -47,7 +47,7 @@ public class TestBitfieldProcessor extends AbstractUtilTest
     }
     
     @Test
-    public void toBitSet() throws XbtjlInternalErrorException 
+    public void toBitSet() throws XbtjlException 
     {
     	Bitfield expected = XmlBitfieldFactory.create("0001101");
     	

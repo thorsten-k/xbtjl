@@ -5,7 +5,7 @@ import org.apache.commons.codec.net.URLCodec;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import de.kisner.xbtjl.exception.XbtjlInternalErrorException;
+import de.kisner.xbtjl.exception.XbtjlException;
 import de.kisner.xbtjl.factory.txt.TxtTrackerRequestFactory;
 import de.kisner.xbtjl.model.xml.bittorrent.Torrent;
 import de.kisner.xbtjl.model.xml.bittorrent.TrackerRequest;
@@ -16,7 +16,7 @@ public class XmlTrackerRequestFactory
 {
 	final static Logger logger = LoggerFactory.getLogger(XmlTrackerRequestFactory.class);
 	
-	public static synchronized TrackerRequest create(String urlParameter) throws XbtjlInternalErrorException
+	public static synchronized TrackerRequest create(String urlParameter) throws XbtjlException
 	{
 		TrackerRequest xml = new TrackerRequest();
 		xml.setTorrent(new Torrent());
@@ -37,7 +37,7 @@ public class XmlTrackerRequestFactory
 		return xml;
 	}
 	
-	private static void add(URLCodec urlCodec, TrackerRequest xml, String key, String value) throws XbtjlInternalErrorException
+	private static void add(URLCodec urlCodec, TrackerRequest xml, String key, String value) throws XbtjlException
 	{
 		logger.debug(key+":"+value);
 		try
@@ -50,6 +50,6 @@ public class XmlTrackerRequestFactory
 			if(key.equals(TxtTrackerRequestFactory.urlLeft)){xml.getPeer().getStatistic().setLeft(new Long(value));}
 			if(key.equals(TxtTrackerRequestFactory.urlNumWant)){xml.setNumWant(new Integer(value));}
 		}
-		catch (DecoderException e) {e.printStackTrace();throw new XbtjlInternalErrorException(e.getMessage());}
+		catch (DecoderException e) {e.printStackTrace();throw new XbtjlException(e.getMessage());}
 	}
 }

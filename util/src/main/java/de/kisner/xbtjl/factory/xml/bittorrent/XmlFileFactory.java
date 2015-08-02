@@ -16,7 +16,7 @@ public class XmlFileFactory
 		return xml;
 	}
 	
-	public static File build(String saveAs, int length)
+	public static File build(String saveAs, long length)
 	{
 		File xml = build(saveAs);
     	xml.setLength(length);

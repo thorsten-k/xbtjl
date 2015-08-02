@@ -6,7 +6,7 @@ import org.apache.commons.codec.net.URLCodec;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import de.kisner.xbtjl.exception.XbtjlInternalErrorException;
+import de.kisner.xbtjl.exception.XbtjlException;
 import de.kisner.xbtjl.model.xml.bittorrent.Hash;
 import net.sf.exlp.util.io.ByteUtil;
 import net.sf.exlp.util.io.HashUtil;
@@ -33,14 +33,14 @@ public class XmlHashFactory
 		return create(Hex.encodeHexString(HashUtil.sha1Byte(b)));
 	}
 	
-	public static synchronized Hash createFromUrl(String urlHash) throws XbtjlInternalErrorException
+	public static synchronized Hash createFromUrl(String urlHash) throws XbtjlException
 	{
 		try
 		{
 			byte[] b = URLCodec.decodeUrl(urlHash.getBytes());
 			return create(Hex.encodeHexString(b));
 		}
-		catch (DecoderException e) {e.printStackTrace();throw new XbtjlInternalErrorException(e.getMessage());}
+		catch (DecoderException e) {e.printStackTrace();throw new XbtjlException(e.getMessage());}
 	}
 	
 	public static byte[] toBinary(Hash hash)

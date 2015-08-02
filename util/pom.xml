@@ -48,10 +48,11 @@
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
+		
 		<dependency>
-			<groupId>com.googlecode.jbencode</groupId>
-			<artifactId>jbencode</artifactId>
-			<version>1.0</version>
+			<groupId>be.olsson.bencoder</groupId>
+			<artifactId>bencoder</artifactId>
+			<version>0.14</version>
 		</dependency>
 		
 		<!-- Commons -->

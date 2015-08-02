@@ -6,7 +6,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import de.kisner.xbtjl.exception.XbtjlInternalErrorException;
+import de.kisner.xbtjl.exception.XbtjlException;
 import de.kisner.xbtjl.factory.txt.TestTxtTrackerRequestFactory;
 import de.kisner.xbtjl.factory.txt.TxtTrackerRequestFactory;
 import de.kisner.xbtjl.factory.xml.bittorrent.XmlTrackerRequestFactory;
@@ -27,7 +27,7 @@ public class TestXmlTrackerRequestFactory extends AbstractUtilTest
 	}
 	
     @Test
-    public void ok() throws XbtjlInternalErrorException 
+    public void ok() throws XbtjlException 
     {
     	String urlParam = TxtTrackerRequestFactory.create(expected);
     	urlParam = urlParam.substring(urlParam.indexOf('?')+1);

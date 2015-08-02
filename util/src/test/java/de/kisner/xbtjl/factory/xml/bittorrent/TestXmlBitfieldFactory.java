@@ -7,7 +7,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import de.kisner.xbtjl.exception.XbtjlInternalErrorException;
+import de.kisner.xbtjl.exception.XbtjlException;
 import de.kisner.xbtjl.model.xml.bittorrent.Bitfield;
 import de.kisner.xbtjl.test.AbstractUtilTest;
 
@@ -16,7 +16,7 @@ public class TestXmlBitfieldFactory extends AbstractUtilTest
 	final static Logger logger = LoggerFactory.getLogger(TestXmlBitfieldFactory.class);
 	
     @Test
-    public void ok() throws XbtjlInternalErrorException 
+    public void ok() throws XbtjlException 
     {
     	Random rnd = new Random();
     	for(int i=0;i<10;i++)

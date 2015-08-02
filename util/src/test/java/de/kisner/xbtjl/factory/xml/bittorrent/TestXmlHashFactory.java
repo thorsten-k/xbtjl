@@ -9,7 +9,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import de.kisner.xbtjl.exception.XbtjlInternalErrorException;
+import de.kisner.xbtjl.exception.XbtjlException;
 import de.kisner.xbtjl.factory.xml.bittorrent.XmlHashFactory;
 import de.kisner.xbtjl.model.xml.bittorrent.Hash;
 import de.kisner.xbtjl.test.AbstractUtilTest;
@@ -35,7 +35,7 @@ public class TestXmlHashFactory extends AbstractUtilTest
 	}
 	
     @Test
-    public void ok() throws XbtjlInternalErrorException 
+    public void ok() throws XbtjlException 
     {
     	for(int i=0;i<100;i++)
     	{
