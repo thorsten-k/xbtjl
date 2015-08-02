@@ -1,5 +1,11 @@
 package de.kisner.xbtjl.factory.xml.peer;
 
+import java.util.Random;
+
+import javax.xml.bind.DatatypeConverter;
+
+import org.apache.commons.codec.binary.Hex;
+import org.apache.commons.lang.ArrayUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,4 +37,20 @@ public class XmlPeerFactory
 		xml.setPeerId(peerId);
 		return xml;
 	}
+	
+	public static Peer build(byte[] id)
+	{
+		Peer xml = new Peer();
+		xml.setPeerId(DatatypeConverter.printHexBinary(id));
+		return xml;
+	}
+	
+	public static byte[] generateID()
+    {
+        byte[] id = new byte[12];
+
+        Random r = new Random(System.currentTimeMillis());
+        r.nextBytes(id);
+        return ArrayUtils.addAll("-XJ0001-".getBytes(),id);
+    }
 }
