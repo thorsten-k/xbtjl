@@ -1,6 +1,5 @@
 package de.kisner.xbtjl.controller.protocol.message;
 
-import de.kisner.xbtjl.interfaces.protocol.BtPeerProtocol.MsgType;
 import de.kisner.xbtjl.interfaces.protocol.BtProtocolMessage;
 
 abstract public class Message implements BtProtocolMessage

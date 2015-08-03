@@ -6,7 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import de.kisner.xbtjl.exception.XbtjlException;
-import de.kisner.xbtjl.interfaces.protocol.BtPeerProtocol.MsgType;
+import de.kisner.xbtjl.interfaces.protocol.BtProtocolMessage.MsgType;
 import de.kisner.xbtjl.test.AbstractUtilTest;
 
 public class TestBtMessageTypeFactory extends AbstractUtilTest

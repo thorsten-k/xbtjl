@@ -1,6 +1,6 @@
 package de.kisner.xbtjl.factory.bt.protocol;
 
-import de.kisner.xbtjl.interfaces.protocol.BtPeerProtocol.MsgType;
+import de.kisner.xbtjl.interfaces.protocol.BtProtocolMessage.MsgType;
 
 public class BtMessageTypeFactory
 {
