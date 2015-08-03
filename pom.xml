@@ -78,7 +78,7 @@
 		<dependencies>
 			<dependency>
 				<groupId>de.kisner.xbtjl</groupId>
-				<artifactId>xbtjl-xml</artifactId>
+				<artifactId>xbtjl-util</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
