@@ -15,4 +15,6 @@ public class BtPeerProtocol
     public static final int CANCEL = 9;
     public static final int PORT = 10;
     public static final String[] TYPE = {"Keep_Alive", "Choke", "Unchoke","Interested", "Not_Interested", "Have","Bitfield", "Request", "Piece","Cancel", "Port"};
+    
+    public static enum MsgType {HANDSHAKE,KEEP_ALIVE,CHOKE,UNCHOKE,INTERESTED,NOT_INTERESTED,HAVE,BITFIELD,REQUEST,PIECE,CANCEL,PORT}
 }
