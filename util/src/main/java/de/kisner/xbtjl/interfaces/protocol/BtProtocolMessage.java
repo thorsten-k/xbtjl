@@ -18,6 +18,6 @@ public interface BtProtocolMessage
     
     public static enum MsgType {HANDSHAKE,KEEP_ALIVE,CHOKE,UNCHOKE,INTERESTED,NOT_INTERESTED,HAVE,BITFIELD,REQUEST,PIECE,CANCEL,PORT}
     
-	int getType();
+    MsgType getType();
     byte[] build();
 }

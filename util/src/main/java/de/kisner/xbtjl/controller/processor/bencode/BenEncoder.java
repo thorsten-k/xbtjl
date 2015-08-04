@@ -41,22 +41,19 @@ import java.util.TreeMap;
  *
  * @author  TdC_VgA
  */
-public class
-        BenEncoder {
-    public static byte[] encode(Map object) throws IOException {
+public class BenEncoder
+{
+    public static byte[] encode(Map object) throws IOException
+    {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         new BenEncoder().encode(baos, object);
         return baos.toByteArray();
     }
 
-    private void
-            encode(
-                    ByteArrayOutputStream baos,
-                    Object object)
-
-            throws IOException {
-
-        if (object instanceof String || object instanceof Float) {
+    private void encode(ByteArrayOutputStream baos, Object object) throws IOException
+    {
+        if (object instanceof String || object instanceof Float)
+        {
 
             String tempString = (object instanceof String) ? (String) object :
                                 String.valueOf((Float) object);

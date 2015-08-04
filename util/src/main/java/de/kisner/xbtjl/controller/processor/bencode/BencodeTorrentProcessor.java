@@ -57,7 +57,7 @@ public class BencodeTorrentProcessor
 		return BencodeTorrentProcessor.create(BenDecoder.decode(bytes));
 	}
 	
-	public static Torrent create(Map m) throws IOException, XbtjlException
+	public static Torrent create(Map<String,?> m) throws IOException, XbtjlException
 	{	
 		Torrent xml = new Torrent();
 		
@@ -72,7 +72,7 @@ public class BencodeTorrentProcessor
 		
 		if(m.containsKey("info"))
         {
-            Map info = (Map) m.get("info");
+            Map<String,?> info = (Map<String,?>)m.get("info");
             xml.setHash(XmlHashFactory.createFromBenByte(BenEncoder.encode(info)));
             
             if (info.containsKey("name")) {xml.setFile(BencodeTorrentProcessor.buildFile(info));}
@@ -151,7 +151,7 @@ public class BencodeTorrentProcessor
 		return xml;
 	}
 	
-	private static Meta createMeta(Map m)
+	private static Meta createMeta(Map<String,?> m)
 	{
 		Meta xml = new Meta();
 		
@@ -168,7 +168,7 @@ public class BencodeTorrentProcessor
 		 
 	     if(m.containsKey("creation date"))
 	     {
-	           Date d = new Date((Long)m.get("creation date"));
+	           Date d = new Date((Long)m.get("creation date")*1000);
 	           xml.setCreated(DateUtil.getXmlGc4D(d));
 	     }
 	     
