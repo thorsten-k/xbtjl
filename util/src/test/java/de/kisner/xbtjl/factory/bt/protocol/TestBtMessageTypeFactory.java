@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import de.kisner.xbtjl.exception.XbtjlException;
+import de.kisner.xbtjl.exception.XbtjlProtocolException;
 import de.kisner.xbtjl.interfaces.protocol.BtProtocolMessage.MsgType;
 import de.kisner.xbtjl.test.AbstractUtilTest;
 
@@ -31,20 +32,20 @@ public class TestBtMessageTypeFactory extends AbstractUtilTest
     	Assert.assertEquals(9, BtMessageTypeFactory.toId(MsgType.PORT));
     }
     
-    @Test(expected=RuntimeException.class) @Ignore
+    @Test(expected=XbtjlProtocolException.class) @Ignore
     public void enum2IdInvalidHandshake() throws XbtjlException 
     {	
     	BtMessageTypeFactory.toId(MsgType.HANDSHAKE);
     }
     
-    @Test(expected=RuntimeException.class) @Ignore
+    @Test(expected=XbtjlProtocolException.class) @Ignore
     public void enum2IdInvalidKeepAlive() throws XbtjlException 
     {	
     	BtMessageTypeFactory.toId(MsgType.KEEP_ALIVE);
     }
     
     @Test
-    public void id2Enum() throws XbtjlException 
+    public void id2Enum() throws XbtjlException, XbtjlProtocolException 
     {	//https://wiki.theory.org/BitTorrentSpecification#Messages
     	Assert.assertEquals(MsgType.CHOKE, BtMessageTypeFactory.toEnum(0));
     	Assert.assertEquals(MsgType.UNCHOKE, BtMessageTypeFactory.toEnum(1));
@@ -58,15 +59,21 @@ public class TestBtMessageTypeFactory extends AbstractUtilTest
     	Assert.assertEquals(MsgType.PORT, BtMessageTypeFactory.toEnum(9));
     }
     
-    @Test(expected=RuntimeException.class) @Ignore
-    public void idBelow0() throws XbtjlException 
+    @Test(expected=XbtjlProtocolException.class) @Ignore
+    public void idBelow0() throws XbtjlException, XbtjlProtocolException 
     {	
     	BtMessageTypeFactory.toEnum(-1);
     }
     
-    @Test(expected=RuntimeException.class) @Ignore
-    public void idAbove9() throws XbtjlException 
+    @Test(expected=XbtjlProtocolException.class) @Ignore
+    public void idAbove9() throws XbtjlException, XbtjlProtocolException 
     {	
     	BtMessageTypeFactory.toEnum(10);
+    }
+    
+    @Test(expected=XbtjlProtocolException.class) @Ignore
+    public void outofRange() throws XbtjlException, XbtjlProtocolException 
+    {	
+    	BtMessageTypeFactory.toEnum(100);
     }
 }

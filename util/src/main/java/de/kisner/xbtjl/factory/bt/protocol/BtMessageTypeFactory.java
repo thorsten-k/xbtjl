@@ -1,5 +1,6 @@
 package de.kisner.xbtjl.factory.bt.protocol;
 
+import de.kisner.xbtjl.exception.XbtjlProtocolException;
 import de.kisner.xbtjl.interfaces.protocol.BtProtocolMessage.MsgType;
 
 public class BtMessageTypeFactory
@@ -14,6 +15,19 @@ public class BtMessageTypeFactory
     public static MsgType toEnum(int id)
     {
 //    	if(id<0 || id>9){throw new RuntimeException("id of "+id+" is undefined");}
-    	return MsgType.values()[id+2];
+    	
+    	try
+    	{
+    		return MsgType.values()[id+2];
+    	}
+    	catch (ArrayIndexOutOfBoundsException e)
+    	{
+    		throw new RuntimeException("Type with id="+id+" not specified");
+    	}
+    }
+    
+    public void verifyProtocolMessageId(int id) throws XbtjlProtocolException
+    {
+    	if(id<0 || id>9){throw new XbtjlProtocolException("Protocol Message id of "+id+" is undefined");}
     }
 }
