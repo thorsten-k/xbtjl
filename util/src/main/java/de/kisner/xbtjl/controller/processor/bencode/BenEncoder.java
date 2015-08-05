@@ -43,7 +43,7 @@ import java.util.TreeMap;
  */
 public class BenEncoder
 {
-    public static byte[] encode(Map object) throws IOException
+    public static byte[] encode(Map<String,?> object) throws IOException
     {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         new BenEncoder().encode(baos, object);
@@ -54,24 +54,22 @@ public class BenEncoder
     {
         if (object instanceof String || object instanceof Float)
         {
-
-            String tempString = (object instanceof String) ? (String) object :
-                                String.valueOf((Float) object);
+            String tempString = (object instanceof String) ? (String) object : String.valueOf((Float) object);
 
             ByteBuffer bb = BencodeTorrentProcessor.DEFAULT_CHARSET.encode(tempString);
 
-            write(baos,
-            		BencodeTorrentProcessor.DEFAULT_CHARSET.encode(String.valueOf(bb.limit())));
+            write(baos,BencodeTorrentProcessor.DEFAULT_CHARSET.encode(String.valueOf(bb.limit())));
 
             baos.write(':');
 
             write(baos, bb);
 
-        } else if (object instanceof Map) {
+        }
+        else if (object instanceof Map)
+        {
+            Map<String,?> tempMap = (Map<String,?>) object;
 
-            Map tempMap = (Map) object;
-
-            SortedMap tempTree = null;
+            SortedMap<String,?> tempTree = null;
 
             // unfortunately there are some occasions where we want to ensure that
             // the 'key' of the map is not mangled by assuming its UTF-8 encodable.
@@ -86,58 +84,41 @@ public class BenEncoder
             baos.write('d');
 
             //are we sorted?
-            if (tempMap instanceof TreeMap) {
-
-                tempTree = (TreeMap) tempMap;
-
-            } else {
-
-                //do map sorting here
-
-                tempTree = new TreeMap(tempMap);
-            }
+            if (tempMap instanceof TreeMap) {tempTree = (TreeMap) tempMap;}
+            else {tempTree = new TreeMap(tempMap);}
 
             Iterator it = tempTree.entrySet().iterator();
 
-            while (it.hasNext()) {
-
+            while (it.hasNext())
+            {
                 Map.Entry entry = (Map.Entry) it.next();
 
                 Object o_key = entry.getKey();
 
                 Object value = entry.getValue();
 
-                if (value != null) {
-
-                    if (o_key instanceof byte[]) {
-
+                if (value != null)
+                {
+                    if (o_key instanceof byte[])
+                    {
                         encode(baos, (byte[]) o_key);
-
                         encode(baos, value);
-
-                    } else {
-
+                    }
+                    else
+                    {
                         String key = (String) o_key;
-
-                        if (byte_keys) {
-
-                            try {
-
+                        if (byte_keys)
+                        {
+                            try
+                            {
                                 encode(baos, BencodeTorrentProcessor.BYTE_CHARSET.encode(key));
-
                                 encode(baos, tempMap.get(key));
-
-                            } catch (UnsupportedEncodingException e) {
-
-                                throw (new IOException(
-                                        "BEncoder: unsupport encoding: " +
-                                        e.getMessage()));
                             }
-
-                        } else {
-
+                            catch (UnsupportedEncodingException e) {throw (new IOException("BEncoder: unsupport encoding: " +e.getMessage()));}
+                        }
+                        else
+                        {
                             encode(baos, key); // Key goes in as UTF-8
-
                             encode(baos, value);
                         }
                     }
@@ -146,46 +127,44 @@ public class BenEncoder
 
             baos.write('e');
 
-        } else if (object instanceof List) {
-
+        }
+        else if (object instanceof List)
+        {
             List tempList = (List) object;
-
-            //write out the l
-
             baos.write('l');
-
-            for (int i = 0; i < tempList.size(); i++) {
-
+            for (int i = 0; i < tempList.size(); i++)
+            {
                 encode(baos, tempList.get(i));
             }
 
             baos.write('e');
 
-        } else if (object instanceof Long) {
+        }
+        else if (object instanceof Long)
+        {
 
             Long tempLong = (Long) object;
-            //write out the l
             baos.write('i');
             write(baos, BencodeTorrentProcessor.DEFAULT_CHARSET.encode(tempLong.toString()));
             baos.write('e');
-        } else if (object instanceof Integer) {
-
+        }
+        else if (object instanceof Integer)
+        {
             Integer tempInteger = (Integer) object;
-            //write out the l
             baos.write('i');
             write(baos, BencodeTorrentProcessor.DEFAULT_CHARSET.encode(tempInteger.toString()));
             baos.write('e');
 
-        } else if (object instanceof byte[]) {
-
+        }
+        else if (object instanceof byte[])
+        {
             byte[] tempByteArray = (byte[]) object;
-            write(baos,BencodeTorrentProcessor.DEFAULT_CHARSET.encode(String.valueOf(tempByteArray.
-                    length)));
+            write(baos,BencodeTorrentProcessor.DEFAULT_CHARSET.encode(String.valueOf(tempByteArray.length)));
             baos.write(':');
             baos.write(tempByteArray);
-
-        } else if (object instanceof ByteBuffer) {
-
+        }
+        else if (object instanceof ByteBuffer)
+        {
             ByteBuffer bb = (ByteBuffer) object;
             write(baos,BencodeTorrentProcessor.DEFAULT_CHARSET.encode(String.valueOf(bb.limit())));
             baos.write(':');
@@ -193,128 +172,71 @@ public class BenEncoder
         }
     }
 
-    protected void
-            write(
-                    OutputStream os,
-                    ByteBuffer bb)
-
-            throws IOException {
+    protected void write(OutputStream os, ByteBuffer bb) throws IOException
+    {
         os.write(bb.array(), 0, bb.limit());
     }
 
-    private static boolean
-            objectsAreIdentical(
-                    Object o1,
-                    Object o2) {
-        if (o1 == null && o2 == null) {
+    private static boolean objectsAreIdentical(Object o1,Object o2)
+    {
+        if (o1 == null && o2 == null) {return (true);}
+        else if (o1 == null || o2 == null){return (false);}
 
-            return (true);
+        if (o1 instanceof Integer){o1 = new Long(((Integer) o1).longValue());}
+        if (o2 instanceof Integer){o2 = new Long(((Integer) o2).longValue());}
 
-        } else if (o1 == null || o2 == null) {
+        if (o1 instanceof Float){o1 = String.valueOf((Float) o1);}
+        if (o2 instanceof Float){o2 = String.valueOf((Float) o2);}
 
-            return (false);
-        }
+        if (o1.getClass() != o2.getClass()){return (false);}
 
-        if (o1 instanceof Integer) {
-            o1 = new Long(((Integer) o1).longValue());
-        }
-        if (o2 instanceof Integer) {
-            o2 = new Long(((Integer) o2).longValue());
-        }
-
-        if (o1 instanceof Float) {
-            o1 = String.valueOf((Float) o1);
-        }
-        if (o2 instanceof Float) {
-            o2 = String.valueOf((Float) o2);
-        }
-
-        if (o1.getClass() != o2.getClass()) {
-
-            return (false);
-        }
-
-        if (o1 instanceof Long) {
-
-            return (o1.equals(o2));
-
-        } else if (o1 instanceof byte[]) {
-
-            return (Arrays.equals((byte[]) o1, (byte[]) o2));
-
-        } else if (o1 instanceof ByteBuffer) {
-
-            return (o1.equals(o2));
-
-        } else if (o1 instanceof String) {
-
-            return (o1.equals(o2));
-
-        } else if (o1 instanceof List) {
-
+        if (o1 instanceof Long){return (o1.equals(o2));}
+        else if (o1 instanceof byte[]) {return (Arrays.equals((byte[]) o1, (byte[]) o2));}
+        else if (o1 instanceof ByteBuffer) {return (o1.equals(o2));}
+        else if (o1 instanceof String) {return (o1.equals(o2));}
+        else if (o1 instanceof List)
+        {
             return (listsAreIdentical((List) o1, (List) o2));
-
-        } else if (o1 instanceof Map) {
-
+        }
+        else if (o1 instanceof Map)
+        {
             return (mapsAreIdentical((Map) o1, (Map) o2));
-
-        } else {
-
+        }
+        else
+        {
             System.err.println("Invalid type: " + o1);
             return (false);
         }
     }
 
-    public static boolean
-            listsAreIdentical(
-                    List list1,
-                    List list2) {
-        if (list1 == null && list2 == null) {
+    public static boolean listsAreIdentical(List list1, List list2)
+    {
+        if (list1 == null && list2 == null) {return (true);}
+        else if (list1 == null || list2 == null) {return (false);}
 
-            return (true);
+        if (list1.size() != list2.size()) {return (false);}
 
-        } else if (list1 == null || list2 == null) {
-
-            return (false);
-        }
-
-        if (list1.size() != list2.size()) {
-
-            return (false);
-        }
-
-        for (int i = 0; i < list1.size(); i++) {
-
-            if (!objectsAreIdentical(list1.get(i), list2.get(i))) {
-
-                return (false);
+        for (int i = 0; i < list1.size(); i++)
+        {
+            if (!objectsAreIdentical(list1.get(i), list2.get(i)))
+            {
+                return false;
             }
         }
-
-        return (true);
+        return true;
     }
 
-    public static boolean
-            mapsAreIdentical(
-                    Map map1,
-                    Map map2) {
-        if (map1 == null && map2 == null) {
+    public static boolean mapsAreIdentical(Map map1, Map map2)
+    {
+        if (map1 == null && map2 == null) {return (true);}
+        else if (map1 == null || map2 == null) {return (false);}
 
-            return (true);
-
-        } else if (map1 == null || map2 == null) {
-
-            return (false);
-        }
-
-        if (map1.size() != map2.size()) {
-
-            return (false);
-        }
+        if (map1.size() != map2.size()) {return (false);}
 
         Iterator it = map1.keySet().iterator();
 
-        while (it.hasNext()) {
+        while (it.hasNext())
+        {
 
             Object key = it.next();
 
@@ -323,10 +245,9 @@ public class BenEncoder
 
             if (!objectsAreIdentical(v1, v2)) {
 
-                return (false);
+                return false;
             }
         }
-
-        return (true);
+        return true;
     }
 }
