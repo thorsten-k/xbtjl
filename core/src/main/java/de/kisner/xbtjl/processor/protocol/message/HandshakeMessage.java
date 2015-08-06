@@ -2,7 +2,6 @@ package de.kisner.xbtjl.processor.protocol.message;
 
 import de.kisner.xbtjl.controller.protocol.message.BtMessage;
 import de.kisner.xbtjl.factory.bt.protocol.BtMessageHandshakeFactory;
-import de.kisner.xbtjl.factory.bt.protocol.BtMessageTypeFactory;
 
 public class HandshakeMessage extends BtMessage
 {    
