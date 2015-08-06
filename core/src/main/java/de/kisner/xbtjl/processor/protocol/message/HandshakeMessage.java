@@ -1,14 +1,17 @@
 package de.kisner.xbtjl.processor.protocol.message;
 
-import de.kisner.xbtjl.controller.protocol.message.BtMessage;
 import de.kisner.xbtjl.factory.bt.protocol.BtMessageHandshakeFactory;
+import de.kisner.xbtjl.interfaces.protocol.BtMessage;
+import de.kisner.xbtjl.interfaces.protocol.BtProtocolMessage.MsgType;
 
-public class HandshakeMessage extends BtMessage
+public class HandshakeMessage implements BtMessage
 {    
     public HandshakeMessage()
     {
         super();
     }
+    
+    public MsgType getType() {return null;}
 
     private byte[] length = new byte[1];
 	public byte[] getLength(){return length;}
@@ -31,7 +34,7 @@ public class HandshakeMessage extends BtMessage
     public void setPeerId(byte[] peerID) {this.peerID = peerID;}
 
     
-    public byte[] build()
+    @Override public byte[] build()
     {
         return BtMessageHandshakeFactory.build(this);
     }

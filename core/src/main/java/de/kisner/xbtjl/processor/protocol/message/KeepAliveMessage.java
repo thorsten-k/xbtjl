@@ -2,21 +2,24 @@ package de.kisner.xbtjl.processor.protocol.message;
 
 import java.nio.ByteBuffer;
 
-import de.kisner.xbtjl.controller.protocol.message.BtMessage;
+import de.kisner.xbtjl.interfaces.protocol.BtMessage;
+import de.kisner.xbtjl.interfaces.protocol.BtProtocolMessage.MsgType;
 
-public class KeepAliveMessage extends BtMessage
+public class KeepAliveMessage implements BtMessage
 {
     public KeepAliveMessage()
     {
         super();
         length = new byte[] {0, 0, 0, 0};
     }
+    
+    public MsgType getType() {return null;}
 
     private byte[] length = new byte[4];
     public byte[] getLength() {return this.length;}
     public void setLength(byte[] length) {this.length = length;}   
 
-    public byte[] build()
+    @Override public byte[] build()
     {
     	return length;
     }

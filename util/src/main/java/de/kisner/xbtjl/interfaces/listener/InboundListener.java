@@ -2,7 +2,7 @@ package de.kisner.xbtjl.interfaces.listener;
 
 import java.util.EventListener;
 
-import de.kisner.xbtjl.controller.protocol.message.BtMessage;
+import de.kisner.xbtjl.interfaces.protocol.BtMessage;
 
 
 public interface InboundListener extends EventListener

@@ -1,10 +1,9 @@
 package de.kisner.xbtjl.interfaces.protocol;
 
-public interface BtProtocolMessage
+public interface BtProtocolMessage extends BtMessage
 {
-//	public static final int _HANDSHAKE = -1;
-    public static final int _KEEP_ALIVE = 0;
-    public static final int _CHOKE = 1;
+	public static final int _KEEP_ALIVE = 0;
+	public static final int _CHOKE = 1;
     public static final int _UNCHOKE = 2;
     public static final int _INTERESTED = 3;
     public static final int _NOT_INTERESTED = 4;
@@ -18,7 +17,6 @@ public interface BtProtocolMessage
     
     public static enum OtherType {HANDSHAKE,KEEP_ALIVE}
     public static enum MsgType {HANDSHAKE,KEEP_ALIVE,CHOKE,UNCHOKE,INTERESTED,NOT_INTERESTED,HAVE,BITFIELD,REQUEST,PIECE,CANCEL,PORT}
-    
+	    
     MsgType getType();
-    byte[] build();
 }
