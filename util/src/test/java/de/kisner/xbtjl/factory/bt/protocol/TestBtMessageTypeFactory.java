@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 
 import de.kisner.xbtjl.exception.XbtjlException;
 import de.kisner.xbtjl.exception.XbtjlProtocolException;
+import de.kisner.xbtjl.interfaces.protocol.BtProtocolMessage;
 import de.kisner.xbtjl.interfaces.protocol.BtProtocolMessage.MsgType;
 import de.kisner.xbtjl.test.AbstractUtilTest;
 
@@ -75,5 +76,11 @@ public class TestBtMessageTypeFactory extends AbstractUtilTest
     public void outofRange() throws XbtjlException, XbtjlProtocolException 
     {	
     	BtMessageTypeFactory.toEnum(100);
+    }
+    
+    @Test
+    public void handshake() throws XbtjlException, XbtjlProtocolException 
+    {	
+    	Assert.assertEquals("e:"+MsgType.HANDSHAKE+" a:"+BtMessageTypeFactory.toEnum(BtProtocolMessage._HANDSHAKE),MsgType.HANDSHAKE, BtMessageTypeFactory.toEnum(BtProtocolMessage._HANDSHAKE));
     }
 }
