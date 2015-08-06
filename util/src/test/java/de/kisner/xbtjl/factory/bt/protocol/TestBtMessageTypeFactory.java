@@ -77,10 +77,4 @@ public class TestBtMessageTypeFactory extends AbstractUtilTest
     {	
     	BtMessageTypeFactory.toEnum(100);
     }
-    
-    @Test
-    public void handshake() throws XbtjlException, XbtjlProtocolException 
-    {	
-    	Assert.assertEquals("e:"+MsgType.HANDSHAKE+" a:"+BtMessageTypeFactory.toEnum(BtProtocolMessage._HANDSHAKE),MsgType.HANDSHAKE, BtMessageTypeFactory.toEnum(BtProtocolMessage._HANDSHAKE));
-    }
 }

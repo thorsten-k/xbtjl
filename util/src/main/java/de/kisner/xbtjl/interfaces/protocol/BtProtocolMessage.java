@@ -2,7 +2,7 @@ package de.kisner.xbtjl.interfaces.protocol;
 
 public interface BtProtocolMessage
 {
-	public static final int _HANDSHAKE = -1;
+//	public static final int _HANDSHAKE = -1;
     public static final int _KEEP_ALIVE = 0;
     public static final int _CHOKE = 1;
     public static final int _UNCHOKE = 2;

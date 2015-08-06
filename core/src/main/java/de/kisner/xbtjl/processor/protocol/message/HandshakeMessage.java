@@ -8,7 +8,7 @@ public class HandshakeMessage extends BtMessage
 {    
     public HandshakeMessage()
     {
-        super(BtMessageTypeFactory.toEnum(-1));
+        super();
     }
 
     private byte[] length = new byte[1];

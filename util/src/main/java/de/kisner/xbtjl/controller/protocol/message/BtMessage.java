@@ -2,7 +2,7 @@ package de.kisner.xbtjl.controller.protocol.message;
 
 import de.kisner.xbtjl.interfaces.protocol.BtProtocolMessage;
 
-abstract public class BtMessage implements BtProtocolMessage
+public abstract class BtMessage implements BtProtocolMessage
 {
     protected MsgType type;
     public MsgType getType(){return this.type;}
@@ -17,5 +17,5 @@ abstract public class BtMessage implements BtProtocolMessage
 
    
 
-    @Override abstract public byte[] build();
+    @Override public abstract byte[] build();
 }
