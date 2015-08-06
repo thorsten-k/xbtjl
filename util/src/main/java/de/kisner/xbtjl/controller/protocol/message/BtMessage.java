@@ -2,15 +2,15 @@ package de.kisner.xbtjl.controller.protocol.message;
 
 import de.kisner.xbtjl.interfaces.protocol.BtProtocolMessage;
 
-abstract public class Message implements BtProtocolMessage
+abstract public class BtMessage implements BtProtocolMessage
 {
     protected MsgType type;
     public MsgType getType(){return this.type;}
  //   public void setType(MsgType type) {this.type = type;}
 
-	public Message(){}
+	public BtMessage(){}
 
-    public Message(MsgType type)
+    public BtMessage(MsgType type)
     {
         this.type = type;
     }
