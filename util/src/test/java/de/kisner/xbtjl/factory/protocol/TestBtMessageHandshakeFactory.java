@@ -1,4 +1,4 @@
-package de.kisner.xbtjl.factory.bt.protocol;
+package de.kisner.xbtjl.factory.protocol;
 
 import org.junit.Assert;
 import org.junit.Test;

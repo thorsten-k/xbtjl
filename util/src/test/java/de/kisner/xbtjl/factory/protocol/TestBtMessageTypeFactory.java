@@ -1,4 +1,4 @@
-package de.kisner.xbtjl.factory.bt.protocol;
+package de.kisner.xbtjl.factory.protocol;
 
 import org.junit.Assert;
 import org.junit.Ignore;
@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 
 import de.kisner.xbtjl.exception.XbtjlException;
 import de.kisner.xbtjl.exception.XbtjlProtocolException;
+import de.kisner.xbtjl.factory.protocol.BtMessageTypeFactory;
 import de.kisner.xbtjl.interfaces.protocol.BtProtocolMessage;
 import de.kisner.xbtjl.interfaces.protocol.BtProtocolMessage.MsgType;
 import de.kisner.xbtjl.test.AbstractUtilTest;

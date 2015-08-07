@@ -1,4 +1,4 @@
-package de.kisner.xbtjl.factory.bt.protocol;
+package de.kisner.xbtjl.factory.protocol;
 
 import de.kisner.xbtjl.exception.XbtjlProtocolException;
 import de.kisner.xbtjl.interfaces.protocol.BtProtocolMessage.MsgType;
