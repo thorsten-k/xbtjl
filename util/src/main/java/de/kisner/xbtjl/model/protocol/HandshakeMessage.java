@@ -1,6 +1,6 @@
-package de.kisner.xbtjl.processor.protocol.message;
+package de.kisner.xbtjl.model.protocol;
 
-import de.kisner.xbtjl.factory.bt.protocol.BtMessageHandshakeFactory;
+import de.kisner.xbtjl.factory.protocol.BtMessageHandshakeFactory;
 import de.kisner.xbtjl.interfaces.protocol.BtMessage;
 import de.kisner.xbtjl.interfaces.protocol.BtProtocolMessage.MsgType;
 

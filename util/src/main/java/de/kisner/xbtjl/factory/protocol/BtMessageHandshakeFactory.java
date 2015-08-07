@@ -1,4 +1,4 @@
-package de.kisner.xbtjl.factory.bt.protocol;
+package de.kisner.xbtjl.factory.protocol;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -7,7 +7,7 @@ import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import de.kisner.xbtjl.processor.protocol.message.HandshakeMessage;
+import de.kisner.xbtjl.model.protocol.HandshakeMessage;
 import net.sf.exlp.util.io.ByteUtil;
 
 /**

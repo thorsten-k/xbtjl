@@ -1,4 +1,4 @@
-package de.kisner.xbtjl.processor.protocol.message;
+package de.kisner.xbtjl.model.protocol;
 
 import java.nio.ByteBuffer;
 
