@@ -78,7 +78,7 @@ public class TestTxtTrackerRequestFactory extends AbstractUtilTest
     @Test(expected=XbtjlException.class)
     public void withoutTrackerAnnounce() throws XbtjlException 
     {
-    	xml.getTorrent().getTracker().setAnnounce(null);
+    	xml.getTorrent().getTracker().setUrl(null);
     	TxtTrackerRequestFactory.create(xml);
     }
     

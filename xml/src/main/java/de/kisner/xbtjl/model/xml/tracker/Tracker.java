@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *       &lt;/sequence>
- *       &lt;attribute name="announce" type="{http://www.w3.org/2001/XMLSchema}string" />
+ *       &lt;attribute name="url" type="{http://www.w3.org/2001/XMLSchema}string" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -36,35 +36,35 @@ public class Tracker
 {
 
     private final static long serialVersionUID = 1L;
-    @XmlAttribute(name = "announce")
-    protected String announce;
+    @XmlAttribute(name = "url")
+    protected String url;
 
     /**
-     * Gets the value of the announce property.
+     * Gets the value of the url property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getAnnounce() {
-        return announce;
+    public String getUrl() {
+        return url;
     }
 
     /**
-     * Sets the value of the announce property.
+     * Sets the value of the url property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setAnnounce(String value) {
-        this.announce = value;
+    public void setUrl(String value) {
+        this.url = value;
     }
 
-    public boolean isSetAnnounce() {
-        return (this.announce!= null);
+    public boolean isSetUrl() {
+        return (this.url!= null);
     }
 
 }

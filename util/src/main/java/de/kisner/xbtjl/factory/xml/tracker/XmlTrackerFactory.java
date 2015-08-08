@@ -12,7 +12,7 @@ public class XmlTrackerFactory
 	public static Tracker build(String url)
 	{
 		Tracker xml = new Tracker();
-		xml.setAnnounce(url);
+		xml.setUrl(url);
 		return xml;
 	}
 }

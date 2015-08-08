@@ -27,7 +27,7 @@ public class TestXmlTracker extends AbstractXmlTrackerTest
     public static Tracker create(boolean withChilds)
     {
     	Tracker xml = new Tracker();
-    	xml.setAnnounce("myAnnounce");
+    	xml.setUrl("myAnnounce");
     	return xml;
     }
     
