@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import de.kisner.xbtjl.exception.XbtjlException;
+import de.kisner.xbtjl.factory.bencode.BenTorrentFactory;
 import de.kisner.xbtjl.model.xml.torrent.Torrent;
 import de.kisner.xbtjl.test.AbstractUtilTest;
 import de.kisner.xbtjl.test.XbtjlUtilTestBootstrap;
@@ -18,8 +19,8 @@ public class TestBencodeTorrentProcessor extends AbstractUtilTest
 	    
     public Torrent jbencode(boolean debug,File f) throws XbtjlException, IOException
     {
-    	BencodeTorrentProcessor tp = new BencodeTorrentProcessor();
-    	Torrent xml = BencodeTorrentProcessor.create(f);
+    	BenTorrentFactory tp = new BenTorrentFactory();
+    	Torrent xml = BenTorrentFactory.create(f);
     	
     	if(debug){XmlDebugger.info(xml,false);}
     	

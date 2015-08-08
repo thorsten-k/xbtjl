@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<t:trackerResponse xmlns:bt="http://xbtjl.kisner.de/torrent" xmlns:p="http://xbtjl.kisner.de/peer" xmlns:t="http://xbtjl.kisner.de/tracker" interval="123">
+    <p:peer peerId="myId" listeningPort="123" listeningIp="127.0.0.1"/>
+    <p:peer peerId="myId" listeningPort="123" listeningIp="127.0.0.1"/>
+</t:trackerResponse>

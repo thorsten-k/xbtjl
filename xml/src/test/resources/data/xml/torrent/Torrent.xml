@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<bt:torrent xmlns:bt="http://xbtjl.kisner.de/torrent" xmlns:t="http://xbtjl.kisner.de/tracker" totalLength="123">
-    <bt:annouceUrl>myUrl</bt:annouceUrl>
-    <t:tracker announce="myAnnounce"/>
+<bt:torrent xmlns:t="http://xbtjl.kisner.de/tracker" xmlns:bt="http://xbtjl.kisner.de/torrent" totalLength="123">
+    <t:tracker url="myAnnounce"/>
     <bt:hash>myHash</bt:hash>
     <bt:file length="1234">myFileName</bt:file>
     <bt:files/>

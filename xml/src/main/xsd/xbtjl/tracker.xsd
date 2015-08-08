@@ -26,6 +26,14 @@
         </xsd:complexType>
     </xsd:element>
     
+    <xsd:element name="trackerResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="p:peer" maxOccurs="unbounded"/>
+            </xsd:sequence>
+            <xsd:attribute name="interval" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
     <xsd:element name="trackerRequest">
         <xsd:complexType>
             <xsd:sequence>

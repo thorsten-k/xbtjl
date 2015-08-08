@@ -53,4 +53,12 @@ public class ObjectFactory {
         return new ClientAnnounce();
     }
 
+    /**
+     * Create an instance of {@link TrackerResponse }
+     * 
+     */
+    public TrackerResponse createTrackerResponse() {
+        return new TrackerResponse();
+    }
+
 }

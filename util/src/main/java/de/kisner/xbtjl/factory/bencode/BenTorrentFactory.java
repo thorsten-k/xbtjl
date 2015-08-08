@@ -1,4 +1,4 @@
-package de.kisner.xbtjl.controller.processor.bencode;
+package de.kisner.xbtjl.factory.bencode;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,6 +11,8 @@ import org.apache.commons.codec.binary.Hex;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import de.kisner.xbtjl.controller.processor.bencode.BenDecoder;
+import de.kisner.xbtjl.controller.processor.bencode.BenEncoder;
 import de.kisner.xbtjl.exception.XbtjlException;
 import de.kisner.xbtjl.factory.xml.bittorrent.XmlFileFactory;
 import de.kisner.xbtjl.factory.xml.bittorrent.XmlHashFactory;
@@ -27,9 +29,9 @@ import de.kisner.xbtjl.model.xml.torrent.Torrent;
 import net.sf.exlp.util.DateUtil;
 import net.sf.exlp.util.io.FileIO;
 
-public class BencodeTorrentProcessor
+public class BenTorrentFactory
 {
-	final static Logger logger = LoggerFactory.getLogger(BencodeTorrentProcessor.class);
+	final static Logger logger = LoggerFactory.getLogger(BenTorrentFactory.class);
 
     public static Torrent create(File f) throws IOException, XbtjlException
 	{
@@ -38,7 +40,7 @@ public class BencodeTorrentProcessor
 	
 	public static Torrent create(byte[] bytes) throws IOException, XbtjlException
 	{
-		return BencodeTorrentProcessor.create(BenDecoder.decode(bytes));
+		return BenTorrentFactory.create(BenDecoder.decode(bytes));
 	}
 	
 	public static Torrent create(Map<String,?> m) throws IOException, XbtjlException
@@ -58,7 +60,7 @@ public class BencodeTorrentProcessor
             Map<String,?> info = (Map<String,?>)m.get("info");
             xml.setHash(XmlHashFactory.createFromBenByte(BenEncoder.encode(info)));
             
-            if (info.containsKey("name")) {xml.setFile(BencodeTorrentProcessor.buildFile(info));}
+            if (info.containsKey("name")) {xml.setFile(BenTorrentFactory.buildFile(info));}
             
             xml.setFiles(new Files());
             if (info.containsKey("files"))
@@ -89,7 +91,7 @@ public class BencodeTorrentProcessor
             
             if (info.containsKey("piece length"))
             {
-            	Pieces pieces = XmlPiecesFactory.create(((Long) info.get("piece length")).intValue());
+            	Pieces pieces = XmlPiecesFactory.create(((Long)info.get("piece length")).intValue());
                 xml.setPieces(pieces);
             }
             else
@@ -159,17 +161,6 @@ public class BencodeTorrentProcessor
 	     {
 	    	 xml.setEncoding(new String((byte[]) m.get("encoding")));
 	     }
-		
-		return xml;
-	}
-	
-	public static Peer buildPeer(Map<String,?> benMap)
-	{
-		String id = new String((byte[])benMap.get("peer_id"));
-		String ip = new String((byte[])benMap.get("ip"));
-		int port = ((Long)benMap.get("port")).intValue();
-		
-		Peer xml = XmlPeerFactory.create(id,ip,port);
 		
 		return xml;
 	}
