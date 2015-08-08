@@ -27,7 +27,7 @@ public class TxtBenocdeFactory
         catch (Throwable e) {e.printStackTrace();}
     }
 	
-	public static void print(Map map)
+	public static void print(Map<String,?> map)
     {
         try
         {

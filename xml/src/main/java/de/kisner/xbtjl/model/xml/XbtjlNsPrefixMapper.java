@@ -9,9 +9,10 @@ public class XbtjlNsPrefixMapper extends NamespacePrefixMapper implements NsPref
     public String getPreferredPrefix(String namespaceUri, String suggestion, boolean requirePrefix)
     {
         if("http://xbtjl.kisner.de".equals(namespaceUri) ){return "xbtjl";}
-        if("http://xbtjl.kisner.de/torrent".equals(namespaceUri) ){return "t";}
+        if("http://xbtjl.kisner.de/torrent".equals(namespaceUri) ){return "bt";}
         if("http://xbtjl.kisner.de/peer".equals(namespaceUri) ){return "p";}
         if("http://xbtjl.kisner.de/protocol".equals(namespaceUri) ){return "p2p";}
+        if("http://xbtjl.kisner.de/tracker".equals(namespaceUri) ){return "t";}
        
         return suggestion;
     }

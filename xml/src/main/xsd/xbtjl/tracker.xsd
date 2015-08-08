@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://xbtjl.kisner.de/tracker"
+    xmlns:t="http://xbtjl.kisner.de/tracker"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    
+    <xsd:element name="tracker">
+        <xsd:complexType>
+            <xsd:sequence>
+
+            </xsd:sequence>
+            <xsd:attribute name="announce" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>

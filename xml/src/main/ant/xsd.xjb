@@ -26,5 +26,11 @@
         <jxb:schemaBindings>
             <jxb:package name="de.kisner.xbtjl.model.xml.protocol"/>
         </jxb:schemaBindings>
-    </jxb:bindings>   
+    </jxb:bindings>  
+    
+        <jxb:bindings schemaLocation="../xsd/xbtjl/tracker.xsd" node="/xsd:schema">
+        <jxb:schemaBindings>
+            <jxb:package name="de.kisner.xbtjl.model.xml.tracker"/>
+        </jxb:schemaBindings>
+    </jxb:bindings> 
 </jxb:bindings>
