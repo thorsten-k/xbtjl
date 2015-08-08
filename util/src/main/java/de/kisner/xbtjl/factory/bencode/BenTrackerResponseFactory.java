@@ -3,6 +3,8 @@ package de.kisner.xbtjl.factory.bencode;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -39,24 +41,33 @@ public class BenTrackerResponseFactory
 			xml.setInterval(((Long)map.get("interval")).intValue());
 		}
 		
-		boolean iOfList = map.get("peers") instanceof List;
-		
-		
 		if(map.containsKey("peers"))
 		{
-			Object o = map.get("peers");
-			logger.info(o.getClass().getSimpleName());
-			List peers = (List)o;
-			
-			
-			if (peers != null && peers.size()>0)
-            {
-                for (int i = 0; i < peers.size(); i++)
-                {
-                	Peer peer = BenPeerFactory.buildPeer((Map<String,?>)(peers.get(i)));
-                    xml.getPeer().add(peer);
-                }
-            }
+			 Object peers = map.get("peers");
+			 logger.info(peers.getClass().getSimpleName());
+             
+             if (peers instanceof List)
+             {
+            	 ArrayList peerList = new ArrayList();
+                 peerList.addAll((List) peers);
+                 if (peerList != null && peerList.size() > 0)
+                 {
+                     for (int i = 0; i < peerList.size(); i++)
+                     {
+                     	Peer peer = BenPeerFactory.buildPeer((Map<String,?>)(peerList.get(i)));
+                        xml.getPeer().add(peer);
+                     }
+                 }
+             }
+             else if (peers instanceof byte[])
+             {
+                 byte[] p = ((byte[]) peers);
+                 for (int i = 0; i < p.length; i += 6)
+                 {
+                 	Peer peer = BenPeerFactory.build(Arrays.copyOfRange(p, i, i+6));
+                 	xml.getPeer().add(peer);
+                 }
+             }
 		}
 		
 		return xml;
