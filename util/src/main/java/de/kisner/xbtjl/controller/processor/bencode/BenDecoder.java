@@ -24,9 +24,6 @@ package de.kisner.xbtjl.controller.processor.bencode;
 
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
@@ -37,6 +34,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+
+import de.kisner.xbtjl.interfaces.protocol.BtProtocol;
 
 /**
  * A set of utility methods to decode a bencoded array of byte into a Map.
@@ -136,8 +135,7 @@ public class BenDecoder
 
                     //add the value to the map
 
-                    CharBuffer cb = BencodeTorrentProcessor.BYTE_CHARSET.decode(ByteBuffer.
-                            wrap(tempByteArray));
+                    CharBuffer cb = BtProtocol.BYTE_CHARSET.decode(ByteBuffer.wrap(tempByteArray));
 
                     String key = new String(cb.array(), 0, cb.limit());
 

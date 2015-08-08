@@ -34,6 +34,8 @@ import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
+import de.kisner.xbtjl.interfaces.protocol.BtProtocol;
+
 
 /**
  * A set of utility methods to encode a Map into a bencoded array of byte.
@@ -56,9 +58,9 @@ public class BenEncoder
         {
             String tempString = (object instanceof String) ? (String) object : String.valueOf((Float) object);
 
-            ByteBuffer bb = BencodeTorrentProcessor.DEFAULT_CHARSET.encode(tempString);
+            ByteBuffer bb = BtProtocol.DEFAULT_CHARSET.encode(tempString);
 
-            write(baos,BencodeTorrentProcessor.DEFAULT_CHARSET.encode(String.valueOf(bb.limit())));
+            write(baos,BtProtocol.DEFAULT_CHARSET.encode(String.valueOf(bb.limit())));
 
             baos.write(':');
 
@@ -111,7 +113,7 @@ public class BenEncoder
                         {
                             try
                             {
-                                encode(baos, BencodeTorrentProcessor.BYTE_CHARSET.encode(key));
+                                encode(baos, BtProtocol.BYTE_CHARSET.encode(key));
                                 encode(baos, tempMap.get(key));
                             }
                             catch (UnsupportedEncodingException e) {throw (new IOException("BEncoder: unsupport encoding: " +e.getMessage()));}
@@ -145,28 +147,28 @@ public class BenEncoder
 
             Long tempLong = (Long) object;
             baos.write('i');
-            write(baos, BencodeTorrentProcessor.DEFAULT_CHARSET.encode(tempLong.toString()));
+            write(baos, BtProtocol.DEFAULT_CHARSET.encode(tempLong.toString()));
             baos.write('e');
         }
         else if (object instanceof Integer)
         {
             Integer tempInteger = (Integer) object;
             baos.write('i');
-            write(baos, BencodeTorrentProcessor.DEFAULT_CHARSET.encode(tempInteger.toString()));
+            write(baos, BtProtocol.DEFAULT_CHARSET.encode(tempInteger.toString()));
             baos.write('e');
 
         }
         else if (object instanceof byte[])
         {
             byte[] tempByteArray = (byte[]) object;
-            write(baos,BencodeTorrentProcessor.DEFAULT_CHARSET.encode(String.valueOf(tempByteArray.length)));
+            write(baos,BtProtocol.DEFAULT_CHARSET.encode(String.valueOf(tempByteArray.length)));
             baos.write(':');
             baos.write(tempByteArray);
         }
         else if (object instanceof ByteBuffer)
         {
             ByteBuffer bb = (ByteBuffer) object;
-            write(baos,BencodeTorrentProcessor.DEFAULT_CHARSET.encode(String.valueOf(bb.limit())));
+            write(baos,BtProtocol.DEFAULT_CHARSET.encode(String.valueOf(bb.limit())));
             baos.write(':');
             write(baos, bb);
         }

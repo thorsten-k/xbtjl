@@ -32,21 +32,6 @@ import net.sf.exlp.util.io.FileIO;
 public class BencodeTorrentProcessor
 {
 	final static Logger logger = LoggerFactory.getLogger(BencodeTorrentProcessor.class);
-	
-	public static final String DEFAULT_ENCODING = "UTF8";
-    public static final String BYTE_ENCODING = "ISO-8859-1";
-    public static Charset BYTE_CHARSET;
-    public static Charset DEFAULT_CHARSET;
-
-    static
-    {
-        try
-        {
-            BYTE_CHARSET = Charset.forName(BencodeTorrentProcessor.BYTE_ENCODING);
-            DEFAULT_CHARSET = Charset.forName(BencodeTorrentProcessor.DEFAULT_ENCODING);
-        }
-        catch (Throwable e) {e.printStackTrace();}
-    }
 
     public static Torrent create(File f) throws IOException, XbtjlException
 	{
