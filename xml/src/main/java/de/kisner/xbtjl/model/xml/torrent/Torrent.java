@@ -21,7 +21,6 @@ import de.kisner.xbtjl.model.xml.tracker.Tracker;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element ref="{http://xbtjl.kisner.de/torrent}annouceUrl"/>
  *         &lt;element ref="{http://xbtjl.kisner.de/tracker}tracker"/>
  *         &lt;element ref="{http://xbtjl.kisner.de/torrent}hash"/>
  *         &lt;element ref="{http://xbtjl.kisner.de/torrent}file"/>
@@ -39,7 +38,6 @@ import de.kisner.xbtjl.model.xml.tracker.Tracker;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "annouceUrl",
     "tracker",
     "hash",
     "file",
@@ -53,8 +51,6 @@ public class Torrent
 {
 
     private final static long serialVersionUID = 1L;
-    @XmlElement(required = true)
-    protected AnnouceUrl annouceUrl;
     @XmlElement(namespace = "http://xbtjl.kisner.de/tracker", required = true)
     protected Tracker tracker;
     @XmlElement(required = true)
@@ -69,34 +65,6 @@ public class Torrent
     protected Pieces pieces;
     @XmlAttribute(name = "totalLength")
     protected Long totalLength;
-
-    /**
-     * Gets the value of the annouceUrl property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link AnnouceUrl }
-     *     
-     */
-    public AnnouceUrl getAnnouceUrl() {
-        return annouceUrl;
-    }
-
-    /**
-     * Sets the value of the annouceUrl property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link AnnouceUrl }
-     *     
-     */
-    public void setAnnouceUrl(AnnouceUrl value) {
-        this.annouceUrl = value;
-    }
-
-    public boolean isSetAnnouceUrl() {
-        return (this.annouceUrl!= null);
-    }
 
     /**
      * Gets the value of the tracker property.

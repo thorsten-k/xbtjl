@@ -9,9 +9,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import de.kisner.xbtjl.exception.XbtjlException;
-import de.kisner.xbtjl.factory.xml.bittorrent.XmlAnnounceUrlFactory;
 import de.kisner.xbtjl.factory.xml.bittorrent.XmlHashFactory;
 import de.kisner.xbtjl.factory.xml.peer.XmlPeerFactory;
+import de.kisner.xbtjl.factory.xml.tracker.XmlTrackerFactory;
 import de.kisner.xbtjl.model.xml.protocol.TrackerRequest;
 import de.kisner.xbtjl.model.xml.torrent.Torrent;
 import de.kisner.xbtjl.test.AbstractUtilTest;
@@ -40,7 +40,7 @@ public class TestTxtTrackerRequestFactory extends AbstractUtilTest
 	public static TrackerRequest createTrackerRequest()
 	{		
 		Torrent torrent = new Torrent();
-		torrent.setAnnouceUrl(XmlAnnounceUrlFactory.create("http://localhost:8080/jbtl"));
+		torrent.setTracker(XmlTrackerFactory.build("http://localhost:8080/jbtl"));
 		torrent.setHash(XmlHashFactory.create("abcdef"));
 		
 		TrackerRequest xmlTrackerRequest = new TrackerRequest();
@@ -69,16 +69,16 @@ public class TestTxtTrackerRequestFactory extends AbstractUtilTest
     }
     
     @Test(expected=XbtjlException.class)
-    public void withoutAnnounceUrl() throws XbtjlException 
+    public void withoutTracker() throws XbtjlException 
     {
-    	xml.getTorrent().setAnnouceUrl(null);
+    	xml.getTorrent().setTracker(null);
     	TxtTrackerRequestFactory.create(xml);
     }
     
     @Test(expected=XbtjlException.class)
-    public void withoutAnnounceUrlValue() throws XbtjlException 
+    public void withoutTrackerAnnounce() throws XbtjlException 
     {
-    	xml.getTorrent().getAnnouceUrl().setValue(null);
+    	xml.getTorrent().getTracker().setAnnounce(null);
     	TxtTrackerRequestFactory.create(xml);
     }
     

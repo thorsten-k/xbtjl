@@ -33,7 +33,6 @@ public class TestXmlTorrent extends AbstractXmlBittorrentTest
     	
     	if(withChilds)
     	{
-    		xml.setAnnouceUrl(TestXmlAnnouceUrl.create());
     		xml.setTracker(TestXmlTracker.create(false));
     		xml.setHash(TestXmlHash.create());
     		xml.setMeta(TestXmlMeta.create(false));

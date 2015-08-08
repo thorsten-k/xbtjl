@@ -16,9 +16,10 @@ import de.kisner.xbtjl.exception.XbtjlException;
 import de.kisner.xbtjl.factory.xml.bittorrent.XmlFileFactory;
 import de.kisner.xbtjl.factory.xml.bittorrent.XmlHashFactory;
 import de.kisner.xbtjl.factory.xml.bittorrent.XmlPiecesFactory;
+import de.kisner.xbtjl.factory.xml.bittorrent.XmlTrackerRequestFactory;
 import de.kisner.xbtjl.factory.xml.peer.XmlPeerFactory;
+import de.kisner.xbtjl.factory.xml.tracker.XmlTrackerFactory;
 import de.kisner.xbtjl.model.xml.peer.Peer;
-import de.kisner.xbtjl.model.xml.torrent.AnnouceUrl;
 import de.kisner.xbtjl.model.xml.torrent.Comment;
 import de.kisner.xbtjl.model.xml.torrent.Files;
 import de.kisner.xbtjl.model.xml.torrent.Meta;
@@ -63,8 +64,7 @@ public class BencodeTorrentProcessor
 		
 		if(m.containsKey("announce"))
 		{
-			xml.setAnnouceUrl(new AnnouceUrl());
-			xml.getAnnouceUrl().setValue(new String((byte[]) m.get("announce")));	
+			xml.setTracker(XmlTrackerFactory.build(new String((byte[]) m.get("announce"))));
 		}
 		else {throw new XbtjlException("No announce available");}
 		

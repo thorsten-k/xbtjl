@@ -10,9 +10,9 @@ import de.kisner.xbtjl.factory.xml.bittorrent.XmlHashFactory;
 import de.kisner.xbtjl.model.xml.peer.Peer;
 import de.kisner.xbtjl.model.xml.peer.Statistic;
 import de.kisner.xbtjl.model.xml.protocol.TrackerRequest;
-import de.kisner.xbtjl.model.xml.torrent.AnnouceUrl;
 import de.kisner.xbtjl.model.xml.torrent.Hash;
 import de.kisner.xbtjl.model.xml.torrent.Torrent;
+import de.kisner.xbtjl.model.xml.tracker.Tracker;
 
 public class TxtTrackerRequestFactory
 {
@@ -35,7 +35,7 @@ public class TxtTrackerRequestFactory
 		try
 		{
 			StringBuffer sb = new StringBuffer();
-			sb.append(xml.getTorrent().getAnnouceUrl().getValue());
+			sb.append(xml.getTorrent().getTracker().getAnnounce());
 			sb.append("?");
 			sb.append(urlHash).append("="+XmlHashFactory.toUrl(xml.getTorrent().getHash()));
 			sb.append("&").append(urlPeerId).append("=").append(urlCodec.encode(xml.getPeer().getPeerId()));
@@ -54,8 +54,8 @@ public class TxtTrackerRequestFactory
 	{
 		if(!xml.isSetTorrent()){throw new XbtjlException(TrackerRequest.class.getSimpleName()+" does not has a "+Torrent.class.getSimpleName());}
 		
-		if(!xml.getTorrent().isSetAnnouceUrl()){throw new XbtjlException(TrackerRequest.class.getSimpleName()+"."+Torrent.class.getSimpleName()+" does not has a "+AnnouceUrl.class.getSimpleName());}
-		if(!xml.getTorrent().getAnnouceUrl().isSetValue()){throw new XbtjlException(TrackerRequest.class.getSimpleName()+"."+Torrent.class.getSimpleName()+"."+AnnouceUrl.class.getSimpleName()+" does not has a value");}
+		if(!xml.getTorrent().isSetTracker()){throw new XbtjlException(TrackerRequest.class.getSimpleName()+"."+Torrent.class.getSimpleName()+" does not has a "+Tracker.class.getSimpleName());}
+		if(!xml.getTorrent().getTracker().isSetAnnounce()){throw new XbtjlException(TrackerRequest.class.getSimpleName()+"."+Torrent.class.getSimpleName()+"."+Tracker.class.getSimpleName()+" does not has a @annoucne");}
 		
 		if(!xml.getTorrent().isSetHash()){throw new XbtjlException(TrackerRequest.class.getSimpleName()+"."+Torrent.class.getSimpleName()+" does not has a "+Hash.class.getSimpleName());}
 		if(!xml.getTorrent().getHash().isSetValue()){throw new XbtjlException(TrackerRequest.class.getSimpleName()+"."+Torrent.class.getSimpleName()+"."+Hash.class.getSimpleName()+" does not has a value");}

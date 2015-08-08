@@ -78,14 +78,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link AnnouceUrl }
-     * 
-     */
-    public AnnouceUrl createAnnouceUrl() {
-        return new AnnouceUrl();
-    }
-
-    /**
      * Create an instance of {@link Comment }
      * 
      */
