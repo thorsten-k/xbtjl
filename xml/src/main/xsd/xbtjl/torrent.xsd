@@ -2,12 +2,15 @@
 <xsd:schema targetNamespace="http://xbtjl.kisner.de/torrent"
     xmlns:bt="http://xbtjl.kisner.de/torrent"
     xmlns:p="http://xbtjl.kisner.de/peer"
+    xmlns:t="http://xbtjl.kisner.de/tracker"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <xsd:import namespace="http://xbtjl.kisner.de/peer" schemaLocation="peer.xsd"/>
+    <xsd:import namespace="http://xbtjl.kisner.de/tracker" schemaLocation="tracker.xsd"/>
     <xsd:element name="torrent">
         <xsd:complexType>
             <xsd:sequence>
                 <xsd:element ref="bt:annouceUrl" maxOccurs="1"/>
+                <xsd:element ref="t:tracker" maxOccurs="1"/>
                 <xsd:element ref="bt:hash" maxOccurs="1"/>
                 <xsd:element ref="bt:file" maxOccurs="1"/>
                 <xsd:element ref="bt:files" maxOccurs="1"/>

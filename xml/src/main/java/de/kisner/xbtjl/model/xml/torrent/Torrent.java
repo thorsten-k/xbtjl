@@ -8,6 +8,7 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+import de.kisner.xbtjl.model.xml.tracker.Tracker;
 
 
 /**
@@ -21,6 +22,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element ref="{http://xbtjl.kisner.de/torrent}annouceUrl"/>
+ *         &lt;element ref="{http://xbtjl.kisner.de/tracker}tracker"/>
  *         &lt;element ref="{http://xbtjl.kisner.de/torrent}hash"/>
  *         &lt;element ref="{http://xbtjl.kisner.de/torrent}file"/>
  *         &lt;element ref="{http://xbtjl.kisner.de/torrent}files"/>
@@ -38,6 +40,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "annouceUrl",
+    "tracker",
     "hash",
     "file",
     "files",
@@ -52,6 +55,8 @@ public class Torrent
     private final static long serialVersionUID = 1L;
     @XmlElement(required = true)
     protected AnnouceUrl annouceUrl;
+    @XmlElement(namespace = "http://xbtjl.kisner.de/tracker", required = true)
+    protected Tracker tracker;
     @XmlElement(required = true)
     protected Hash hash;
     @XmlElement(required = true)
@@ -91,6 +96,34 @@ public class Torrent
 
     public boolean isSetAnnouceUrl() {
         return (this.annouceUrl!= null);
+    }
+
+    /**
+     * Gets the value of the tracker property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Tracker }
+     *     
+     */
+    public Tracker getTracker() {
+        return tracker;
+    }
+
+    /**
+     * Sets the value of the tracker property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Tracker }
+     *     
+     */
+    public void setTracker(Tracker value) {
+        this.tracker = value;
+    }
+
+    public boolean isSetTracker() {
+        return (this.tracker!= null);
     }
 
     /**

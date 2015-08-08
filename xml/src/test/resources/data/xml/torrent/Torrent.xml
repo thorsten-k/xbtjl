@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<t:torrent xmlns:t="http://xbtjl.kisner.de/torrent" totalLength="123">
-    <t:annouceUrl>myUrl</t:annouceUrl>
-    <t:hash>myHash</t:hash>
-    <t:file length="1234">myFileName</t:file>
-    <t:files/>
-    <t:meta encoding="myEncoding" created="2011-11-11T11:11:11" createdBy="myName"/>
-    <t:pieces pieceLength="12" size="122"/>
-</t:torrent>
+<bt:torrent xmlns:bt="http://xbtjl.kisner.de/torrent" xmlns:t="http://xbtjl.kisner.de/tracker" totalLength="123">
+    <bt:annouceUrl>myUrl</bt:annouceUrl>
+    <t:tracker announce="myAnnounce"/>
+    <bt:hash>myHash</bt:hash>
+    <bt:file length="1234">myFileName</bt:file>
+    <bt:files/>
+    <bt:meta encoding="myEncoding" created="2011-11-11T11:11:11" createdBy="myName"/>
+    <bt:pieces pieceLength="12" size="122"/>
+</bt:torrent>

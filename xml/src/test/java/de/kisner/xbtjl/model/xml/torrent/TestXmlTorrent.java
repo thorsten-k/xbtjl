@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import de.kisner.xbtjl.model.xml.torrent.Torrent;
+import de.kisner.xbtjl.model.xml.tracker.TestXmlTracker;
 import de.kisner.xbtjl.test.XbtjlXmlTestBootstrap;
 import net.sf.exlp.util.xml.JaxbUtil;
 
@@ -33,6 +34,7 @@ public class TestXmlTorrent extends AbstractXmlBittorrentTest
     	if(withChilds)
     	{
     		xml.setAnnouceUrl(TestXmlAnnouceUrl.create());
+    		xml.setTracker(TestXmlTracker.create(false));
     		xml.setHash(TestXmlHash.create());
     		xml.setMeta(TestXmlMeta.create(false));
     		xml.setFile(TestXmlFile.create());
