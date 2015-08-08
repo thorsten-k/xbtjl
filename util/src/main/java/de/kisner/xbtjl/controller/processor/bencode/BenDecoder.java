@@ -295,7 +295,7 @@ public class BenDecoder
         recovery_mode = r;
     }
 
-    private void print(PrintWriter writer,Object obj)
+    public void print(PrintWriter writer,Object obj)
     {
         print(writer, obj, "", false);
     }
@@ -356,21 +356,5 @@ public class BenDecoder
                 print(writer, m.get(key), indent + "  ", true);
             }
         }
-    }
-
-    private static void print(File f, File output)
-    {
-        try
-        {
-            BenDecoder decoder = new BenDecoder();
-            decoder.setRecoveryMode(false);
-
-            PrintWriter pw = new PrintWriter(new FileWriter(output));
-
-            decoder.print(pw,decoder.decodeStream(new BufferedInputStream(new FileInputStream(f))));
-            pw.flush();
-
-        }
-        catch (Throwable e) {e.printStackTrace();}
     }
 }
