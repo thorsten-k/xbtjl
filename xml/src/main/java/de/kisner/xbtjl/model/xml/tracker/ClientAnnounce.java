@@ -1,5 +1,5 @@
 
-package de.kisner.xbtjl.model.xml.protocol;
+package de.kisner.xbtjl.model.xml.tracker;
 
 import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -32,8 +32,8 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "")
-@XmlRootElement(name = "announce")
-public class Announce
+@XmlRootElement(name = "clientAnnounce")
+public class ClientAnnounce
     implements Serializable
 {
 

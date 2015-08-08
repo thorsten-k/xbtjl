@@ -37,4 +37,20 @@ public class ObjectFactory {
         return new Tracker();
     }
 
+    /**
+     * Create an instance of {@link TrackerRequest }
+     * 
+     */
+    public TrackerRequest createTrackerRequest() {
+        return new TrackerRequest();
+    }
+
+    /**
+     * Create an instance of {@link ClientAnnounce }
+     * 
+     */
+    public ClientAnnounce createClientAnnounce() {
+        return new ClientAnnounce();
+    }
+
 }

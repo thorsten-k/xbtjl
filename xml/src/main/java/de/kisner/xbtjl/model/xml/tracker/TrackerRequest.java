@@ -1,5 +1,5 @@
 
-package de.kisner.xbtjl.model.xml.protocol;
+package de.kisner.xbtjl.model.xml.tracker;
 
 import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;

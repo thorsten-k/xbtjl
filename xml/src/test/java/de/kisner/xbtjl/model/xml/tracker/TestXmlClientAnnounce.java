@@ -1,4 +1,4 @@
-package de.kisner.xbtjl.model.xml.protocol;
+package de.kisner.xbtjl.model.xml.tracker;
 
 import java.io.FileNotFoundException;
 
@@ -10,23 +10,23 @@ import org.slf4j.LoggerFactory;
 import de.kisner.xbtjl.test.XbtjlXmlTestBootstrap;
 import net.sf.exlp.util.xml.JaxbUtil;
 
-public class TestXmlAnnounce extends AbstractXmlProtocolTest
+public class TestXmlClientAnnounce extends AbstractXmlTrackerTest
 {
-	final static Logger logger = LoggerFactory.getLogger(TestXmlAnnounce.class);
+	final static Logger logger = LoggerFactory.getLogger(TestXmlClientAnnounce.class);
 	
-	@BeforeClass public static void initFiles(){setXmlFile(dirSuffix, Announce.class);}
+	@BeforeClass public static void initFiles(){setXmlFile(dirSuffix, ClientAnnounce.class);}
     
     @Test
     public void testAclContainer() throws FileNotFoundException
     {
-    	Announce actual = create(true);
-    	Announce expected = JaxbUtil.loadJAXB(fXml.getAbsolutePath(), Announce.class);
+    	ClientAnnounce actual = create(true);
+    	ClientAnnounce expected = JaxbUtil.loadJAXB(fXml.getAbsolutePath(), ClientAnnounce.class);
     	assertJaxbEquals(expected, actual);
     }
     
-    public static Announce create(boolean withChilds)
+    public static ClientAnnounce create(boolean withChilds)
     {
-    	Announce xml = new Announce();
+    	ClientAnnounce xml = new ClientAnnounce();
     	
     	if(withChilds)
     	{
@@ -45,8 +45,8 @@ public class TestXmlAnnounce extends AbstractXmlProtocolTest
     {
 		XbtjlXmlTestBootstrap.init();
 			
-		TestXmlAnnounce.initFiles();	
-		TestXmlAnnounce test = new TestXmlAnnounce();
+		TestXmlClientAnnounce.initFiles();	
+		TestXmlClientAnnounce test = new TestXmlClientAnnounce();
 		test.save();
     }
 }

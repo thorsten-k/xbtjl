@@ -1,4 +1,4 @@
-package de.kisner.xbtjl.model.xml.protocol;
+package de.kisner.xbtjl.model.xml.tracker;
 
 import java.io.FileNotFoundException;
 
@@ -12,7 +12,7 @@ import de.kisner.xbtjl.model.xml.torrent.TestXmlTorrent;
 import de.kisner.xbtjl.test.XbtjlXmlTestBootstrap;
 import net.sf.exlp.util.xml.JaxbUtil;
 
-public class TestXmlTrackerRequest extends AbstractXmlProtocolTest
+public class TestXmlTrackerRequest extends AbstractXmlTrackerTest
 {
 	final static Logger logger = LoggerFactory.getLogger(TestXmlTrackerRequest.class);
 	

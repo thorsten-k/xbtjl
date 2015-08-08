@@ -2,7 +2,6 @@ package de.kisner.xbtjl.controller.processor.bencode;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -16,7 +15,6 @@ import de.kisner.xbtjl.exception.XbtjlException;
 import de.kisner.xbtjl.factory.xml.bittorrent.XmlFileFactory;
 import de.kisner.xbtjl.factory.xml.bittorrent.XmlHashFactory;
 import de.kisner.xbtjl.factory.xml.bittorrent.XmlPiecesFactory;
-import de.kisner.xbtjl.factory.xml.bittorrent.XmlTrackerRequestFactory;
 import de.kisner.xbtjl.factory.xml.peer.XmlPeerFactory;
 import de.kisner.xbtjl.factory.xml.tracker.XmlTrackerFactory;
 import de.kisner.xbtjl.model.xml.peer.Peer;

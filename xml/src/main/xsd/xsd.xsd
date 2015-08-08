@@ -2,7 +2,6 @@
 <xsd:schema targetNamespace="http://xbtjl.kisner.de"
     xmlns:bt="http://xbtjl.kisner.de/torrent"
     xmlns:p="http://xbtjl.kisner.de/peer"
-    xmlns:p2p="http://xbtjl.kisner.de/protocol"
     xmlns:t="http://xbtjl.kisner.de/tracker"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
@@ -10,7 +9,6 @@
     jaxb:version="2.0">
     <xsd:import namespace="http://xbtjl.kisner.de/torrent" schemaLocation="xbtjl/torrent.xsd"/>
     <xsd:import namespace="http://xbtjl.kisner.de/peer" schemaLocation="xbtjl/peer.xsd"/>
-    <xsd:import namespace="http://xbtjl.kisner.de/protocol" schemaLocation="xbtjl/protocol.xsd"/>
     <xsd:import namespace="http://xbtjl.kisner.de/tracker" schemaLocation="xbtjl/tracker.xsd"/>
     <xsd:annotation>
         <xsd:appinfo>
