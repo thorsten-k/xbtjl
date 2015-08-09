@@ -61,8 +61,8 @@ public class PeerListUpdater extends Thread
     	TrackerResponse response = null;
         while (!end)
         {
-        	if(response==null){response = trackerRequest.helloContact(statistic);}
-        	else{response = trackerRequest.ongoingContact(statistic);}
+        	if(response==null){response = trackerRequest.hello(statistic);}
+        	else{response = trackerRequest.ongoing(statistic);}
 
         	if (trackerUpdateInterval > response.getInterval()){trackerUpdateInterval = response.getInterval();}
             else {trackerUpdateInterval = trackerUpdateInterval*2;}
@@ -82,7 +82,7 @@ public class PeerListUpdater extends Thread
     public void shutdown()
     {
         end = true;
-        trackerRequest.goodbyeContact(statistic);
+        trackerRequest.goodbye(statistic);
     }
 
     public void addTrackerEventListener(TrackerEventListener listener) {listeners.add(listener);}

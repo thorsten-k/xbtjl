@@ -30,7 +30,6 @@ public class ClientTrackerRequest
 	
 	private Peer localPeer;
 	private Torrent xmlTorrent;
-	
 	private PeerListUpdater peerUpdater;
 	
 	public ClientTrackerRequest(Peer localPeer,Torrent xmlTorrent,PeerListUpdater peerUpdater)
@@ -40,9 +39,9 @@ public class ClientTrackerRequest
 		this.peerUpdater=peerUpdater;
 	}
 
-	public synchronized TrackerResponse helloContact(Statistic statistic){return contactTracker(statistic, "&event=started");}
-	public synchronized TrackerResponse goodbyeContact(Statistic statistic){return contactTracker(statistic, "&event=stopped");}
-	public synchronized TrackerResponse ongoingContact(Statistic statistic){return contactTracker(statistic, "");}
+	public synchronized TrackerResponse hello(Statistic statistic){return contactTracker(statistic, "&event=started");}
+	public synchronized TrackerResponse goodbye(Statistic statistic){return contactTracker(statistic, "&event=stopped");}
+	public synchronized TrackerResponse ongoing(Statistic statistic){return contactTracker(statistic, "");}
 	
     private synchronized TrackerResponse contactTracker(Statistic statistic, String event)
     {
@@ -58,9 +57,10 @@ public class ClientTrackerRequest
         	sb.append("&left=").append(statistic.getLeft());
         	sb.append("&numwant=").append("50");
         	sb.append("&compact=").append("1");
+        	sb.append(event);
         	
-            URL source = new URL(sb.toString() + event);
-            logger.info("Contact Tracker. URL source = " + source);
+            URL source = new URL(sb.toString());
+            logger.info("Contacting Tracker at URL: "+source);
             URLConnection uc = source.openConnection();
             InputStream is = uc.getInputStream();
             
