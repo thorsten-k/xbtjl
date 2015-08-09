@@ -41,6 +41,10 @@ public class BenTrackerResponseFactory
 			xml.setInterval(((Long)map.get("interval")).intValue());
 		}
 		
+		//TODO tk handle failure
+		 //       	this.fireUpdateFailed(TrackerEventListener.TrackerResponseError.TRACKER,"The tracker returns the following error message:" +"\t'" + new String((byte[]) m.get("failure reason")) +"'");
+		 //       	return null;
+		
 		if(map.containsKey("peers"))
 		{
 			 Object peers = map.get("peers");
