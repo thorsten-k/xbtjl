@@ -40,8 +40,8 @@ public class TxtTrackerRequestFactory
 			sb.append(urlHash).append("="+XmlHashFactory.toUrl(xml.getTorrent().getHash()));
 			sb.append("&").append(urlPeerId).append("=").append(urlCodec.encode(xml.getPeer().getPeerId()));
 			sb.append("&").append(urlPort).append("=").append(xml.getPeer().getListeningPort());
-			sb.append("&").append(urlUploaded).append("=").append(xml.getPeer().getStatistic().getSumUl());
-			sb.append("&").append(urlDownloaded).append("=").append(xml.getPeer().getStatistic().getSumDl());
+			sb.append("&").append(urlUploaded).append("=").append(xml.getPeer().getStatistic().getBytesUploaded());
+			sb.append("&").append(urlDownloaded).append("=").append(xml.getPeer().getStatistic().getBytesDownloaded());
 			sb.append("&").append(urlLeft).append("=").append(xml.getPeer().getStatistic().getLeft());
 			if(xml.isSetNumWant()){sb.append("&").append(urlNumWant).append("=").append(xml.getNumWant());}
 			return sb.toString();
@@ -65,8 +65,8 @@ public class TxtTrackerRequestFactory
 		if(!xml.getPeer().isSetListeningPort()){throw new XbtjlException(TrackerRequest.class.getSimpleName()+"."+Peer.class.getSimpleName()+" does not has a @listeningPort");}
 		
 		if(!xml.getPeer().isSetStatistic()){throw new XbtjlException(Peer.class.getSimpleName()+"."+Statistic.class.getSimpleName()+" is not set");}
-		if(!xml.getPeer().getStatistic().isSetSumDl()){throw new XbtjlException(Peer.class.getSimpleName()+"."+Statistic.class.getSimpleName()+" does not has a @sumDl");}
-		if(!xml.getPeer().getStatistic().isSetSumUl()){throw new XbtjlException(Peer.class.getSimpleName()+"."+Statistic.class.getSimpleName()+" does not has a @sumUl");}
+		if(!xml.getPeer().getStatistic().isSetBytesDownloaded()){throw new XbtjlException(Peer.class.getSimpleName()+"."+Statistic.class.getSimpleName()+" does not has a @sumDl");}
+		if(!xml.getPeer().getStatistic().isSetBytesUploaded()){throw new XbtjlException(Peer.class.getSimpleName()+"."+Statistic.class.getSimpleName()+" does not has a @sumUl");}
 		if(!xml.getPeer().getStatistic().isSetLeft()){throw new XbtjlException(Peer.class.getSimpleName()+"."+Statistic.class.getSimpleName()+" does not has a @left");}
 	}
 }

@@ -18,11 +18,11 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;complexType>
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;attribute name="sumDl" type="{http://www.w3.org/2001/XMLSchema}int" />
- *       &lt;attribute name="sumUl" type="{http://www.w3.org/2001/XMLSchema}int" />
+ *       &lt;attribute name="bytesDownloaded" type="{http://www.w3.org/2001/XMLSchema}long" />
+ *       &lt;attribute name="bytesUploaded" type="{http://www.w3.org/2001/XMLSchema}long" />
  *       &lt;attribute name="left" type="{http://www.w3.org/2001/XMLSchema}long" />
- *       &lt;attribute name="rateDl" type="{http://www.w3.org/2001/XMLSchema}double" />
- *       &lt;attribute name="rateUl" type="{http://www.w3.org/2001/XMLSchema}double" />
+ *       &lt;attribute name="rateDownload" type="{http://www.w3.org/2001/XMLSchema}double" />
+ *       &lt;attribute name="rateUpload" type="{http://www.w3.org/2001/XMLSchema}double" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -38,79 +38,79 @@ public class Statistic
 {
 
     private final static long serialVersionUID = 1L;
-    @XmlAttribute(name = "sumDl")
-    protected Integer sumDl;
-    @XmlAttribute(name = "sumUl")
-    protected Integer sumUl;
+    @XmlAttribute(name = "bytesDownloaded")
+    protected Long bytesDownloaded;
+    @XmlAttribute(name = "bytesUploaded")
+    protected Long bytesUploaded;
     @XmlAttribute(name = "left")
     protected Long left;
-    @XmlAttribute(name = "rateDl")
-    protected Double rateDl;
-    @XmlAttribute(name = "rateUl")
-    protected Double rateUl;
+    @XmlAttribute(name = "rateDownload")
+    protected Double rateDownload;
+    @XmlAttribute(name = "rateUpload")
+    protected Double rateUpload;
 
     /**
-     * Gets the value of the sumDl property.
+     * Gets the value of the bytesDownloaded property.
      * 
      * @return
      *     possible object is
-     *     {@link Integer }
+     *     {@link Long }
      *     
      */
-    public int getSumDl() {
-        return sumDl;
+    public long getBytesDownloaded() {
+        return bytesDownloaded;
     }
 
     /**
-     * Sets the value of the sumDl property.
+     * Sets the value of the bytesDownloaded property.
      * 
      * @param value
      *     allowed object is
-     *     {@link Integer }
+     *     {@link Long }
      *     
      */
-    public void setSumDl(int value) {
-        this.sumDl = value;
+    public void setBytesDownloaded(long value) {
+        this.bytesDownloaded = value;
     }
 
-    public boolean isSetSumDl() {
-        return (this.sumDl!= null);
+    public boolean isSetBytesDownloaded() {
+        return (this.bytesDownloaded!= null);
     }
 
-    public void unsetSumDl() {
-        this.sumDl = null;
+    public void unsetBytesDownloaded() {
+        this.bytesDownloaded = null;
     }
 
     /**
-     * Gets the value of the sumUl property.
+     * Gets the value of the bytesUploaded property.
      * 
      * @return
      *     possible object is
-     *     {@link Integer }
+     *     {@link Long }
      *     
      */
-    public int getSumUl() {
-        return sumUl;
+    public long getBytesUploaded() {
+        return bytesUploaded;
     }
 
     /**
-     * Sets the value of the sumUl property.
+     * Sets the value of the bytesUploaded property.
      * 
      * @param value
      *     allowed object is
-     *     {@link Integer }
+     *     {@link Long }
      *     
      */
-    public void setSumUl(int value) {
-        this.sumUl = value;
+    public void setBytesUploaded(long value) {
+        this.bytesUploaded = value;
     }
 
-    public boolean isSetSumUl() {
-        return (this.sumUl!= null);
+    public boolean isSetBytesUploaded() {
+        return (this.bytesUploaded!= null);
     }
 
-    public void unsetSumUl() {
-        this.sumUl = null;
+    public void unsetBytesUploaded() {
+        this.bytesUploaded = null;
     }
 
     /**
@@ -146,67 +146,67 @@ public class Statistic
     }
 
     /**
-     * Gets the value of the rateDl property.
+     * Gets the value of the rateDownload property.
      * 
      * @return
      *     possible object is
      *     {@link Double }
      *     
      */
-    public double getRateDl() {
-        return rateDl;
+    public double getRateDownload() {
+        return rateDownload;
     }
 
     /**
-     * Sets the value of the rateDl property.
+     * Sets the value of the rateDownload property.
      * 
      * @param value
      *     allowed object is
      *     {@link Double }
      *     
      */
-    public void setRateDl(double value) {
-        this.rateDl = value;
+    public void setRateDownload(double value) {
+        this.rateDownload = value;
     }
 
-    public boolean isSetRateDl() {
-        return (this.rateDl!= null);
+    public boolean isSetRateDownload() {
+        return (this.rateDownload!= null);
     }
 
-    public void unsetRateDl() {
-        this.rateDl = null;
+    public void unsetRateDownload() {
+        this.rateDownload = null;
     }
 
     /**
-     * Gets the value of the rateUl property.
+     * Gets the value of the rateUpload property.
      * 
      * @return
      *     possible object is
      *     {@link Double }
      *     
      */
-    public double getRateUl() {
-        return rateUl;
+    public double getRateUpload() {
+        return rateUpload;
     }
 
     /**
-     * Sets the value of the rateUl property.
+     * Sets the value of the rateUpload property.
      * 
      * @param value
      *     allowed object is
      *     {@link Double }
      *     
      */
-    public void setRateUl(double value) {
-        this.rateUl = value;
+    public void setRateUpload(double value) {
+        this.rateUpload = value;
     }
 
-    public boolean isSetRateUl() {
-        return (this.rateUl!= null);
+    public boolean isSetRateUpload() {
+        return (this.rateUpload!= null);
     }
 
-    public void unsetRateUl() {
-        this.rateUl = null;
+    public void unsetRateUpload() {
+        this.rateUpload = null;
     }
 
 }

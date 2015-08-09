@@ -18,11 +18,11 @@
     </xsd:element>
     <xsd:element name="statistic">
         <xsd:complexType>
-            <xsd:attribute name="sumDl" type="xsd:int"/>
-            <xsd:attribute name="sumUl" type="xsd:int"/>
+            <xsd:attribute name="bytesDownloaded" type="xsd:long"/>
+            <xsd:attribute name="bytesUploaded" type="xsd:long"/>
             <xsd:attribute name="left" type="xsd:long"/>
-            <xsd:attribute name="rateDl" type="xsd:double"/>
-            <xsd:attribute name="rateUl" type="xsd:double"/>
+            <xsd:attribute name="rateDownload" type="xsd:double"/>
+            <xsd:attribute name="rateUpload" type="xsd:double"/>
         </xsd:complexType>
     </xsd:element>
     <xsd:element name="info">

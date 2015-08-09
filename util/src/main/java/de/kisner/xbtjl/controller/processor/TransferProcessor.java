@@ -13,14 +13,14 @@ public class TransferProcessor
 	public static void addDownloaded(Peer xml, int length){addDownloaded(xml.getStatistic(), length);}
 	public static void addDownloaded(Statistic xml, int length)
 	{
-		xml.setRateDl(xml.getRateDl()+length);
-		xml.setSumDl(xml.getSumDl()+length);
+		xml.setRateDownload(xml.getRateDownload()+length);
+		xml.setRateDownload(xml.getRateDownload()+length);
 	}
 	
 	public static void addUploaded(Peer xml, int length){addUploaded(xml.getStatistic(), length);}
 	public static void addUploaded(Statistic xml, int length)
 	{
-		xml.setRateUl(xml.getRateUl()+length);
-		xml.setSumUl(xml.getSumUl()+length);
+		xml.setRateUpload(xml.getRateUpload()+length);
+		xml.setRateUpload(xml.getBytesUploaded()+length);
 	}
 }

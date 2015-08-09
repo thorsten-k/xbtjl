@@ -8,11 +8,11 @@ public class RateDownloadComparator implements Comparator<Peer>
 {
     public int compare(Peer a, Peer b)
     {
-        if (a.getStatistic().getRateDl() > b.getStatistic().getRateDl())
+        if (a.getStatistic().getRateDownload() > b.getStatistic().getRateDownload())
         {
             return -1;
         }
-        else if (a.getStatistic().getRateDl() < b.getStatistic().getRateDl())
+        else if (a.getStatistic().getRateDownload() < b.getStatistic().getRateDownload())
         {
             return 1;
         }

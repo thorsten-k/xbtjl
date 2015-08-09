@@ -13,11 +13,11 @@ public class XmlStatisticFactory
 	{
 		Statistic xml = new Statistic();
 		
-		xml.setRateDl(0);
-		xml.setSumDl(0);
+		xml.setRateDownload(0);
+		xml.setRateUpload(0);;
 		
-		xml.setRateUl(0);
-		xml.setSumUl(0);
+		xml.setBytesDownloaded(0);
+		xml.setBytesUploaded(0);
 		
 		return xml;
 	}

@@ -8,11 +8,11 @@ public class RateUploadComparator implements Comparator<Peer>
 {
     public int compare(Peer a, Peer b)
     {
-        if (a.getStatistic().getRateUl() > b.getStatistic().getRateUl())
+        if (a.getStatistic().getRateUpload() > b.getStatistic().getRateUpload())
         {
             return -1;
         }
-        else if (a.getStatistic().getRateUl() < b.getStatistic().getRateUl())
+        else if (a.getStatistic().getRateUpload() < b.getStatistic().getRateUpload())
         {
             return 1;
         }

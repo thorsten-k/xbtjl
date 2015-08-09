@@ -39,8 +39,8 @@ public class TestXmlTrackerRequestFactory extends AbstractUtilTest
     	Assert.assertEquals(expected.getTorrent().getHash().getValue(), actual.getTorrent().getHash().getValue());
     	Assert.assertEquals(expected.getPeer().getPeerId(), actual.getPeer().getPeerId());
     	Assert.assertEquals(expected.getPeer().getListeningPort(), actual.getPeer().getListeningPort());
-    	Assert.assertEquals(expected.getPeer().getStatistic().getSumUl(), actual.getPeer().getStatistic().getSumUl());
-    	Assert.assertEquals(expected.getPeer().getStatistic().getSumDl(), actual.getPeer().getStatistic().getSumDl());
+    	Assert.assertEquals(expected.getPeer().getStatistic().getBytesUploaded(), actual.getPeer().getStatistic().getBytesUploaded());
+    	Assert.assertEquals(expected.getPeer().getStatistic().getBytesDownloaded(), actual.getPeer().getStatistic().getBytesDownloaded());
     	Assert.assertEquals(expected.getPeer().getStatistic().getLeft(), actual.getPeer().getStatistic().getLeft());
     	Assert.assertEquals(expected.getNumWant(), actual.getNumWant());
     }

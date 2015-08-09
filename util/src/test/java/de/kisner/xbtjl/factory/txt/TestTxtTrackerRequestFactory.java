@@ -48,8 +48,8 @@ public class TestTxtTrackerRequestFactory extends AbstractUtilTest
 		xmlTrackerRequest.setTorrent(torrent);
 		xmlTrackerRequest.setPeer(XmlPeerFactory.create("id-üöä","127.0.0.1",123));
 		
-		xmlTrackerRequest.getPeer().getStatistic().setSumDl(1234);
-		xmlTrackerRequest.getPeer().getStatistic().setSumUl(56);
+		xmlTrackerRequest.getPeer().getStatistic().setBytesDownloaded(1234);
+		xmlTrackerRequest.getPeer().getStatistic().setBytesUploaded(56);
 		xmlTrackerRequest.getPeer().getStatistic().setLeft(78);
 		return xmlTrackerRequest;
 	}
@@ -127,14 +127,14 @@ public class TestTxtTrackerRequestFactory extends AbstractUtilTest
     @Test(expected=XbtjlException.class)
     public void withoutPeerStatisticSumDl() throws XbtjlException 
     {
-    	xml.getPeer().getStatistic().unsetSumDl();
+    	xml.getPeer().getStatistic().unsetBytesDownloaded();
     	TxtTrackerRequestFactory.create(xml);
     }
     
     @Test(expected=XbtjlException.class)
     public void withoutPeerStatisticSumUl() throws XbtjlException 
     {
-    	xml.getPeer().getStatistic().unsetSumUl();
+    	xml.getPeer().getStatistic().unsetBytesUploaded();
     	TxtTrackerRequestFactory.create(xml);
     }
     
