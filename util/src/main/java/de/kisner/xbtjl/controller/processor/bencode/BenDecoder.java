@@ -35,7 +35,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import de.kisner.xbtjl.interfaces.protocol.BtProtocol;
+import de.kisner.xbtjl.interfaces.protocol.BitTorrentProtocol;
 
 /**
  * A set of utility methods to decode a bencoded array of byte into a Map.
@@ -135,7 +135,7 @@ public class BenDecoder
 
                     //add the value to the map
 
-                    CharBuffer cb = BtProtocol.BYTE_CHARSET.decode(ByteBuffer.wrap(tempByteArray));
+                    CharBuffer cb = BitTorrentProtocol.BYTE_CHARSET.decode(ByteBuffer.wrap(tempByteArray));
 
                     String key = new String(cb.array(), 0, cb.limit());
 
