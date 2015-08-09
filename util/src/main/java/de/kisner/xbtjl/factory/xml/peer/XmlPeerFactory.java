@@ -23,7 +23,7 @@ public class XmlPeerFactory
 		xml.setListeningPort(listeningPort);
 		xml.setPeerId(listeningIp+":"+listeningPort);
 		
-		xml.setStatistic(XmlStatisticFactory.create());
+		xml.setStatistic(XmlStatisticFactory.build());
 		xml.setInfo(XmlInfoFactory.create());
 		xml.setPieces(new Pieces());
 		

@@ -9,7 +9,7 @@ public class XmlStatisticFactory
 {
 	final static Logger logger = LoggerFactory.getLogger(XmlStatisticFactory.class);
 	
-	public static Statistic create()
+	public static Statistic build()
 	{
 		Statistic xml = new Statistic();
 		
