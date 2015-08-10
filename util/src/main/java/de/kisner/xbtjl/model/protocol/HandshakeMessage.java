@@ -1,10 +1,10 @@
 package de.kisner.xbtjl.model.protocol;
 
 import de.kisner.xbtjl.factory.protocol.BtMessageHandshakeFactory;
-import de.kisner.xbtjl.interfaces.protocol.BtMessage;
+import de.kisner.xbtjl.interfaces.protocol.BitTorrentMessage;
 import de.kisner.xbtjl.interfaces.protocol.BtProtocolMessage.MsgType;
 
-public class HandshakeMessage implements BtMessage
+public class HandshakeMessage implements BitTorrentMessage
 {    
     public HandshakeMessage()
     {

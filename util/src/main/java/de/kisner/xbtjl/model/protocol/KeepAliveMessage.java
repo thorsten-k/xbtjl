@@ -2,10 +2,10 @@ package de.kisner.xbtjl.model.protocol;
 
 import java.nio.ByteBuffer;
 
-import de.kisner.xbtjl.interfaces.protocol.BtMessage;
+import de.kisner.xbtjl.interfaces.protocol.BitTorrentMessage;
 import de.kisner.xbtjl.interfaces.protocol.BtProtocolMessage.MsgType;
 
-public class KeepAliveMessage implements BtMessage
+public class KeepAliveMessage implements BitTorrentMessage
 {
     public KeepAliveMessage()
     {

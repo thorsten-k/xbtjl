@@ -1,6 +1,6 @@
 package de.kisner.xbtjl.interfaces.protocol;
 
-public interface BtProtocolMessage extends BtMessage
+public interface BtProtocolMessage extends BitTorrentMessage
 {
 	public static final int _KEEP_ALIVE = 0;
 	public static final int _CHOKE = 1;
