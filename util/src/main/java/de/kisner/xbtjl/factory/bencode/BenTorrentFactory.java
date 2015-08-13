@@ -17,9 +17,7 @@ import de.kisner.xbtjl.exception.XbtjlException;
 import de.kisner.xbtjl.factory.xml.bittorrent.XmlFileFactory;
 import de.kisner.xbtjl.factory.xml.bittorrent.XmlHashFactory;
 import de.kisner.xbtjl.factory.xml.bittorrent.XmlPiecesFactory;
-import de.kisner.xbtjl.factory.xml.peer.XmlPeerFactory;
 import de.kisner.xbtjl.factory.xml.tracker.XmlTrackerFactory;
-import de.kisner.xbtjl.model.xml.peer.Peer;
 import de.kisner.xbtjl.model.xml.torrent.Comment;
 import de.kisner.xbtjl.model.xml.torrent.Files;
 import de.kisner.xbtjl.model.xml.torrent.Meta;
@@ -72,12 +70,16 @@ public class BenTorrentFactory
                     xml.setTotalLength(xml.getTotalLength()+ ((Long) ((Map) multFiles.get(i)).get("length")).intValue());
                     
                     List path = (List) ((Map) multFiles.get(i)).get("path");
-                    String filePath = "";
-                    for (int j = 0; j < path.size(); j++) {filePath += new String((byte[]) path.get(j)); }
+                    StringBuffer sbFileName = new StringBuffer();
+                    for (int j = 0; j < path.size(); j++)
+                    {
+                    	sbFileName.append(new String((byte[]) path.get(j)));
+                    }
+                    
                     de.kisner.xbtjl.model.xml.torrent.File file = new de.kisner.xbtjl.model.xml.torrent.File();
-                    file.setValue(filePath);
+                    file.setValue(sbFileName.toString());
                     file.setLength(((Long) ((Map) multFiles.get(i)).get("length")).intValue());
-                   xml.getFiles().getFile().add(file);
+                    xml.getFiles().getFile().add(file);
                 }
             }
             else
@@ -104,7 +106,7 @@ public class BenTorrentFactory
                 byte[] piecesHash2 = (byte[]) info.get("pieces");
                 if(piecesHash2.length % 20 != 0)
                 {
-                	//TODO Error
+                	//TODO tk handle error
                     return null;
                 }
                 

@@ -18,7 +18,7 @@ public class TestXmlFiles extends AbstractXmlBittorrentTest
 	@BeforeClass public static void initFiles(){setXmlFile(dirSuffix, Files.class);}
     
     @Test
-    public void testAclContainer() throws FileNotFoundException
+    public void xml() throws FileNotFoundException
     {
     	Files actual = create(true);
     	Files expected = JaxbUtil.loadJAXB(fXml.getAbsolutePath(), Files.class);
@@ -28,6 +28,9 @@ public class TestXmlFiles extends AbstractXmlBittorrentTest
     public static Files create(boolean withChilds)
     {
     	Files xml = new Files();
+    	xml.setSize(13);
+    	xml.setDirectory("myDirectory");
+    	
     	if(withChilds)
     	{
     		xml.getFile().add(TestXmlFile.create());

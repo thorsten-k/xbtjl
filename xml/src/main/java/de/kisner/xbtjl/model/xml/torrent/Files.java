@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
@@ -23,6 +24,8 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;sequence>
  *         &lt;element ref="{http://xbtjl.kisner.de/torrent}file" maxOccurs="unbounded"/>
  *       &lt;/sequence>
+ *       &lt;attribute name="size" type="{http://www.w3.org/2001/XMLSchema}int" />
+ *       &lt;attribute name="directory" type="{http://www.w3.org/2001/XMLSchema}string" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -42,6 +45,10 @@ public class Files
     private final static long serialVersionUID = 1L;
     @XmlElement(required = true)
     protected List<File> file;
+    @XmlAttribute(name = "size")
+    protected Integer size;
+    @XmlAttribute(name = "directory")
+    protected String directory;
 
     /**
      * Gets the value of the file property.
@@ -78,6 +85,66 @@ public class Files
 
     public void unsetFile() {
         this.file = null;
+    }
+
+    /**
+     * Gets the value of the size property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Integer }
+     *     
+     */
+    public int getSize() {
+        return size;
+    }
+
+    /**
+     * Sets the value of the size property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Integer }
+     *     
+     */
+    public void setSize(int value) {
+        this.size = value;
+    }
+
+    public boolean isSetSize() {
+        return (this.size!= null);
+    }
+
+    public void unsetSize() {
+        this.size = null;
+    }
+
+    /**
+     * Gets the value of the directory property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getDirectory() {
+        return directory;
+    }
+
+    /**
+     * Sets the value of the directory property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setDirectory(String value) {
+        this.directory = value;
+    }
+
+    public boolean isSetDirectory() {
+        return (this.directory!= null);
     }
 
 }
