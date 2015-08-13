@@ -58,8 +58,6 @@ public class BenTorrentFactory
             Map<String,?> info = (Map<String,?>)m.get("info");
             xml.setHash(XmlHashFactory.createFromBenByte(BenEncoder.encode(info)));
             
-            if (info.containsKey("name")) {xml.setFile(BenTorrentFactory.buildFile(info));}
-            
             xml.setFiles(new Files());
             if (info.containsKey("files"))
             {            	
@@ -89,6 +87,19 @@ public class BenTorrentFactory
                 file.setValue(new String((byte[]) info.get("name")));
                 file.setLength(((Long) info.get("length")).intValue());
                 xml.getFiles().getFile().add(file);
+            }
+            xml.getFiles().setSize(xml.getFiles().getFile().size());
+            
+            if(xml.getFiles().getSize()>1 && info.containsKey("name"))
+            {
+            	// Adding directoy information if more than one file
+            	xml.getFiles().setDirectory(new String((byte[]) info.get("name")));
+            }
+            
+            if (info.containsKey("name"))
+            {
+            	// This is deprecatedd
+            	xml.setFile(BenTorrentFactory.buildFile(info));
             }
             
             if (info.containsKey("piece length"))
