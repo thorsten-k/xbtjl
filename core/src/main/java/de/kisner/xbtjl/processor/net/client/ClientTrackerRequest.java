@@ -12,6 +12,7 @@ import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import de.kisner.xbtjl.client.TrackerUplink;
 import de.kisner.xbtjl.factory.bencode.BenTrackerResponseFactory;
 import de.kisner.xbtjl.factory.xml.bittorrent.XmlHashFactory;
 import de.kisner.xbtjl.factory.xml.peer.XmlPeerFactory;
@@ -20,19 +21,18 @@ import de.kisner.xbtjl.model.xml.peer.Peer;
 import de.kisner.xbtjl.model.xml.peer.Statistic;
 import de.kisner.xbtjl.model.xml.torrent.Torrent;
 import de.kisner.xbtjl.model.xml.tracker.TrackerResponse;
-import de.kisner.xbtjl.processor.client.PeerListUpdater;
 import net.sf.exlp.util.io.ByteUtil;
 import net.sf.exlp.util.xml.JaxbUtil;
 
 public class ClientTrackerRequest
 {
-	final static Logger logger = LoggerFactory.getLogger(PeerListUpdater.class);
+	final static Logger logger = LoggerFactory.getLogger(TrackerUplink.class);
 	
 	private Peer localPeer;
 	private Torrent xmlTorrent;
-	private PeerListUpdater peerUpdater;
+	private TrackerUplink peerUpdater;
 	
-	public ClientTrackerRequest(Peer localPeer,Torrent xmlTorrent,PeerListUpdater peerUpdater)
+	public ClientTrackerRequest(Peer localPeer,Torrent xmlTorrent,TrackerUplink peerUpdater)
 	{
 		this.localPeer=localPeer;
 		this.xmlTorrent=xmlTorrent;

@@ -1,4 +1,4 @@
-package de.kisner.xbtjl.processor.client;
+package de.kisner.xbtjl.client;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -17,9 +17,9 @@ import de.kisner.xbtjl.model.xml.tracker.TrackerResponse;
 import de.kisner.xbtjl.processor.net.client.ClientTrackerRequest;
 import net.sf.exlp.util.xml.JaxbUtil;
 
-public class PeerListUpdater extends Thread
+public class TrackerUplink extends Thread
 {
-	final static Logger logger = LoggerFactory.getLogger(PeerListUpdater.class);
+	final static Logger logger = LoggerFactory.getLogger(TrackerUplink.class);
 	
     private Statistic statistic;
     public Statistic getStatistic() {return statistic;}
@@ -31,7 +31,7 @@ public class PeerListUpdater extends Thread
     
     private ClientTrackerRequest trackerRequest;
 
-    public PeerListUpdater(Peer localPeer, Torrent xmlTorrent)
+    public TrackerUplink(Peer localPeer, Torrent xmlTorrent)
     {
     	listeners = new ArrayList<TrackerEventListener>();
     	trackerUpdateInterval = 300;
