@@ -1,4 +1,4 @@
-package de.kisner.xbtjl.factory.xml.bittorrent;
+package de.kisner.xbtjl.factory.xml.torrent;
 
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Hex;

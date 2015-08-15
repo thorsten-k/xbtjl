@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 
 import de.kisner.xbtjl.interfaces.listener.OutboundListener;
 import de.kisner.xbtjl.interfaces.protocol.BitTorrentMessage;
-import de.kisner.xbtjl.model.protocol.KeepAliveMessage;
+import de.kisner.xbtjl.model.protocol.control.KeepAliveMessage;
 
 public class MessageSender extends Thread
 {

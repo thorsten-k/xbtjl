@@ -6,7 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import de.kisner.xbtjl.exception.XbtjlException;
-import de.kisner.xbtjl.factory.xml.bittorrent.XmlHashFactory;
+import de.kisner.xbtjl.factory.xml.torrent.XmlHashFactory;
 import de.kisner.xbtjl.model.xml.peer.Peer;
 import de.kisner.xbtjl.model.xml.peer.Statistic;
 import de.kisner.xbtjl.model.xml.torrent.Hash;

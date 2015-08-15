@@ -14,8 +14,8 @@ import org.slf4j.LoggerFactory;
 
 import de.kisner.xbtjl.client.TrackerUplink;
 import de.kisner.xbtjl.factory.bencode.BenTrackerResponseFactory;
-import de.kisner.xbtjl.factory.xml.bittorrent.XmlHashFactory;
 import de.kisner.xbtjl.factory.xml.peer.XmlPeerFactory;
+import de.kisner.xbtjl.factory.xml.torrent.XmlHashFactory;
 import de.kisner.xbtjl.interfaces.listener.TrackerEventListener;
 import de.kisner.xbtjl.model.xml.peer.Peer;
 import de.kisner.xbtjl.model.xml.peer.Statistic;
