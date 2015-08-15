@@ -6,16 +6,16 @@ import java.nio.ByteBuffer;
 
 import org.apache.commons.io.IOUtils;
 
-import de.kisner.xbtjl.factory.protocol.BtMessageTypeFactory;
+import de.kisner.xbtjl.interfaces.protocol.BitTorrentMessage;
 import de.kisner.xbtjl.interfaces.protocol.BtProtocolMessage;
 import de.kisner.xbtjl.interfaces.protocol.BtProtocolMessage.MsgType;
-import de.kisner.xbtjl.model.protocol.payload.PayloadMessage;
+import de.kisner.xbtjl.model.protocol.data.DataMessage;
 
-public class BtPeerMessageFactory 
+public class BtMessageFactory 
 {
-   public static PayloadMessage build(MsgType type)
+   public static BitTorrentMessage build(MsgType type)
    {
-	   PayloadMessage message = new PayloadMessage();
+	   DataMessage message = new DataMessage();
 	   message.setType(type);
 	   
        switch (BtMessageTypeFactory.toId(type))
@@ -44,9 +44,9 @@ public class BtPeerMessageFactory
 	   return message;
    }
    
-   public static PayloadMessage build(MsgType type, byte[] payload)
+   public static DataMessage build(MsgType type, byte[] payload)
    {
-	   PayloadMessage message = new PayloadMessage();
+	   DataMessage message = new DataMessage();
 	   message.setType(type);
 	   
 	   switch (BtMessageTypeFactory.toId(type))
@@ -86,13 +86,13 @@ public class BtPeerMessageFactory
 	   return message;
    }
    
-   public static PayloadMessage build(InputStream is) throws IOException
+   public static BitTorrentMessage build(InputStream is) throws IOException
    {
-	   PayloadMessage mess = null;
+	   BitTorrentMessage mess = null;
 	   
 	   int length = ByteBuffer.wrap(IOUtils.toByteArray(is, 4)).getInt();
        
-       if (length == 0) {mess = BtPeerMessageFactory.build(BtMessageTypeFactory.toEnum(BtProtocolMessage._KEEP_ALIVE));}
+       if (length == 0) {mess = BtMessageFactory.build(BtMessageTypeFactory.toEnum(BtProtocolMessage._KEEP_ALIVE));}
        else
        {
     	   int id = is.read();
@@ -103,11 +103,11 @@ public class BtPeerMessageFactory
            }
            else
            {
-               if (length == 1){mess = BtPeerMessageFactory.build(BtMessageTypeFactory.toEnum(id + 1));}
+               if (length == 1){mess = BtMessageFactory.build(BtMessageTypeFactory.toEnum(id + 1));}
                else
                {
                    byte[] payload = IOUtils.toByteArray(is, length-1);
-                   mess = BtPeerMessageFactory.build(BtMessageTypeFactory.toEnum(id + 1),payload);
+                   mess = BtMessageFactory.build(BtMessageTypeFactory.toEnum(id + 1),payload);
                }
            }
        }

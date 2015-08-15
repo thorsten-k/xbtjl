@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 
 import de.kisner.xbtjl.interfaces.protocol.BtProtocolMessage;
 import de.kisner.xbtjl.model.protocol.control.ControlMessage;
-import de.kisner.xbtjl.model.protocol.payload.PayloadMessage;
+import de.kisner.xbtjl.model.protocol.data.DataMessage;
 import net.sf.exlp.util.io.BitUtil;
 import net.sf.exlp.util.io.ByteUtil;
 
@@ -15,7 +15,7 @@ public class TxtPeerMessageFactory
 {
 	final static Logger logger = LoggerFactory.getLogger(ControlMessage.class);
 	
-	public static String build(PayloadMessage message)
+	public static String build(DataMessage message)
     {
         StringBuffer sb = new StringBuffer();
 

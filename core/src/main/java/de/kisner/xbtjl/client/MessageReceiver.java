@@ -10,7 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import de.kisner.xbtjl.factory.protocol.BtMessageHandshakeFactory;
-import de.kisner.xbtjl.factory.protocol.BtPeerMessageFactory;
+import de.kisner.xbtjl.factory.protocol.BtMessageFactory;
 import de.kisner.xbtjl.interfaces.listener.InboundListener;
 import de.kisner.xbtjl.interfaces.protocol.BitTorrentMessage;
 import de.kisner.xbtjl.model.protocol.MalformedMessage;
@@ -49,7 +49,7 @@ public class MessageReceiver extends Thread
                 }
                 else
                 {
-                	message = BtPeerMessageFactory.build(is);
+                	message = BtMessageFactory.build(is);
                 	if(message==null){logger.warn("Should be a PeerMessage, but null");}
                 }
             }

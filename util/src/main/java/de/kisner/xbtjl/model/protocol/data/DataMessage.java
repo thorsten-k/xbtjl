@@ -1,4 +1,4 @@
-package de.kisner.xbtjl.model.protocol.payload;
+package de.kisner.xbtjl.model.protocol.data;
 
 import de.kisner.xbtjl.factory.protocol.BtMessageTypeFactory;
 import de.kisner.xbtjl.factory.txt.TxtPeerMessageFactory;
@@ -6,9 +6,9 @@ import de.kisner.xbtjl.interfaces.protocol.BtProtocolMessage;
 import de.kisner.xbtjl.model.protocol.control.ControlMessage;
 import net.sf.exlp.util.io.ByteUtil;
 
-public class PayloadMessage extends ControlMessage implements BtProtocolMessage
+public class DataMessage extends ControlMessage implements BtProtocolMessage
 {
-	public PayloadMessage()
+	public DataMessage()
 	{
 	
 	}
