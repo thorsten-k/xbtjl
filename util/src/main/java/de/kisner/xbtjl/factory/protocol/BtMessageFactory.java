@@ -7,6 +7,8 @@ import java.nio.ByteBuffer;
 import org.apache.commons.io.IOUtils;
 
 import de.kisner.xbtjl.interfaces.protocol.BitTorrentMessage;
+import de.kisner.xbtjl.interfaces.protocol.BtProtocolMessage.MsgType;
+import de.kisner.xbtjl.model.protocol.MalformedMessage;
 import de.kisner.xbtjl.model.protocol.control.KeepAliveMessage;
 
 public class BtMessageFactory 
@@ -21,18 +23,18 @@ public class BtMessageFactory
        else
        {
     	   int id = is.read();
-           if(id == -1)
-           {
-               System.err.println("id");
-               message = null;
-           }
+           if(id == -1) {message = new MalformedMessage("Cannot read the msgId");}
            else
            {
-               if (length == 1){message = BtMessageControlFactory.build(BtMessageTypeFactory.toEnum(id + 1));}
+        	   MsgType type = BtMessageTypeFactory.toEnumPlus1(id);
+               if (length == 1)
+               {
+            	   message = BtMessageControlFactory.build(type);
+               }
                else
                {
                    byte[] payload = IOUtils.toByteArray(is, length-1);
-                   message = BtMessageDataFactory.build(BtMessageTypeFactory.toEnum(id + 1),payload);
+                   message = BtMessageDataFactory.build(type,payload);
                }
            }
        }

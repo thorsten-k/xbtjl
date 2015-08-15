@@ -16,7 +16,7 @@ public interface BtProtocolMessage extends BitTorrentMessage
     public static final String[] TYPE = {"Keep_Alive", "Choke", "Unchoke","Interested", "Not_Interested", "Have","Bitfield", "Request", "Piece","Cancel", "Port"};
     
     public static enum OtherType {HANDSHAKE,KEEP_ALIVE}
-    public static enum MsgType {HANDSHAKEX,KEEP_ALIVE,CHOKE,UNCHOKE,INTERESTED,NOT_INTERESTED,HAVE,BITFIELD,REQUEST,PIECE,CANCEL,PORT}
+    public static enum MsgType {HANDSHAKEXx,KEEP_ALIVE,CHOKE,UNCHOKE,INTERESTED,NOT_INTERESTED,HAVE,BITFIELD,REQUEST,PIECE,CANCEL,PORT}
 	    
     MsgType getType();
 }

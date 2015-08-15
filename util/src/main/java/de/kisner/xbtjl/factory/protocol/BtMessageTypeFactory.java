@@ -12,6 +12,10 @@ public class BtMessageTypeFactory
     	return id;
     }
     
+    public static MsgType toEnumPlus1(int id)
+    {
+    	return toEnum(id+1);
+    }
     public static MsgType toEnum(int id)
     {
 //    	if(id<0 || id>9){throw new RuntimeException("id of "+id+" is undefined");}
