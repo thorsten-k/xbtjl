@@ -7,7 +7,9 @@ import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import de.kisner.xbtjl.interfaces.protocol.BitTorrentMessage;
 import de.kisner.xbtjl.model.protocol.HandshakeMessage;
+import de.kisner.xbtjl.model.protocol.MalformedMessage;
 import net.sf.exlp.util.io.ByteUtil;
 
 /**
@@ -19,16 +21,14 @@ public class BtMessageHandshakeFactory
 {   
 	final static Logger logger = LoggerFactory.getLogger(BtMessageHandshakeFactory.class);
 	
-	public static HandshakeMessage build(InputStream is)
+	public static BitTorrentMessage build(InputStream is)
 	{
         try
         {
         	HandshakeMessage msg = new HandshakeMessage();
         	
-        	byte[] _length = IOUtils.toByteArray(is, 1);
-        	msg.setLength(_length);
-        	
-        	int length = new Integer(_length[0]);
+        	byte[] length = IOUtils.toByteArray(is, 1);
+        	msg.setLength(length);
         	
         	msg.setProtocol(new String(IOUtils.toByteArray(is, 19)));	
         	msg.setReserved(IOUtils.toByteArray(is, 8));
@@ -39,8 +39,7 @@ public class BtMessageHandshakeFactory
 		}
         catch (IOException e)
         {
-//			e.printStackTrace();
-			return null;
+			return new MalformedMessage(e.getMessage());
 		}
 	}
 	

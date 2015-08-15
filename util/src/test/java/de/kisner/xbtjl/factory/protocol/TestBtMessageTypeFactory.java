@@ -8,8 +8,6 @@ import org.slf4j.LoggerFactory;
 
 import de.kisner.xbtjl.exception.XbtjlException;
 import de.kisner.xbtjl.exception.XbtjlProtocolException;
-import de.kisner.xbtjl.factory.protocol.BtMessageTypeFactory;
-import de.kisner.xbtjl.interfaces.protocol.BtProtocolMessage;
 import de.kisner.xbtjl.interfaces.protocol.BtProtocolMessage.MsgType;
 import de.kisner.xbtjl.test.AbstractUtilTest;
 
@@ -32,12 +30,6 @@ public class TestBtMessageTypeFactory extends AbstractUtilTest
     	Assert.assertEquals(7, BtMessageTypeFactory.toId(MsgType.PIECE));
     	Assert.assertEquals(8, BtMessageTypeFactory.toId(MsgType.CANCEL));
     	Assert.assertEquals(9, BtMessageTypeFactory.toId(MsgType.PORT));
-    }
-    
-    @Test(expected=XbtjlProtocolException.class) @Ignore
-    public void enum2IdInvalidHandshake() throws XbtjlException 
-    {	
-    	BtMessageTypeFactory.toId(MsgType.HANDSHAKE);
     }
     
     @Test(expected=XbtjlProtocolException.class) @Ignore
