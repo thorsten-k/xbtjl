@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 
 import de.kisner.xbtjl.exception.XbtjlException;
 import de.kisner.xbtjl.exception.XbtjlProtocolException;
+import de.kisner.xbtjl.interfaces.protocol.BtProtocolMessage;
 import de.kisner.xbtjl.interfaces.protocol.BtProtocolMessage.MsgType;
 import de.kisner.xbtjl.test.AbstractUtilTest;
 
@@ -31,6 +32,21 @@ public class TestBtMessageTypeFactory extends AbstractUtilTest
     	Assert.assertEquals(8, BtMessageTypeFactory.toId(MsgType.CANCEL));
     	Assert.assertEquals(9, BtMessageTypeFactory.toId(MsgType.PORT));
     }
+    
+    @Test
+    public void enum2Field() throws XbtjlException 
+    {	
+    	Assert.assertEquals(BtProtocolMessage._CHOKE, BtMessageTypeFactory.toId(MsgType.CHOKE));
+/*    	Assert.assertEquals(BtProtocolMessage._UNCHOKE, BtMessageTypeFactory.toId(MsgType.UNCHOKE));
+    	Assert.assertEquals(BtProtocolMessage._INTERESTED, BtMessageTypeFactory.toId(MsgType.INTERESTED));
+    	Assert.assertEquals(3, BtMessageTypeFactory.toId(MsgType.NOT_INTERESTED));
+    	Assert.assertEquals(4, BtMessageTypeFactory.toId(MsgType.HAVE));
+    	Assert.assertEquals(5, BtMessageTypeFactory.toId(MsgType.BITFIELD));
+    	Assert.assertEquals(6, BtMessageTypeFactory.toId(MsgType.REQUEST));
+    	Assert.assertEquals(7, BtMessageTypeFactory.toId(MsgType.PIECE));
+    	Assert.assertEquals(8, BtMessageTypeFactory.toId(MsgType.CANCEL));
+    	Assert.assertEquals(9, BtMessageTypeFactory.toId(MsgType.PORT));
+*/    }
     
     @Test(expected=XbtjlProtocolException.class) @Ignore
     public void enum2IdInvalidKeepAlive() throws XbtjlException 

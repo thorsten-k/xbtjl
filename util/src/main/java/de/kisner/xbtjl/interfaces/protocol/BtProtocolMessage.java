@@ -2,7 +2,7 @@ package de.kisner.xbtjl.interfaces.protocol;
 
 public interface BtProtocolMessage extends BitTorrentMessage
 {
-	public static final int _KEEP_ALIVE = 0;
+//	public static final int KEEP_ALIVE = 0;
 	public static final int _CHOKE = 1;
     public static final int _UNCHOKE = 2;
     public static final int _INTERESTED = 3;
