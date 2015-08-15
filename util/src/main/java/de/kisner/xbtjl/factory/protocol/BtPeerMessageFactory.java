@@ -9,13 +9,13 @@ import org.apache.commons.io.IOUtils;
 import de.kisner.xbtjl.factory.protocol.BtMessageTypeFactory;
 import de.kisner.xbtjl.interfaces.protocol.BtProtocolMessage;
 import de.kisner.xbtjl.interfaces.protocol.BtProtocolMessage.MsgType;
-import de.kisner.xbtjl.model.protocol.PeerMessage;
+import de.kisner.xbtjl.model.protocol.payload.PayloadMessage;
 
 public class BtPeerMessageFactory 
 {
-   public static PeerMessage build(MsgType type)
+   public static PayloadMessage build(MsgType type)
    {
-	   PeerMessage message = new PeerMessage();
+	   PayloadMessage message = new PayloadMessage();
 	   message.setType(type);
 	   
        switch (BtMessageTypeFactory.toId(type))
@@ -44,9 +44,9 @@ public class BtPeerMessageFactory
 	   return message;
    }
    
-   public static PeerMessage build(MsgType type, byte[] payload)
+   public static PayloadMessage build(MsgType type, byte[] payload)
    {
-	   PeerMessage message = new PeerMessage();
+	   PayloadMessage message = new PayloadMessage();
 	   message.setType(type);
 	   
 	   switch (BtMessageTypeFactory.toId(type))
@@ -86,9 +86,9 @@ public class BtPeerMessageFactory
 	   return message;
    }
    
-   public static PeerMessage build(InputStream is) throws IOException
+   public static PayloadMessage build(InputStream is) throws IOException
    {
-	   PeerMessage mess = null;
+	   PayloadMessage mess = null;
 	   
 	   int length = ByteBuffer.wrap(IOUtils.toByteArray(is, 4)).getInt();
        

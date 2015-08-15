@@ -2,14 +2,20 @@ package de.kisner.xbtjl.factory.txt;
 
 import java.util.Arrays;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import de.kisner.xbtjl.interfaces.protocol.BtProtocolMessage;
-import de.kisner.xbtjl.model.protocol.PeerMessage;
+import de.kisner.xbtjl.model.protocol.control.ControlMessage;
+import de.kisner.xbtjl.model.protocol.payload.PayloadMessage;
 import net.sf.exlp.util.io.BitUtil;
 import net.sf.exlp.util.io.ByteUtil;
 
 public class TxtPeerMessageFactory 
 {
-	public static String build(PeerMessage message)
+	final static Logger logger = LoggerFactory.getLogger(ControlMessage.class);
+	
+	public static String build(PayloadMessage message)
     {
         StringBuffer sb = new StringBuffer();
 
@@ -46,6 +52,23 @@ public class TxtPeerMessageFactory
 	                case BtProtocolMessage._PORT:
                     break;
                 }
+            }
+        }
+        return sb.toString();
+    }
+	
+	public static String build(ControlMessage message)
+    {
+        StringBuffer sb = new StringBuffer();
+
+        int length = ByteUtil.toInt(message.getLength());
+        sb.append("<length=" + length + ">");
+        if (length > 0)
+        {
+        	sb.append("<id=" + (int)message.getID()[0] + ">");
+            if (length > 1)
+            {
+                logger.warn("This should not happen");
             }
         }
         return sb.toString();

@@ -1,29 +1,18 @@
-package de.kisner.xbtjl.model.protocol;
+package de.kisner.xbtjl.model.protocol.payload;
 
 import de.kisner.xbtjl.factory.protocol.BtMessageTypeFactory;
 import de.kisner.xbtjl.factory.txt.TxtPeerMessageFactory;
 import de.kisner.xbtjl.interfaces.protocol.BtProtocolMessage;
+import de.kisner.xbtjl.model.protocol.control.ControlMessage;
 import net.sf.exlp.util.io.ByteUtil;
 
-public class PeerMessage implements BtProtocolMessage
+public class PayloadMessage extends ControlMessage implements BtProtocolMessage
 {
-	public PeerMessage()
+	public PayloadMessage()
 	{
 	
 	}
 	
-    protected MsgType type;
-	@Override public MsgType getType(){return this.type;}
-	public void setType(MsgType type) {this.type = type;}
-
-    private byte[] length = new byte[4];
-    public byte[] getLength() {return this.length;}
-    public void setLength(byte[] length) {this.length = length;}
-
-    private byte[] id = new byte[1];
-    public byte[] getID() {return this.id;}
-    public void setID(int id) {this.id[0] = (byte) id;}
-
     private byte[] payload;
     public byte[] getPayload() {return this.payload;}
     public void setPayload(byte[] payload) {this.payload = payload;}
