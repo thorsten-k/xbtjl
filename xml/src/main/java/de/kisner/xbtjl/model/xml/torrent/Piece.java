@@ -23,7 +23,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element ref="{http://xbtjl.kisner.de/torrent}hash"/>
  *       &lt;/sequence>
  *       &lt;attribute name="index" type="{http://www.w3.org/2001/XMLSchema}int" />
- *       &lt;attribute name="length" type="{http://www.w3.org/2001/XMLSchema}long" />
+ *       &lt;attribute name="length" type="{http://www.w3.org/2001/XMLSchema}int" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -46,7 +46,7 @@ public class Piece
     @XmlAttribute(name = "index")
     protected Integer index;
     @XmlAttribute(name = "length")
-    protected Long length;
+    protected Integer length;
 
     /**
      * Gets the value of the hash property.
@@ -113,10 +113,10 @@ public class Piece
      * 
      * @return
      *     possible object is
-     *     {@link Long }
+     *     {@link Integer }
      *     
      */
-    public long getLength() {
+    public int getLength() {
         return length;
     }
 
@@ -125,10 +125,10 @@ public class Piece
      * 
      * @param value
      *     allowed object is
-     *     {@link Long }
+     *     {@link Integer }
      *     
      */
-    public void setLength(long value) {
+    public void setLength(int value) {
         this.length = value;
     }
 

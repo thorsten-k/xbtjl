@@ -10,7 +10,7 @@ public class XmlPieceFactory
 {
 	final static Logger logger = LoggerFactory.getLogger(XmlPieceFactory.class);
 	
-	public static Piece build(int index, long length, Hash hash)
+	public static Piece build(int index, int length, Hash hash)
 	{	
 		Piece xml = new Piece();
 		xml.setIndex(index);

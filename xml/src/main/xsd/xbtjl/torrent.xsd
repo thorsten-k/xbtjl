@@ -84,7 +84,7 @@
                 <xsd:element ref="bt:hash" maxOccurs="1"/>
             </xsd:sequence>
             <xsd:attribute name="index" type="xsd:int"/>
-            <xsd:attribute name="length" type="xsd:long"/>
+            <xsd:attribute name="length" type="xsd:int"/>
         </xsd:complexType>
     </xsd:element>
 </xsd:schema>
