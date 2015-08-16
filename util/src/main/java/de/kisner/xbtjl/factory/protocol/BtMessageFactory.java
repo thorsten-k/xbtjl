@@ -3,6 +3,7 @@ package de.kisner.xbtjl.factory.protocol;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
+import java.util.Arrays;
 
 import org.apache.commons.io.IOUtils;
 
@@ -10,7 +11,6 @@ import de.kisner.xbtjl.interfaces.protocol.BitTorrentMessage;
 import de.kisner.xbtjl.interfaces.protocol.BtProtocolMessage;
 import de.kisner.xbtjl.interfaces.protocol.BtProtocolMessage.MsgType;
 import de.kisner.xbtjl.model.protocol.MalformedMessage;
-import de.kisner.xbtjl.model.protocol.control.AbstractControlMessage;
 import de.kisner.xbtjl.model.protocol.control.ChokeMessage;
 import de.kisner.xbtjl.model.protocol.control.InterestedMessage;
 import de.kisner.xbtjl.model.protocol.control.KeepAliveMessage;
@@ -23,6 +23,7 @@ import de.kisner.xbtjl.model.protocol.data.HaveMessage;
 import de.kisner.xbtjl.model.protocol.data.PieceMessage;
 import de.kisner.xbtjl.model.protocol.data.PortMessage;
 import de.kisner.xbtjl.model.protocol.data.RequestMessage;
+import net.sf.exlp.util.io.ByteUtil;
 
 public class BtMessageFactory 
 {
@@ -117,9 +118,13 @@ public class BtMessageFactory
 	public static RequestMessage request(byte[] payload)
 	{
 		RequestMessage message = new RequestMessage();
-    	message.setLength(new byte[] {0, 0, 0, 13});
+		message.setType(BtMessageTypeFactory.toEnum(BtProtocolMessage._REQUEST));
+
     	message.setPayload(payload);
-	   	message.setType(BtMessageTypeFactory.toEnum(BtProtocolMessage._REQUEST));
+    	message.setBlockIndex (ByteUtil.toInt(Arrays.copyOfRange(payload, 0, 4)));
+    	message.setBlockOffset(ByteUtil.toInt(Arrays.copyOfRange(payload, 4, 8)));
+    	message.setBlockLength(ByteUtil.toInt(Arrays.copyOfRange(payload, 8, 12)));
+	   	
 	   	return message;
 	}
 	
