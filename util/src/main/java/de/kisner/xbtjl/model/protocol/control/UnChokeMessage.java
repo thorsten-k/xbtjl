@@ -12,5 +12,7 @@ public class UnChokeMessage extends AbstractControlMessage implements BtProtocol
 	public UnChokeMessage()
 	{
 		this.setId(1);
+		this.setType(MsgType.UNCHOKE);
+		this.setLength(new byte[] {0, 0, 0, 1});
 	}
 }

@@ -12,5 +12,7 @@ public class InterestedMessage extends AbstractControlMessage implements BtProto
 	public InterestedMessage()
 	{
 		this.setId(2);
+		this.setType(MsgType.INTERESTED);
+		this.setLength(new byte[] {0, 0, 0, 1});
 	}
 }

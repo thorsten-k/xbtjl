@@ -12,5 +12,7 @@ public class ChokeMessage extends AbstractControlMessage implements BtProtocolMe
 	public ChokeMessage()
 	{
 		this.setId(0);
+		this.setType(MsgType.CHOKE);
+		this.setLength(new byte[] {0, 0, 0, 1});
 	}
 }

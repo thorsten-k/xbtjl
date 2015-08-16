@@ -16,23 +16,23 @@ import de.kisner.xbtjl.model.protocol.data.RequestMessage;
 public class BtMessageDataFactory
 {
 	public static BitTorrentMessage build(MsgType type, byte[] payload)
-	   {
-	   	BitTorrentMessage msg = null;
-		   AbstractDataMessage message = new AbstractDataMessage();
-		   message.setType(type);
-		   
-		   switch (BtMessageTypeFactory.toId(type))
-	       {
-		        case 5: msg = have(payload);break;
-		        case 6: msg = bitfield(payload);break;
-		        case 7: msg = request(payload);break;
-		        case 8: msg = piece(payload);break;
-		        case 9: msg = cancel(type, payload);break;
-		        case 10:msg = port(type, payload);break;
-	       }
-		   if(msg!=null){return msg;}
-		   return message;
-	   }
+	{
+		BitTorrentMessage msg = null;
+		AbstractDataMessage message = new AbstractDataMessage();
+		message.setType(type);
+	   
+		switch (BtMessageTypeFactory.toId(type))
+       {
+	        case 5: msg = have(payload);break;
+	        case 6: msg = bitfield(payload);break;
+	        case 7: msg = request(payload);break;
+	        case 8: msg = piece(payload);break;
+	        case 9: msg = cancel(type, payload);break;
+	        case 10:msg = port(type, payload);break;
+       }
+	   if(msg!=null){return msg;}
+	   return message;
+	}
 	   
 	public static HaveMessage have(byte[] payload)
 	{
