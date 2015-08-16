@@ -9,6 +9,12 @@ public class RequestMessage extends AbstractDataMessage implements BtProtocolMes
 {
 	final static Logger logger = LoggerFactory.getLogger(RequestMessage.class);
 	
+	/**
+	 * +-------------+--------+-------------+--------------+--------------+
+	 * | Length: 13  | ID: 6  | Piece Index | Block Offset | Block Length |
+	 * +-------------+--------+-------------+--------------+--------------+
+	 */
+	
 	public RequestMessage()
 	{
 		this.setId(6);
