@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 
 import de.kisner.xbtjl.interfaces.protocol.BtProtocolMessage;
 
-public class InterestedMessage extends ControlMessage implements BtProtocolMessage
+public class InterestedMessage extends AbstractControlMessage implements BtProtocolMessage
 {
 	final static Logger logger = LoggerFactory.getLogger(InterestedMessage.class);
 	

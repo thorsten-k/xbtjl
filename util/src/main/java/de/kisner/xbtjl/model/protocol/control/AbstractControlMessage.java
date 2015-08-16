@@ -8,11 +8,11 @@ import de.kisner.xbtjl.factory.txt.TxtPeerMessageFactory;
 import de.kisner.xbtjl.interfaces.protocol.BtProtocolMessage;
 import net.sf.exlp.util.io.ByteUtil;
 
-public class ControlMessage implements BtProtocolMessage
+public class AbstractControlMessage implements BtProtocolMessage
 {
-	final static Logger logger = LoggerFactory.getLogger(ControlMessage.class);
+	final static Logger logger = LoggerFactory.getLogger(AbstractControlMessage.class);
 	
-	public ControlMessage()
+	public AbstractControlMessage()
 	{
 	
 	}

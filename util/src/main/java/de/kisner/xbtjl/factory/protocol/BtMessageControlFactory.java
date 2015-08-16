@@ -3,7 +3,7 @@ package de.kisner.xbtjl.factory.protocol;
 import de.kisner.xbtjl.interfaces.protocol.BitTorrentMessage;
 import de.kisner.xbtjl.interfaces.protocol.BtProtocolMessage.MsgType;
 import de.kisner.xbtjl.model.protocol.control.ChokeMessage;
-import de.kisner.xbtjl.model.protocol.control.ControlMessage;
+import de.kisner.xbtjl.model.protocol.control.AbstractControlMessage;
 import de.kisner.xbtjl.model.protocol.control.InterestedMessage;
 import de.kisner.xbtjl.model.protocol.control.NotInterestedMessage;
 import de.kisner.xbtjl.model.protocol.control.UnChokeMessage;
@@ -12,7 +12,7 @@ public class BtMessageControlFactory
 {
 	public static BitTorrentMessage build(MsgType type)
 	{
-		ControlMessage message = new ControlMessage();
+		AbstractControlMessage message = new AbstractControlMessage();
 		message.setType(type);
 		   
 		switch (BtMessageTypeFactory.toId(type))

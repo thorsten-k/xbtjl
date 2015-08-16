@@ -6,16 +6,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import de.kisner.xbtjl.interfaces.protocol.BtProtocolMessage;
-import de.kisner.xbtjl.model.protocol.control.ControlMessage;
-import de.kisner.xbtjl.model.protocol.data.DataMessage;
+import de.kisner.xbtjl.model.protocol.control.AbstractControlMessage;
+import de.kisner.xbtjl.model.protocol.data.AbstractDataMessage;
 import net.sf.exlp.util.io.BitUtil;
 import net.sf.exlp.util.io.ByteUtil;
 
 public class TxtPeerMessageFactory 
 {
-	final static Logger logger = LoggerFactory.getLogger(ControlMessage.class);
+	final static Logger logger = LoggerFactory.getLogger(AbstractControlMessage.class);
 	
-	public static String build(DataMessage message)
+	public static String build(AbstractDataMessage message)
     {
         StringBuffer sb = new StringBuffer();
 
@@ -57,7 +57,7 @@ public class TxtPeerMessageFactory
         return sb.toString();
     }
 	
-	public static String build(ControlMessage message)
+	public static String build(AbstractControlMessage message)
     {
         StringBuffer sb = new StringBuffer();
 

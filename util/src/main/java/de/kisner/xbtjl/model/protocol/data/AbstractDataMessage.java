@@ -3,12 +3,12 @@ package de.kisner.xbtjl.model.protocol.data;
 import de.kisner.xbtjl.factory.protocol.BtMessageTypeFactory;
 import de.kisner.xbtjl.factory.txt.TxtPeerMessageFactory;
 import de.kisner.xbtjl.interfaces.protocol.BtProtocolMessage;
-import de.kisner.xbtjl.model.protocol.control.ControlMessage;
+import de.kisner.xbtjl.model.protocol.control.AbstractControlMessage;
 import net.sf.exlp.util.io.ByteUtil;
 
-public class DataMessage extends ControlMessage implements BtProtocolMessage
+public class AbstractDataMessage extends AbstractControlMessage implements BtProtocolMessage
 {
-	public DataMessage()
+	public AbstractDataMessage()
 	{
 	
 	}
