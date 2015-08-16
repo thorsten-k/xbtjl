@@ -29,4 +29,9 @@ public class BtMessageControlFactory
 		   
 		return message;
 	}
+	
+	public static BitTorrentMessage choke() {return new ChokeMessage();}
+	public static BitTorrentMessage unChoke() {return new UnChokeMessage();}
+	public static BitTorrentMessage interested() {return new InterestedMessage();}
+	public static BitTorrentMessage notInterested() {return new NotInterestedMessage();}
 }
