@@ -56,15 +56,15 @@ public class BtMessageFactory
    
 	public static BitTorrentMessage build(MsgType type)
 	{
-		AbstractControlMessage message = new AbstractControlMessage();
-		message.setType(type);
+		BitTorrentMessage message = null;
+//		message.setType(type);
 		   
 		switch (BtMessageTypeFactory.toId(type))
 		{            
-			case 1: message = new ChokeMessage(); break;
-			case 2: message = new UnChokeMessage(); break;
-			case 3: message = new InterestedMessage(); break;
-			case 4: message = new NotInterestedMessage(); break;
+			case 1: message = choke(); break;
+			case 2: message = unChoke(); break;
+			case 3: message = interested(); break;
+			case 4: message = notInterested(); break;
 		}
 		   
 		return message;
