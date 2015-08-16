@@ -11,6 +11,6 @@ public class PieceMessage extends AbstractDataMessage implements BtProtocolMessa
 	
 	public PieceMessage()
 	{
-		this.setID(7);
+		this.setId(7);
 	}
 }

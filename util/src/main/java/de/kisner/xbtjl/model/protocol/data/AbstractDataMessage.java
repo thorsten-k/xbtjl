@@ -23,11 +23,11 @@ public class AbstractDataMessage extends AbstractControlMessage implements BtPro
     {
         if (BtMessageTypeFactory.toId(type) > 4)
         {
-        	return ByteUtil.concat(this.getLength(), BtMessageFactory.toId(newId),this.getPayload());
+        	return ByteUtil.concat(this.getLength(), BtMessageFactory.toId(id),this.getPayload());
         }
         else if (BtMessageTypeFactory.toId(type) > 0)
         {
-            return ByteUtil.concat(this.getLength(), BtMessageFactory.toId(newId));
+            return ByteUtil.concat(this.getLength(), BtMessageFactory.toId(id));
         }
         else
         {

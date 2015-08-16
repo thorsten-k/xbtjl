@@ -11,6 +11,6 @@ public class RequestMessage extends AbstractDataMessage implements BtProtocolMes
 	
 	public RequestMessage()
 	{
-		this.setID(6);
+		this.setId(6);
 	}
 }

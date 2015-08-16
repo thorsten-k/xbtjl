@@ -11,6 +11,6 @@ public class HaveMessage extends AbstractDataMessage implements BtProtocolMessag
 	
 	public HaveMessage()
 	{
-		this.setID(4);
+		this.setId(4);
 	}
 }

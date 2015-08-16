@@ -26,14 +26,9 @@ public class AbstractControlMessage implements BtProtocolMessage
     public byte[] getLength() {return this.length;}
     public void setLength(byte[] length) {this.length = length;}
 
-    protected int newId;
-    public int getNewId() {return newId;}
-    
-    protected void setID(int id)
-    {
-    	this.newId=id;
-    }
-
+    protected int id;
+    public int getId() {return id;}
+    protected void setId(int id){this.id=id;}
 
     @Override public byte[] build()
     {
@@ -44,7 +39,7 @@ public class AbstractControlMessage implements BtProtocolMessage
         }
         else if (BtMessageTypeFactory.toId(type) > 0)
         {
-            return ByteUtil.concat(this.getLength(), BtMessageFactory.toId(newId));
+            return ByteUtil.concat(this.getLength(), BtMessageFactory.toId(id));
         }
         else
         {

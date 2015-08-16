@@ -11,6 +11,6 @@ public class NotInterestedMessage extends AbstractControlMessage implements BtPr
 	
 	public NotInterestedMessage()
 	{
-		this.setID(3);
+		this.setId(3);
 	}
 }

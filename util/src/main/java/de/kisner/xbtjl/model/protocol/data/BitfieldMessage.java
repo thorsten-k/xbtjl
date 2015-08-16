@@ -11,6 +11,6 @@ public class BitfieldMessage extends AbstractDataMessage implements BtProtocolMe
 	
 	public BitfieldMessage()
 	{
-		this.setID(5);
+		this.setId(5);
 	}
 }
