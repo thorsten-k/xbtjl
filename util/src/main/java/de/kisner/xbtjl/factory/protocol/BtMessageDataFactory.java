@@ -3,6 +3,7 @@ package de.kisner.xbtjl.factory.protocol;
 import java.nio.ByteBuffer;
 
 import de.kisner.xbtjl.interfaces.protocol.BitTorrentMessage;
+import de.kisner.xbtjl.interfaces.protocol.BtProtocolMessage;
 import de.kisner.xbtjl.interfaces.protocol.BtProtocolMessage.MsgType;
 import de.kisner.xbtjl.model.protocol.data.AbstractDataMessage;
 import de.kisner.xbtjl.model.protocol.data.BitfieldMessage;
@@ -14,7 +15,7 @@ import de.kisner.xbtjl.model.protocol.data.RequestMessage;
 
 public class BtMessageDataFactory
 {
-	   public static BitTorrentMessage build(MsgType type, byte[] payload)
+	public static BitTorrentMessage build(MsgType type, byte[] payload)
 	   {
 	   	BitTorrentMessage msg = null;
 		   AbstractDataMessage message = new AbstractDataMessage();
@@ -22,10 +23,10 @@ public class BtMessageDataFactory
 		   
 		   switch (BtMessageTypeFactory.toId(type))
 	       {
-		        case 5: msg = have(type, payload);break;
-		        case 6: msg = bitfield(type, payload);break;
-		        case 7: msg = request(type, payload);break;
-		        case 8: msg = piece(type, payload);break;
+		        case 5: msg = have(payload);break;
+		        case 6: msg = bitfield(payload);break;
+		        case 7: msg = request(payload);break;
+		        case 8: msg = piece(payload);break;
 		        case 9: msg = cancel(type, payload);break;
 		        case 10:msg = port(type, payload);break;
 	       }
@@ -33,43 +34,41 @@ public class BtMessageDataFactory
 		   return message;
 	   }
 	   
-	public static HaveMessage have(MsgType type, byte[] payload)
+	public static HaveMessage have(byte[] payload)
 	{
 		HaveMessage message = new HaveMessage();
 	   	message.setLength(new byte[] {0, 0, 0, 5});
-	   	message.setID(4);
 	   	message.setPayload(payload);
-	   	message.setType(type);
+	   	message.setType(BtMessageTypeFactory.toEnum(BtProtocolMessage._HAVE));
 	   	return message;
 	}
 	   
-	public static BitfieldMessage bitfield(MsgType type, byte[] payload)
+	public static BitfieldMessage bitfield(byte[] payload)
 	{
 	   	BitfieldMessage message = new BitfieldMessage();
 	   	message.setLength(ByteBuffer.allocate(4).putInt((1 + payload.length)).array());
-	   	message.setID(5);
+	   	
 	   	message.setPayload(payload);
-	   	message.setType(type);
+	   	message.setType(BtMessageTypeFactory.toEnum(BtProtocolMessage._BITFIELD));
 	   	return message;
 	}
 	
-	public static RequestMessage request(MsgType type, byte[] payload)
+	public static RequestMessage request(byte[] payload)
 	{
 		RequestMessage message = new RequestMessage();
     	message.setLength(new byte[] {0, 0, 0, 13});
-    	message.setID(6);
     	message.setPayload(payload);
-	   	message.setType(type);
+	   	message.setType(BtMessageTypeFactory.toEnum(BtProtocolMessage._REQUEST));
 	   	return message;
 	}
 	
-	public static PieceMessage piece(MsgType type, byte[] payload)
+	public static PieceMessage piece(byte[] payload)
 	{
 		PieceMessage message = new PieceMessage();
     	message.setLength(ByteBuffer.allocate(4).putInt((1 + payload.length)).array());
-    	message.setID(7);
+    	
     	message.setPayload(payload);
-	   	message.setType(type);
+	   	message.setType(BtMessageTypeFactory.toEnum(BtProtocolMessage._PIECE));
 	   	return message;
 	}
 	
@@ -77,8 +76,8 @@ public class BtMessageDataFactory
 	{
 		CancelMessage message = new CancelMessage();
     	message.setLength(new byte[] {0, 0, 0, 13});
-    	message.setID(8);
-    	 message.setPayload(payload);
+    	
+    	message.setPayload(payload);
 	   	message.setType(type);
 	   	return message;
 	}
@@ -87,8 +86,8 @@ public class BtMessageDataFactory
 	{
 		PortMessage message = new PortMessage();
 		message.setLength(new byte[] {0, 0, 0, 3});
-    	message.setID(9);
-    	 message.setPayload(payload);
+    	
+    	message.setPayload(payload);
 	   	message.setType(type);
 	   	return message;
 	}

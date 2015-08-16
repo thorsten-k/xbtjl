@@ -35,7 +35,7 @@ public class BtMessageControlFactory
 		ChokeMessage msg = new ChokeMessage();
 		msg.setType(MsgType.CHOKE);
 		msg.setLength(new byte[] {0, 0, 0, 1});
-		msg.setID(0);
+		
 		return msg;
 	}
 	
@@ -44,7 +44,7 @@ public class BtMessageControlFactory
 		UnChokeMessage msg = new UnChokeMessage();
 		msg.setType(MsgType.UNCHOKE);
 		msg.setLength(new byte[] {0, 0, 0, 1});
-		msg.setID(1);
+		
 		return msg;
 	}
 	
@@ -53,7 +53,7 @@ public class BtMessageControlFactory
 		InterestedMessage msg = new InterestedMessage();
 		msg.setType(MsgType.INTERESTED);
 		msg.setLength(new byte[] {0, 0, 0, 1});
-		msg.setID(2);
+		
 		return msg;
 	}
 	
@@ -62,7 +62,7 @@ public class BtMessageControlFactory
 		NotInterestedMessage msg = new NotInterestedMessage();
 		msg.setType(MsgType.NOT_INTERESTED);
 		msg.setLength(new byte[] {0, 0, 0, 1});
-		msg.setID(3);
+		
 		return msg;
 	}
 }

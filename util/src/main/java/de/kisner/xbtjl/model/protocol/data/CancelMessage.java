@@ -11,6 +11,6 @@ public class CancelMessage extends AbstractDataMessage implements BtProtocolMess
 	
 	public CancelMessage()
 	{
-
+		this.setID(8);
 	}
 }

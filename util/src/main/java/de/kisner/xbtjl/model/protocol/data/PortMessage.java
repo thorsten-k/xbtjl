@@ -11,6 +11,6 @@ public class PortMessage extends AbstractDataMessage implements BtProtocolMessag
 	
 	public PortMessage()
 	{
-
+		this.setID(9);
 	}
 }

@@ -27,7 +27,7 @@ public class AbstractControlMessage implements BtProtocolMessage
 
     private byte[] id = new byte[1];
     public byte[] getID() {return this.id;}
-    public void setID(int id) {this.id[0] = (byte) id;}
+    protected void setID(int id) {this.id[0] = (byte) id;}
 
 
     @Override public byte[] build()
