@@ -11,8 +11,6 @@ public class NotInterestedMessage extends ControlMessage implements BtProtocolMe
 	
 	public NotInterestedMessage()
 	{
-		this.setType(MsgType.NOT_INTERESTED);
-		this.setLength(new byte[] {0, 0, 0, 1});
-		this.setID(3);
+
 	}
 }

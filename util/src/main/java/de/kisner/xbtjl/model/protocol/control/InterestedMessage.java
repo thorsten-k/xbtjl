@@ -11,8 +11,6 @@ public class InterestedMessage extends ControlMessage implements BtProtocolMessa
 	
 	public InterestedMessage()
 	{
-		this.setType(MsgType.INTERESTED);
-		this.setLength(new byte[] {0, 0, 0, 1});
-		this.setID(2);
+
 	}
 }

@@ -11,8 +11,6 @@ public class UnChokeMessage extends ControlMessage implements BtProtocolMessage
 	
 	public UnChokeMessage()
 	{
-		this.setType(MsgType.UNCHOKE);
-		this.setLength(new byte[] {0, 0, 0, 1});
-		this.setID(1);
+
 	}
 }

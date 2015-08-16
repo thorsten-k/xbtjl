@@ -30,8 +30,39 @@ public class BtMessageControlFactory
 		return message;
 	}
 	
-	public static BitTorrentMessage choke() {return new ChokeMessage();}
-	public static BitTorrentMessage unChoke() {return new UnChokeMessage();}
-	public static BitTorrentMessage interested() {return new InterestedMessage();}
-	public static BitTorrentMessage notInterested() {return new NotInterestedMessage();}
+	public static BitTorrentMessage choke()
+	{
+		ChokeMessage msg = new ChokeMessage();
+		msg.setType(MsgType.CHOKE);
+		msg.setLength(new byte[] {0, 0, 0, 1});
+		msg.setID(0);
+		return msg;
+	}
+	
+	public static BitTorrentMessage unChoke()
+	{
+		UnChokeMessage msg = new UnChokeMessage();
+		msg.setType(MsgType.UNCHOKE);
+		msg.setLength(new byte[] {0, 0, 0, 1});
+		msg.setID(1);
+		return msg;
+	}
+	
+	public static BitTorrentMessage interested()
+	{
+		InterestedMessage msg = new InterestedMessage();
+		msg.setType(MsgType.INTERESTED);
+		msg.setLength(new byte[] {0, 0, 0, 1});
+		msg.setID(2);
+		return msg;
+	}
+	
+	public static BitTorrentMessage notInterested()
+	{
+		NotInterestedMessage msg = new NotInterestedMessage();
+		msg.setType(MsgType.NOT_INTERESTED);
+		msg.setLength(new byte[] {0, 0, 0, 1});
+		msg.setID(3);
+		return msg;
+	}
 }
