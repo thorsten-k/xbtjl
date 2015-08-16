@@ -23,10 +23,10 @@ public class TxtPeerMessageFactory
         sb.append("<length=" + length + ">");
         if (length > 0)
         {
-        	sb.append("<id=" + (int)message.getID()[0] + ">");
+        	sb.append("<id=" + message.getNewId() + ">");
             if (length > 1)
             {
-                switch(message.getID()[0]+1)
+                switch(message.getNewId()+1)
                 {
 	                case BtProtocolMessage._HAVE:
 	                	sb.append("<index=").append(ByteUtil.toInt(message.getPayload())).append(">");
@@ -65,7 +65,7 @@ public class TxtPeerMessageFactory
         sb.append("<length=" + length + ">");
         if (length > 0)
         {
-        	sb.append("<id=" + (int)message.getID()[0] + ">");
+        	sb.append("<id=" + message.getNewId() + ">");
             if (length > 1)
             {
                 logger.warn("This should not happen");

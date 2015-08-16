@@ -3,6 +3,7 @@ package de.kisner.xbtjl.model.protocol.control;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import de.kisner.xbtjl.factory.protocol.BtMessageFactory;
 import de.kisner.xbtjl.factory.protocol.BtMessageTypeFactory;
 import de.kisner.xbtjl.factory.txt.TxtPeerMessageFactory;
 import de.kisner.xbtjl.interfaces.protocol.BtProtocolMessage;
@@ -25,9 +26,13 @@ public class AbstractControlMessage implements BtProtocolMessage
     public byte[] getLength() {return this.length;}
     public void setLength(byte[] length) {this.length = length;}
 
-    private byte[] id = new byte[1];
-    public byte[] getID() {return this.id;}
-    protected void setID(int id) {this.id[0] = (byte) id;}
+    protected int newId;
+    public int getNewId() {return newId;}
+    
+    protected void setID(int id)
+    {
+    	this.newId=id;
+    }
 
 
     @Override public byte[] build()
@@ -39,7 +44,7 @@ public class AbstractControlMessage implements BtProtocolMessage
         }
         else if (BtMessageTypeFactory.toId(type) > 0)
         {
-            return ByteUtil.concat(this.getLength(), this.getID());
+            return ByteUtil.concat(this.getLength(), BtMessageFactory.toId(newId));
         }
         else
         {

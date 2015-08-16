@@ -39,5 +39,12 @@ public class BtMessageFactory
            }
        }
        return message;
+	}
+   
+   public static byte[] toId(int id)
+   {
+	   byte[] b = new byte[1];
+	   b[0] = (byte) id;
+	   return b;
    }
 }

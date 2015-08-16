@@ -1,5 +1,6 @@
 package de.kisner.xbtjl.model.protocol.data;
 
+import de.kisner.xbtjl.factory.protocol.BtMessageFactory;
 import de.kisner.xbtjl.factory.protocol.BtMessageTypeFactory;
 import de.kisner.xbtjl.factory.txt.TxtPeerMessageFactory;
 import de.kisner.xbtjl.interfaces.protocol.BtProtocolMessage;
@@ -22,11 +23,11 @@ public class AbstractDataMessage extends AbstractControlMessage implements BtPro
     {
         if (BtMessageTypeFactory.toId(type) > 4)
         {
-        	return ByteUtil.concat(this.getLength(), this.getID(),this.getPayload());
+        	return ByteUtil.concat(this.getLength(), BtMessageFactory.toId(newId),this.getPayload());
         }
         else if (BtMessageTypeFactory.toId(type) > 0)
         {
-            return ByteUtil.concat(this.getLength(), this.getID());
+            return ByteUtil.concat(this.getLength(), BtMessageFactory.toId(newId));
         }
         else
         {
