@@ -121,7 +121,7 @@ public class BtMessageFactory
 		message.setType(BtMessageTypeFactory.toEnum(BtProtocolMessage._REQUEST));
 
     	message.setPayload(payload);
-    	message.setBlockIndex (ByteUtil.toInt(Arrays.copyOfRange(payload, 0, 4)));
+    	message.setPieceIndex (ByteUtil.toInt(Arrays.copyOfRange(payload, 0, 4)));
     	message.setBlockOffset(ByteUtil.toInt(Arrays.copyOfRange(payload, 4, 8)));
     	message.setBlockLength(ByteUtil.toInt(Arrays.copyOfRange(payload, 8, 12)));
 	   	
@@ -132,6 +132,8 @@ public class BtMessageFactory
 	{
 		PieceMessage message = new PieceMessage();
     	message.setLength(ByteBuffer.allocate(4).putInt((1 + payload.length)).array());
+    	
+
     	
     	message.setPayload(payload);
 	   	message.setType(BtMessageTypeFactory.toEnum(BtProtocolMessage._PIECE));

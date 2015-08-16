@@ -21,10 +21,9 @@ public class RequestMessage extends AbstractDataMessage implements BtProtocolMes
 		this.setLength(new byte[] {0, 0, 0, 13});
 	}
 	
-	private int blockIndex;
-	
-	public int getBlockIndex() {return blockIndex;}
-	public void setBlockIndex(int blockIndex) {this.blockIndex = blockIndex;}
+	private int pieceIndex;	
+	public int getPieceIndex() {return pieceIndex;}
+	public void setPieceIndex(int blockIndex) {this.pieceIndex = blockIndex;}
 
 	private int blockOffset;
 	public int getBlockOffset() {return blockOffset;}
