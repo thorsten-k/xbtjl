@@ -49,7 +49,7 @@ public class MessageSender extends Thread
             	message = outboundQueue.poll(2, TimeUnit.MINUTES);
                 if(message != null)
                 {
-                	logger.info("Sending "+message.getClass().getSimpleName());
+                	logger.trace("Sending "+message.getClass().getSimpleName());
                     os.write(message.build());
                     message = null;
                 }
