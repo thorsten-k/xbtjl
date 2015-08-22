@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 
 import de.kisner.xbtjl.interfaces.listener.ConnectionListener;
 
+// The SCL is handling INCOMING socket connections
 public class SocketConnectionListener extends Thread
 {
 	final static Logger logger = LoggerFactory.getLogger(SocketConnectionListener.class);
@@ -33,7 +34,7 @@ public class SocketConnectionListener extends Thread
             {
                 if(acceptConnections)
                 {
-                    this.fireConnectionAccepted(serverSocket.accept());
+                    fireConnectionAccepted(serverSocket.accept());
                     sleep(1000);
                 }
                 else
@@ -74,11 +75,12 @@ public class SocketConnectionListener extends Thread
         this.notifyAll();
     }
 
-    public void addConListenerInterface(ConnectionListener listener) {listeners.add(listener);}
-    public void removeConListenerInterface(ConnectionListener listener) {listeners.remove(listener);}
+    public void addConnectionListener(ConnectionListener listener) {listeners.add(listener);}
+    public void removeConnectionListener(ConnectionListener listener) {listeners.remove(listener);}
 
     protected void fireConnectionAccepted(Socket s)
     {
+    	logger.info("Socket connections establed from "+s.getRemoteSocketAddress());
         for (ConnectionListener listener : listeners)
         {
             listener.connectionAccepted(s);

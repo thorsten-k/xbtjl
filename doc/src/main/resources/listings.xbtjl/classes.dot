@@ -1,0 +1,12 @@
+digraph x { 
+
+  ratio=1;
+  ranksep=0.5;
+  overlap=false;
+
+"DownloadManager" -> "SocketConnectionListener" ;
+"DownloadManager" -> "TrackerUplink" ;
+
+
+}
+
