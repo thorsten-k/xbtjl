@@ -67,15 +67,8 @@
                 <xsd:element ref="bt:bitfield" maxOccurs="1"/>
                 <xsd:element ref="bt:piece" maxOccurs="unbounded"/>
             </xsd:sequence>
-            <xsd:attribute name="pieceLength" type="xsd:int"/>
-            <xsd:attribute name="size" type="xsd:int"/>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="bitfield">
-        <xsd:complexType>
-            <xsd:simpleContent>
-                <xsd:extension base="xsd:string"/>
-            </xsd:simpleContent>
+            <xsd:attribute name="length" type="xsd:int"/>
+            <xsd:attribute name="number" type="xsd:int"/>
         </xsd:complexType>
     </xsd:element>
     <xsd:element name="piece">
@@ -86,6 +79,13 @@
             </xsd:sequence>
             <xsd:attribute name="index" type="xsd:int"/>
             <xsd:attribute name="length" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="bitfield">
+        <xsd:complexType>
+            <xsd:simpleContent>
+                <xsd:extension base="xsd:string"/>
+            </xsd:simpleContent>
         </xsd:complexType>
     </xsd:element>
     <xsd:element name="block">

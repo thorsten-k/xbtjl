@@ -25,8 +25,8 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element ref="{http://xbtjl.kisner.de/torrent}bitfield"/>
  *         &lt;element ref="{http://xbtjl.kisner.de/torrent}piece" maxOccurs="unbounded"/>
  *       &lt;/sequence>
- *       &lt;attribute name="pieceLength" type="{http://www.w3.org/2001/XMLSchema}int" />
- *       &lt;attribute name="size" type="{http://www.w3.org/2001/XMLSchema}int" />
+ *       &lt;attribute name="length" type="{http://www.w3.org/2001/XMLSchema}int" />
+ *       &lt;attribute name="number" type="{http://www.w3.org/2001/XMLSchema}int" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -49,10 +49,10 @@ public class Pieces
     protected Bitfield bitfield;
     @XmlElement(required = true)
     protected List<Piece> piece;
-    @XmlAttribute(name = "pieceLength")
-    protected Integer pieceLength;
-    @XmlAttribute(name = "size")
-    protected Integer size;
+    @XmlAttribute(name = "length")
+    protected Integer length;
+    @XmlAttribute(name = "number")
+    protected Integer number;
 
     /**
      * Gets the value of the bitfield property.
@@ -120,67 +120,67 @@ public class Pieces
     }
 
     /**
-     * Gets the value of the pieceLength property.
+     * Gets the value of the length property.
      * 
      * @return
      *     possible object is
      *     {@link Integer }
      *     
      */
-    public int getPieceLength() {
-        return pieceLength;
+    public int getLength() {
+        return length;
     }
 
     /**
-     * Sets the value of the pieceLength property.
+     * Sets the value of the length property.
      * 
      * @param value
      *     allowed object is
      *     {@link Integer }
      *     
      */
-    public void setPieceLength(int value) {
-        this.pieceLength = value;
+    public void setLength(int value) {
+        this.length = value;
     }
 
-    public boolean isSetPieceLength() {
-        return (this.pieceLength!= null);
+    public boolean isSetLength() {
+        return (this.length!= null);
     }
 
-    public void unsetPieceLength() {
-        this.pieceLength = null;
+    public void unsetLength() {
+        this.length = null;
     }
 
     /**
-     * Gets the value of the size property.
+     * Gets the value of the number property.
      * 
      * @return
      *     possible object is
      *     {@link Integer }
      *     
      */
-    public int getSize() {
-        return size;
+    public int getNumber() {
+        return number;
     }
 
     /**
-     * Sets the value of the size property.
+     * Sets the value of the number property.
      * 
      * @param value
      *     allowed object is
      *     {@link Integer }
      *     
      */
-    public void setSize(int value) {
-        this.size = value;
+    public void setNumber(int value) {
+        this.number = value;
     }
 
-    public boolean isSetSize() {
-        return (this.size!= null);
+    public boolean isSetNumber() {
+        return (this.number!= null);
     }
 
-    public void unsetSize() {
-        this.size = null;
+    public void unsetNumber() {
+        this.number = null;
     }
 
 }

@@ -121,9 +121,9 @@ public class BenTorrentFactory
                     return null;
                 }
                 
-                xml.getPieces().setSize(piecesHash2.length/20);
+                xml.getPieces().setNumber(piecesHash2.length/20);
                 
-                for (int i=0; i<xml.getPieces().getSize(); i++)
+                for (int i=0; i<xml.getPieces().getNumber(); i++)
                 {
                     byte[] temp = Arrays.copyOfRange(piecesHash2, i*20, i*20+20);
                     Piece piece = new Piece();
@@ -135,11 +135,11 @@ public class BenTorrentFactory
                 {
                 	if(i != xml.getPieces().getPiece().size() - 1)
                 	{
-                		xml.getPieces().getPiece().get(i).setLength(xml.getPieces().getPieceLength());
+                		xml.getPieces().getPiece().get(i).setLength(xml.getPieces().getLength());
                 	}
                 	else
                 	{
-                		xml.getPieces().getPiece().get(i).setLength(((Long) (xml.getTotalLength() % xml.getPieces().getPieceLength())).intValue());
+                		xml.getPieces().getPiece().get(i).setLength(((Long) (xml.getTotalLength() % xml.getPieces().getLength())).intValue());
                 	}
                 }
             }

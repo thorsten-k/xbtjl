@@ -28,8 +28,8 @@ public class TestXmlPieces extends AbstractXmlBittorrentTest
     public static Pieces create(boolean withChilds)
     {
     	Pieces xml = new Pieces();
-    	xml.setPieceLength(12);
-    	xml.setSize(122);
+    	xml.setLength(12);
+    	xml.setNumber(122);
     	
     	if(withChilds)
     	{

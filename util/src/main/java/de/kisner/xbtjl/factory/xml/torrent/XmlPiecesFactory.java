@@ -18,7 +18,7 @@ public class XmlPiecesFactory
 	public static Pieces create(int pieceLength)
 	{	
 		Pieces xml = build();
-		xml.setPieceLength(pieceLength);	
+		xml.setLength(pieceLength);	
 		return xml;
 	}
 }

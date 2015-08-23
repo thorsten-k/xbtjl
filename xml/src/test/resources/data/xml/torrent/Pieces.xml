@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<t:pieces xmlns:t="http://xbtjl.kisner.de/torrent" pieceLength="12" size="122">
-    <t:bitfield>110111000111</t:bitfield>
-    <t:piece index="123" length="123"/>
-    <t:piece index="123" length="123"/>
-</t:pieces>
+<bt:pieces xmlns:bt="http://xbtjl.kisner.de/torrent" length="12" number="122">
+    <bt:bitfield>110111000111</bt:bitfield>
+    <bt:piece index="123" length="123"/>
+    <bt:piece index="123" length="123"/>
+</bt:pieces>
