@@ -7,28 +7,27 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import de.kisner.xbtjl.model.xml.torrent.Bitfield;
 import de.kisner.xbtjl.test.XbtjlXmlTestBootstrap;
 import net.sf.exlp.util.xml.JaxbUtil;
 
-public class TestXmlBitfield extends AbstractXmlBittorrentTest
+public class TestXmlData extends AbstractXmlBittorrentTest
 {
-	final static Logger logger = LoggerFactory.getLogger(TestXmlBitfield.class);
+	final static Logger logger = LoggerFactory.getLogger(TestXmlData.class);
 	
-	@BeforeClass public static void initFiles(){setXmlFile(dirSuffix, Bitfield.class);}
+	@BeforeClass public static void initFiles(){setXmlFile(dirSuffix, Data.class);}
     
     @Test
     public void xml() throws FileNotFoundException
     {
-    	Bitfield actual = create();
-    	Bitfield expected = JaxbUtil.loadJAXB(fXml.getAbsolutePath(), Bitfield.class);
+    	Data actual = create();
+    	Data expected = JaxbUtil.loadJAXB(fXml.getAbsolutePath(), Data.class);
     	assertJaxbEquals(expected, actual);
     }
     
-    public static Bitfield create()
+    public static Data create()
     {
-    	Bitfield xml = new Bitfield();
-    	xml.setValue("110111000111");
+    	Data xml = new Data();
+    	xml.setValue("myData".getBytes());
     	return xml;
     }
     
@@ -38,8 +37,8 @@ public class TestXmlBitfield extends AbstractXmlBittorrentTest
     {
 		XbtjlXmlTestBootstrap.init();
 			
-		TestXmlBitfield.initFiles();	
-		TestXmlBitfield test = new TestXmlBitfield();
+		TestXmlData.initFiles();	
+		TestXmlData test = new TestXmlData();
 		test.save();
     }
 }

@@ -82,9 +82,27 @@
         <xsd:complexType>
             <xsd:sequence>
                 <xsd:element ref="bt:hash" maxOccurs="1"/>
+                <xsd:element ref="bt:block" maxOccurs="unbounded"/>
             </xsd:sequence>
             <xsd:attribute name="index" type="xsd:int"/>
             <xsd:attribute name="length" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="block">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="bt:data" maxOccurs="1"/>
+            </xsd:sequence>
+            <xsd:attribute name="file" type="xsd:int"/>
+            <xsd:attribute name="offset" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="data">
+        <xsd:complexType>
+            <xsd:simpleContent>
+                <xsd:extension base="xsd:hexBinary">
+                </xsd:extension>
+            </xsd:simpleContent>
         </xsd:complexType>
     </xsd:element>
 </xsd:schema>

@@ -17,7 +17,7 @@ public class TestXmlFile extends AbstractXmlBittorrentTest
 	@BeforeClass public static void initFiles(){setXmlFile(dirSuffix, de.kisner.xbtjl.model.xml.torrent.File.class);}
     
     @Test
-    public void testAclContainer() throws FileNotFoundException
+    public void xml() throws FileNotFoundException
     {
     	de.kisner.xbtjl.model.xml.torrent.File actual = create();
     	de.kisner.xbtjl.model.xml.torrent.File expected = JaxbUtil.loadJAXB(fXml.getAbsolutePath(), de.kisner.xbtjl.model.xml.torrent.File.class);

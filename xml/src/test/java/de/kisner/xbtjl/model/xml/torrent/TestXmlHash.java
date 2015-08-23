@@ -18,7 +18,7 @@ public class TestXmlHash extends AbstractXmlBittorrentTest
 	@BeforeClass public static void initFiles(){setXmlFile(dirSuffix, Hash.class);}
     
     @Test
-    public void testAclContainer() throws FileNotFoundException
+    public void xml() throws FileNotFoundException
     {
     	Hash actual = create();
     	Hash expected = JaxbUtil.loadJAXB(fXml.getAbsolutePath(), Hash.class);

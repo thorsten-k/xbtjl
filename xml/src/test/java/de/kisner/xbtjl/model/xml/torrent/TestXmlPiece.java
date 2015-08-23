@@ -34,6 +34,7 @@ public class TestXmlPiece extends AbstractXmlBittorrentTest
     	if(withChilds)
     	{
     		xml.setHash(TestXmlHash.create());
+    		xml.getBlock().add(TestXmlBlock.create(false));xml.getBlock().add(TestXmlBlock.create(false));
     	}
     	return xml;
     }

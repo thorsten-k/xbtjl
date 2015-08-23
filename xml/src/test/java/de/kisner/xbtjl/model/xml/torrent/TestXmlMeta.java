@@ -18,7 +18,7 @@ public class TestXmlMeta extends AbstractXmlBittorrentTest
 	@BeforeClass public static void initFiles(){setXmlFile(dirSuffix, Meta.class);}
     
     @Test
-    public void testAclContainer() throws FileNotFoundException
+    public void xml() throws FileNotFoundException
     {
     	Meta actual = create(true);
     	Meta expected = JaxbUtil.loadJAXB(fXml.getAbsolutePath(), Meta.class);
