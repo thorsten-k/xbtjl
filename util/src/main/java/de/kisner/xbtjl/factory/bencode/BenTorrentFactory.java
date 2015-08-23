@@ -88,9 +88,9 @@ public class BenTorrentFactory
                 file.setLength(((Long) info.get("length")).intValue());
                 xml.getFiles().getFile().add(file);
             }
-            xml.getFiles().setSize(xml.getFiles().getFile().size());
+            xml.getFiles().setNumber(xml.getFiles().getFile().size());
             
-            if(xml.getFiles().getSize()>1 && info.containsKey("name"))
+            if(xml.getFiles().getNumber()>1 && info.containsKey("name"))
             {
             	// Adding directoy information if more than one file
             	xml.getFiles().setDirectory(new String((byte[]) info.get("name")));

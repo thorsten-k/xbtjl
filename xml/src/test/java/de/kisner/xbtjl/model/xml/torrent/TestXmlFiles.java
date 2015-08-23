@@ -28,7 +28,7 @@ public class TestXmlFiles extends AbstractXmlBittorrentTest
     public static Files create(boolean withChilds)
     {
     	Files xml = new Files();
-    	xml.setSize(13);
+    	xml.setNumber(13);
     	xml.setDirectory("myDirectory");
     	
     	if(withChilds)

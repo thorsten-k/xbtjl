@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<bt:files xmlns:bt="http://xbtjl.kisner.de/torrent" size="13" directory="myDirectory">
+<bt:files xmlns:bt="http://xbtjl.kisner.de/torrent" number="13" directory="myDirectory">
     <bt:file length="1234">myFileName</bt:file>
     <bt:file length="1234">myFileName</bt:file>
 </bt:files>

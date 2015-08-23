@@ -24,7 +24,7 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;sequence>
  *         &lt;element ref="{http://xbtjl.kisner.de/torrent}file" maxOccurs="unbounded"/>
  *       &lt;/sequence>
- *       &lt;attribute name="size" type="{http://www.w3.org/2001/XMLSchema}int" />
+ *       &lt;attribute name="number" type="{http://www.w3.org/2001/XMLSchema}int" />
  *       &lt;attribute name="directory" type="{http://www.w3.org/2001/XMLSchema}string" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -45,8 +45,8 @@ public class Files
     private final static long serialVersionUID = 1L;
     @XmlElement(required = true)
     protected List<File> file;
-    @XmlAttribute(name = "size")
-    protected Integer size;
+    @XmlAttribute(name = "number")
+    protected Integer number;
     @XmlAttribute(name = "directory")
     protected String directory;
 
@@ -88,35 +88,35 @@ public class Files
     }
 
     /**
-     * Gets the value of the size property.
+     * Gets the value of the number property.
      * 
      * @return
      *     possible object is
      *     {@link Integer }
      *     
      */
-    public int getSize() {
-        return size;
+    public int getNumber() {
+        return number;
     }
 
     /**
-     * Sets the value of the size property.
+     * Sets the value of the number property.
      * 
      * @param value
      *     allowed object is
      *     {@link Integer }
      *     
      */
-    public void setSize(int value) {
-        this.size = value;
+    public void setNumber(int value) {
+        this.number = value;
     }
 
-    public boolean isSetSize() {
-        return (this.size!= null);
+    public boolean isSetNumber() {
+        return (this.number!= null);
     }
 
-    public void unsetSize() {
-        this.size = null;
+    public void unsetNumber() {
+        this.number = null;
     }
 
     /**

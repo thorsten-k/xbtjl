@@ -48,7 +48,7 @@
             <xsd:sequence>
                 <xsd:element ref="bt:file" maxOccurs="unbounded"/>
             </xsd:sequence>
-            <xsd:attribute name="size" type="xsd:int"/>
+            <xsd:attribute name="number" type="xsd:int"/>
             <xsd:attribute name="directory" type="xsd:string"/>
         </xsd:complexType>
     </xsd:element>
