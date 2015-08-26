@@ -18,6 +18,7 @@
 	<url>https://github.com/thorsten-k/xbtjl</url>
 
 	<modules>
+		<module>client</module>
 		<module>core</module>
 		<module>xml</module>
 		<module>util</module>
