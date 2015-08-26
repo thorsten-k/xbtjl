@@ -80,6 +80,11 @@
 		<dependencies>
 			<dependency>
 				<groupId>de.kisner.xbtjl</groupId>
+				<artifactId>xbtjl-core</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>de.kisner.xbtjl</groupId>
 				<artifactId>xbtjl-util</artifactId>
 				<version>${project.version}</version>
 			</dependency>
