@@ -9,7 +9,7 @@ import net.sf.exlp.util.io.LoggerInit;
 public class XbtjlBootstrap
 {
 	final static Logger logger = LoggerFactory.getLogger(XbtjlBootstrap.class);
-	public final static String xmlConfig = "config.xbtjl-core.test/xbtjl.xml";
+	public final static String xmlConfig = "config.xbtjl-client/xbtjl.xml";
 	
 	public static Configuration init()
 	{
@@ -19,7 +19,7 @@ public class XbtjlBootstrap
 	public static Configuration init(String configFile)
 	{
 		LoggerInit loggerInit = new LoggerInit("log4j.xml");
-			loggerInit.addAltPath("config.xbtjl-core.test");
+			loggerInit.addAltPath("config.xbtjl-client");
 			loggerInit.init();
 			
 		return null;
