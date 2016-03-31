@@ -2,6 +2,7 @@ package de.kisner.xbtjl.client;
 
 import java.io.IOException;
 
+import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,6 +21,12 @@ public class TestTerminal
 	{
 		
 	}
+	
+    @Test
+    public void dummy()
+    {
+    	
+    }
 	
 	public void terminal() throws InterruptedException, IOException
 	{

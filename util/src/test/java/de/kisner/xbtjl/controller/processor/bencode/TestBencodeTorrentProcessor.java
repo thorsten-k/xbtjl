@@ -3,6 +3,7 @@ package de.kisner.xbtjl.controller.processor.bencode;
 import java.io.File;
 import java.io.IOException;
 
+import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,6 +26,12 @@ public class TestBencodeTorrentProcessor extends AbstractUtilTest
     	if(debug){XmlDebugger.info(xml,false);}
     	
     	return xml;
+    }
+    
+    @Test
+    public void dummy()
+    {
+    	
     }
 	
 	public static void main(String[] args) throws XbtjlException, IOException

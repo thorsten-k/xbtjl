@@ -5,6 +5,7 @@ import java.net.InetAddress;
 import org.bitlet.weupnp.GatewayDevice;
 import org.bitlet.weupnp.GatewayDiscover;
 import org.bitlet.weupnp.PortMappingEntry;
+import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,6 +14,12 @@ import de.kisner.xbtjl.XbtjlBootstrap;
 public class TestUpnp 
 {
 	final static Logger logger = LoggerFactory.getLogger(TestUpnp.class);
+	
+    @Test
+    public void dummy()
+    {
+    	
+    }
 	
 	public static void main(String args[]) throws Exception
 	{		
