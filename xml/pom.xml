@@ -104,8 +104,8 @@
 		
 		<!-- Test -->
 		<dependency>
-			<groupId>net.sf.ahtutils</groupId>
-			<artifactId>ahtutils-test</artifactId>
+			<groupId>org.jeesl</groupId>
+			<artifactId>jeesl-test</artifactId>
 			<scope>test</scope>
 			<version>0.2.6-SNAPSHOT</version>
 		</dependency>
