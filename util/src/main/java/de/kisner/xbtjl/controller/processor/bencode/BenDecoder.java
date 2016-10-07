@@ -169,7 +169,7 @@ public class BenDecoder
         case 'l':
 
             //create the list
-            List tempList = new ArrayList();
+            List<Object> tempList = new ArrayList<Object>();
 
             try {
                 //create the key
