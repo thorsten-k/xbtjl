@@ -21,8 +21,7 @@ public class TrackerUplink extends Thread
 {
 	final static Logger logger = LoggerFactory.getLogger(TrackerUplink.class);
 	
-    private Statistic statistic;
-    public Statistic getStatistic() {return statistic;}
+    private Statistic statistic; public Statistic getStatistic() {return statistic;}
 
     private int trackerUpdateInterval;
     private boolean end = false;
