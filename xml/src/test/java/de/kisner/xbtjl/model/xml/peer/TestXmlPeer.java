@@ -1,31 +1,19 @@
 package de.kisner.xbtjl.model.xml.peer;
 
-import java.io.FileNotFoundException;
-
-import org.junit.BeforeClass;
-import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import de.kisner.xbtjl.model.xml.torrent.TestXmlPieces;
 import de.kisner.xbtjl.test.XbtjlXmlTestBootstrap;
-import net.sf.exlp.util.xml.JaxbUtil;
 
-public class TestXmlPeer extends AbstractXmlPeerTest
+public class TestXmlPeer extends AbstractXmlPeerTest<Peer>
 {
-	final static Logger logger = LoggerFactory.getLogger(TestXmlPeer.class);
+	final static Logger logger = LoggerFactory.getLogger(Info.class);
 	
-	@BeforeClass public static void initFiles(){setXmlFile(dirSuffix, Peer.class);}
+	public TestXmlPeer(){super(Peer.class);}
+	public static Peer create(boolean withChildren){return (new TestXmlPeer()).build(withChildren);}
     
-    @Test
-    public void xmlTest() throws FileNotFoundException
-    {
-    	Peer actual = create(true);
-    	Peer expected = JaxbUtil.loadJAXB(fXml.getAbsolutePath(), Peer.class);
-    	assertJaxbEquals(expected, actual);
-    }
-    
-    public static Peer create(boolean withChilds)
+    public Peer build(boolean withChilds)
     {
     	Peer xml = new Peer();
     	xml.setPeerId("myId");
@@ -39,15 +27,11 @@ public class TestXmlPeer extends AbstractXmlPeerTest
     	}
     	return xml;
     }
-    
-    public void save() {save(create(true),fXml);}
 	
 	public static void main(String[] args)
     {
-		XbtjlXmlTestBootstrap.init();
-			
-		TestXmlPeer.initFiles();	
+		XbtjlXmlTestBootstrap.init();	
 		TestXmlPeer test = new TestXmlPeer();
-		test.save();
+		test.saveReferenceXml();
     }
 }

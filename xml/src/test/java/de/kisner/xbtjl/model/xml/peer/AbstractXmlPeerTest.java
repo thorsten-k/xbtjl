@@ -2,7 +2,10 @@ package de.kisner.xbtjl.model.xml.peer;
 
 import de.kisner.xbtjl.test.AbstractXmlTest;
 
-public abstract class AbstractXmlPeerTest extends AbstractXmlTest
+public abstract class AbstractXmlPeerTest <T extends Object> extends AbstractXmlTest<T>
 {
-	protected static final String dirSuffix = "peer";
+	public AbstractXmlPeerTest(Class<T> cXml)
+	{
+		super(cXml,"peer");
+	}
 }

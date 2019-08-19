@@ -1,28 +1,16 @@
 package de.kisner.xbtjl.model.xml.peer;
 
-import java.io.FileNotFoundException;
-
-import org.junit.BeforeClass;
-import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import de.kisner.xbtjl.test.XbtjlXmlTestBootstrap;
-import net.sf.exlp.util.xml.JaxbUtil;
 
-public class TestXmlStatistic extends AbstractXmlPeerTest
+public class TestXmlStatistic extends AbstractXmlPeerTest<Statistic>
 {
-	final static Logger logger = LoggerFactory.getLogger(TestXmlStatistic.class);
+	final static Logger logger = LoggerFactory.getLogger(Info.class);
 	
-	@BeforeClass public static void initFiles(){setXmlFile(dirSuffix, Statistic.class);}
-    
-    @Test
-    public void xmlTest() throws FileNotFoundException
-    {
-    	Statistic actual = create();
-    	Statistic expected = JaxbUtil.loadJAXB(fXml.getAbsolutePath(), Statistic.class);
-    	assertJaxbEquals(expected, actual);
-    }
+	public TestXmlStatistic(){super(Statistic.class);}
+	public static Statistic create(boolean withChildren){return (new TestXmlStatistic()).build(withChildren);}
     
     public static Statistic create()
     {
@@ -34,15 +22,11 @@ public class TestXmlStatistic extends AbstractXmlPeerTest
     	xml.setLeft(3);
     	return xml;
     }
-    
-    public void save() {save(create(),fXml);}
 	
 	public static void main(String[] args)
     {
-		XbtjlXmlTestBootstrap.init();
-			
-		TestXmlStatistic.initFiles();	
+		XbtjlXmlTestBootstrap.init();	
 		TestXmlStatistic test = new TestXmlStatistic();
-		test.save();
+		test.saveReferenceXml();
     }
 }
