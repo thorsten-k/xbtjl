@@ -1,44 +1,28 @@
 package de.kisner.xbtjl.model.xml.torrent;
 
-import java.io.FileNotFoundException;
-
-import org.junit.BeforeClass;
-import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import de.kisner.xbtjl.test.XbtjlXmlTestBootstrap;
-import net.sf.exlp.util.xml.JaxbUtil;
 
-public class TestXmlData extends AbstractXmlBittorrentTest
+public class TestXmlData extends AbstractXmlBittorrentTest<Data>
 {
 	final static Logger logger = LoggerFactory.getLogger(TestXmlData.class);
 	
-	@BeforeClass public static void initFiles(){setXmlFile(dirSuffix, Data.class);}
+	public TestXmlData(){super(Data.class);}
+	public static Data create(boolean withChildren){return (new TestXmlData()).build(withChildren);}
     
-    @Test
-    public void xml() throws FileNotFoundException
-    {
-    	Data actual = create();
-    	Data expected = JaxbUtil.loadJAXB(fXml.getAbsolutePath(), Data.class);
-    	assertJaxbEquals(expected, actual);
-    }
-    
-    public static Data create()
+    public Data build(boolean withChilds)
     {
     	Data xml = new Data();
     	xml.setValue("myData".getBytes());
     	return xml;
     }
     
-    public void save() {save(create(),fXml);}
-	
 	public static void main(String[] args)
     {
-		XbtjlXmlTestBootstrap.init();
-			
-		TestXmlData.initFiles();	
+		XbtjlXmlTestBootstrap.init();	
 		TestXmlData test = new TestXmlData();
-		test.save();
+		test.saveReferenceXml();
     }
 }

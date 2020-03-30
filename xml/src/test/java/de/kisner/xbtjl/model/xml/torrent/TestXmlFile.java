@@ -1,30 +1,18 @@
 package de.kisner.xbtjl.model.xml.torrent;
 
-import java.io.FileNotFoundException;
-
-import org.junit.BeforeClass;
-import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import de.kisner.xbtjl.test.XbtjlXmlTestBootstrap;
-import net.sf.exlp.util.xml.JaxbUtil;
 
-public class TestXmlFile extends AbstractXmlBittorrentTest
+public class TestXmlFile extends AbstractXmlBittorrentTest<de.kisner.xbtjl.model.xml.torrent.File>
 {
 	final static Logger logger = LoggerFactory.getLogger(TestXmlFile.class);
 	
-	@BeforeClass public static void initFiles(){setXmlFile(dirSuffix, de.kisner.xbtjl.model.xml.torrent.File.class);}
+	public TestXmlFile(){super(de.kisner.xbtjl.model.xml.torrent.File.class);}
+	public static de.kisner.xbtjl.model.xml.torrent.File  create(boolean withChildren){return (new TestXmlFile()).build(withChildren);}
     
-    @Test
-    public void xml() throws FileNotFoundException
-    {
-    	de.kisner.xbtjl.model.xml.torrent.File actual = create();
-    	de.kisner.xbtjl.model.xml.torrent.File expected = JaxbUtil.loadJAXB(fXml.getAbsolutePath(), de.kisner.xbtjl.model.xml.torrent.File.class);
-    	assertJaxbEquals(expected, actual);
-    }
-    
-    public static de.kisner.xbtjl.model.xml.torrent.File create()
+    public de.kisner.xbtjl.model.xml.torrent.File build(boolean withChilds)
     {
     	de.kisner.xbtjl.model.xml.torrent.File xml = new de.kisner.xbtjl.model.xml.torrent.File();
     	xml.setValue("myFileName");
@@ -32,14 +20,10 @@ public class TestXmlFile extends AbstractXmlBittorrentTest
     	return xml;
     }
     
-    public void save() {save(create(),fXml);}
-	
 	public static void main(String[] args)
     {
-		XbtjlXmlTestBootstrap.init();
-			
-		TestXmlFile.initFiles();	
+		XbtjlXmlTestBootstrap.init();	
 		TestXmlFile test = new TestXmlFile();
-		test.save();
+		test.saveReferenceXml();
     }
 }

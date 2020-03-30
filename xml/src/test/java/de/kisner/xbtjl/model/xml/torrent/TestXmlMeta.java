@@ -1,41 +1,27 @@
 package de.kisner.xbtjl.model.xml.torrent;
 
-import java.io.FileNotFoundException;
-
-import org.junit.BeforeClass;
-import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import de.kisner.xbtjl.model.xml.torrent.Meta;
 import de.kisner.xbtjl.test.XbtjlXmlTestBootstrap;
-import net.sf.exlp.util.xml.JaxbUtil;
 
-public class TestXmlMeta extends AbstractXmlBittorrentTest
+public class TestXmlMeta extends AbstractXmlBittorrentTest<Meta>
 {
 	final static Logger logger = LoggerFactory.getLogger(TestXmlMeta.class);
 	
-	@BeforeClass public static void initFiles(){setXmlFile(dirSuffix, Meta.class);}
+	public TestXmlMeta(){super(Meta.class);}
+	public static Meta create(boolean withChildren){return (new TestXmlMeta()).build(withChildren);}
     
-    @Test
-    public void xml() throws FileNotFoundException
-    {
-    	Meta actual = create(true);
-    	Meta expected = JaxbUtil.loadJAXB(fXml.getAbsolutePath(), Meta.class);
-    	assertJaxbEquals(expected, actual);
-    }
-    
-    public static Meta create(boolean withChilds)
+    public Meta build(boolean withChilds)
     {
     	Meta xml = new Meta();
     	xml.setCreatedBy("myName");
     	xml.setEncoding("myEncoding");
     	xml.setCreated(AbstractXmlBittorrentTest.getDefaultXmlDate());
     	
-    	
     	if(withChilds)
     	{
-    		xml.setComment(TestXmlComment.create());
+    		xml.setComment(TestXmlComment.create(false));
     	}
     	return xml;
     }
@@ -44,10 +30,8 @@ public class TestXmlMeta extends AbstractXmlBittorrentTest
 	
 	public static void main(String[] args)
     {
-		XbtjlXmlTestBootstrap.init();
-			
-		TestXmlMeta.initFiles();	
+		XbtjlXmlTestBootstrap.init();	
 		TestXmlMeta test = new TestXmlMeta();
-		test.save();
+		test.saveReferenceXml();
     }
 }

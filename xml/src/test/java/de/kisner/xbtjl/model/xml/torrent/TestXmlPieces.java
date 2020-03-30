@@ -1,31 +1,18 @@
 package de.kisner.xbtjl.model.xml.torrent;
 
-import java.io.FileNotFoundException;
-
-import org.junit.BeforeClass;
-import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import de.kisner.xbtjl.model.xml.torrent.Pieces;
 import de.kisner.xbtjl.test.XbtjlXmlTestBootstrap;
-import net.sf.exlp.util.xml.JaxbUtil;
 
-public class TestXmlPieces extends AbstractXmlBittorrentTest
+public class TestXmlPieces extends AbstractXmlBittorrentTest<Pieces>
 {
 	final static Logger logger = LoggerFactory.getLogger(TestXmlPieces.class);
 	
-	@BeforeClass public static void initFiles(){setXmlFile(dirSuffix, Pieces.class);}
+	public TestXmlPieces(){super(Pieces.class);}
+	public static Pieces create(boolean withChildren){return (new TestXmlPieces()).build(withChildren);}
     
-    @Test
-    public void testAclContainer() throws FileNotFoundException
-    {
-    	Pieces actual = create(true);
-    	Pieces expected = JaxbUtil.loadJAXB(fXml.getAbsolutePath(), Pieces.class);
-    	assertJaxbEquals(expected, actual);
-    }
-    
-    public static Pieces create(boolean withChilds)
+    public Pieces build(boolean withChilds)
     {
     	Pieces xml = new Pieces();
     	xml.setLength(12);
@@ -35,19 +22,15 @@ public class TestXmlPieces extends AbstractXmlBittorrentTest
     	{
     		xml.getPiece().add(TestXmlPiece.create(false));
     		xml.getPiece().add(TestXmlPiece.create(false));
-    		xml.setBitfield(TestXmlBitfield.create());
+    		xml.setBitfield(TestXmlBitfield.create(false));
     	}
     	return xml;
     }
     
-    public void save() {save(create(true),fXml);}
-	
 	public static void main(String[] args)
     {
-		XbtjlXmlTestBootstrap.init();
-			
-		TestXmlPieces.initFiles();	
+		XbtjlXmlTestBootstrap.init();	
 		TestXmlPieces test = new TestXmlPieces();
-		test.save();
+		test.saveReferenceXml();
     }
 }
