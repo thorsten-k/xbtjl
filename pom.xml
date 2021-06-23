@@ -21,7 +21,7 @@
 	<properties>
     	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     	<my.build.directory>target</my.build.directory>
-    	<version.jetty>8.1.17.v20150415</version.jetty>
+    	<version.jetty>9.4.41.v20210516</version.jetty>
 		
     	<maven-gpg-plugin.version>1.4</maven-gpg-plugin.version>
     	<maven-javadoc-plugin.version>2.8</maven-javadoc-plugin.version>
