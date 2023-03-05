@@ -167,7 +167,7 @@ public class BenTorrentFactory
 	     if(m.containsKey("creation date"))
 	     {
 	           Date d = new Date((Long)m.get("creation date")*1000);
-	           xml.setCreated(DateUtil.getXmlGc4D(d));
+	           xml.setCreated(DateUtil.toXmlGc(d));
 	     }
 	     
 	     if(m.containsKey("encoding"))

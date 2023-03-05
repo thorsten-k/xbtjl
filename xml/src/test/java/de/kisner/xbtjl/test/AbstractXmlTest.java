@@ -32,6 +32,6 @@ public abstract class AbstractXmlTest <T extends Object> extends AbstractAhtUtil
 	public static void initJaxb()
 	{
 		JaxbUtil.setNsPrefixMapper(new XbtjlNsPrefixMapper());
-		DateUtil.ignoreTimeZone=true;
+//		DateUtil.ignoreTimeZone=true;
 	}
 }
