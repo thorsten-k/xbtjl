@@ -6,7 +6,6 @@ import org.slf4j.LoggerFactory;
 
 import de.kisner.xbtjl.model.xml.XbtjlNsPrefixMapper;
 import net.sf.ahtutils.test.AbstractAhtUtilsXmlTest;
-import net.sf.exlp.util.DateUtil;
 import net.sf.exlp.util.io.LoggerInit;
 import net.sf.exlp.util.xml.JaxbUtil;
 
