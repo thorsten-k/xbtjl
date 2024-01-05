@@ -72,7 +72,6 @@
 			<type>jar</type>
 			<classifier>javax</classifier>
 			<scope>compile</scope>
-			<classifier>javax</classifier>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
