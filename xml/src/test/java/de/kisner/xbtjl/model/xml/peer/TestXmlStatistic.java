@@ -15,11 +15,11 @@ public class TestXmlStatistic extends AbstractXmlPeerTest<Statistic>
     public static Statistic create()
     {
     	Statistic xml = new Statistic();
-    	xml.setBytesDownloaded(1);
-    	xml.setBytesUploaded(2);
+    	xml.setBytesDownloaded(1l);
+    	xml.setBytesUploaded(2l);
     	xml.setRateDownload(2.3);
     	xml.setRateUpload(4.3);
-    	xml.setLeft(3);
+    	xml.setLeft(3l);
     	return xml;
     }
 	

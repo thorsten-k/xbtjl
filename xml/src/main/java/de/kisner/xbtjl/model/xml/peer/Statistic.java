@@ -15,17 +15,17 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;attribute name="bytesDownloaded" type="{http://www.w3.org/2001/XMLSchema}long" />
- *       &lt;attribute name="bytesUploaded" type="{http://www.w3.org/2001/XMLSchema}long" />
- *       &lt;attribute name="left" type="{http://www.w3.org/2001/XMLSchema}long" />
- *       &lt;attribute name="rateDownload" type="{http://www.w3.org/2001/XMLSchema}double" />
- *       &lt;attribute name="rateUpload" type="{http://www.w3.org/2001/XMLSchema}double" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;attribute name="bytesDownloaded" type="{http://www.w3.org/2001/XMLSchema}long" /&gt;
+ *       &lt;attribute name="bytesUploaded" type="{http://www.w3.org/2001/XMLSchema}long" /&gt;
+ *       &lt;attribute name="left" type="{http://www.w3.org/2001/XMLSchema}long" /&gt;
+ *       &lt;attribute name="rateDownload" type="{http://www.w3.org/2001/XMLSchema}double" /&gt;
+ *       &lt;attribute name="rateUpload" type="{http://www.w3.org/2001/XMLSchema}double" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 
@@ -57,7 +57,7 @@ public class Statistic
      *     {@link Long }
      *     
      */
-    public long getBytesDownloaded() {
+    public Long getBytesDownloaded() {
         return bytesDownloaded;
     }
 
@@ -69,16 +69,8 @@ public class Statistic
      *     {@link Long }
      *     
      */
-    public void setBytesDownloaded(long value) {
+    public void setBytesDownloaded(Long value) {
         this.bytesDownloaded = value;
-    }
-
-    public boolean isSetBytesDownloaded() {
-        return (this.bytesDownloaded!= null);
-    }
-
-    public void unsetBytesDownloaded() {
-        this.bytesDownloaded = null;
     }
 
     /**
@@ -89,7 +81,7 @@ public class Statistic
      *     {@link Long }
      *     
      */
-    public long getBytesUploaded() {
+    public Long getBytesUploaded() {
         return bytesUploaded;
     }
 
@@ -101,16 +93,8 @@ public class Statistic
      *     {@link Long }
      *     
      */
-    public void setBytesUploaded(long value) {
+    public void setBytesUploaded(Long value) {
         this.bytesUploaded = value;
-    }
-
-    public boolean isSetBytesUploaded() {
-        return (this.bytesUploaded!= null);
-    }
-
-    public void unsetBytesUploaded() {
-        this.bytesUploaded = null;
     }
 
     /**
@@ -121,7 +105,7 @@ public class Statistic
      *     {@link Long }
      *     
      */
-    public long getLeft() {
+    public Long getLeft() {
         return left;
     }
 
@@ -133,16 +117,8 @@ public class Statistic
      *     {@link Long }
      *     
      */
-    public void setLeft(long value) {
+    public void setLeft(Long value) {
         this.left = value;
-    }
-
-    public boolean isSetLeft() {
-        return (this.left!= null);
-    }
-
-    public void unsetLeft() {
-        this.left = null;
     }
 
     /**
@@ -153,7 +129,7 @@ public class Statistic
      *     {@link Double }
      *     
      */
-    public double getRateDownload() {
+    public Double getRateDownload() {
         return rateDownload;
     }
 
@@ -165,16 +141,8 @@ public class Statistic
      *     {@link Double }
      *     
      */
-    public void setRateDownload(double value) {
+    public void setRateDownload(Double value) {
         this.rateDownload = value;
-    }
-
-    public boolean isSetRateDownload() {
-        return (this.rateDownload!= null);
-    }
-
-    public void unsetRateDownload() {
-        this.rateDownload = null;
     }
 
     /**
@@ -185,7 +153,7 @@ public class Statistic
      *     {@link Double }
      *     
      */
-    public double getRateUpload() {
+    public Double getRateUpload() {
         return rateUpload;
     }
 
@@ -197,16 +165,8 @@ public class Statistic
      *     {@link Double }
      *     
      */
-    public void setRateUpload(double value) {
+    public void setRateUpload(Double value) {
         this.rateUpload = value;
-    }
-
-    public boolean isSetRateUpload() {
-        return (this.rateUpload!= null);
-    }
-
-    public void unsetRateUpload() {
-        this.rateUpload = null;
     }
 
 }

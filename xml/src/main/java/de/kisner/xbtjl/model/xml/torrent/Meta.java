@@ -18,18 +18,18 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element ref="{http://xbtjl.kisner.de/torrent}comment"/>
- *       &lt;/sequence>
- *       &lt;attribute name="encoding" type="{http://www.w3.org/2001/XMLSchema}string" />
- *       &lt;attribute name="created" type="{http://www.w3.org/2001/XMLSchema}dateTime" />
- *       &lt;attribute name="createdBy" type="{http://www.w3.org/2001/XMLSchema}string" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element ref="{http://xbtjl.kisner.de/torrent}comment"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="encoding" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *       &lt;attribute name="created" type="{http://www.w3.org/2001/XMLSchema}dateTime" /&gt;
+ *       &lt;attribute name="createdBy" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 
@@ -78,10 +78,6 @@ public class Meta
         this.comment = value;
     }
 
-    public boolean isSetComment() {
-        return (this.comment!= null);
-    }
-
     /**
      * Gets the value of the encoding property.
      * 
@@ -104,10 +100,6 @@ public class Meta
      */
     public void setEncoding(String value) {
         this.encoding = value;
-    }
-
-    public boolean isSetEncoding() {
-        return (this.encoding!= null);
     }
 
     /**
@@ -134,10 +126,6 @@ public class Meta
         this.created = value;
     }
 
-    public boolean isSetCreated() {
-        return (this.created!= null);
-    }
-
     /**
      * Gets the value of the createdBy property.
      * 
@@ -160,10 +148,6 @@ public class Meta
      */
     public void setCreatedBy(String value) {
         this.createdBy = value;
-    }
-
-    public boolean isSetCreatedBy() {
-        return (this.createdBy!= null);
     }
 
 }

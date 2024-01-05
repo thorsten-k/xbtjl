@@ -19,16 +19,16 @@ import de.kisner.xbtjl.model.xml.peer.Peer;
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element ref="{http://xbtjl.kisner.de/peer}peer" maxOccurs="unbounded"/>
- *       &lt;/sequence>
- *       &lt;attribute name="interval" type="{http://www.w3.org/2001/XMLSchema}int" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element ref="{http://xbtjl.kisner.de/peer}peer" maxOccurs="unbounded"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="interval" type="{http://www.w3.org/2001/XMLSchema}int" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 
@@ -77,14 +77,6 @@ public class TrackerResponse
         return this.peer;
     }
 
-    public boolean isSetPeer() {
-        return ((this.peer!= null)&&(!this.peer.isEmpty()));
-    }
-
-    public void unsetPeer() {
-        this.peer = null;
-    }
-
     /**
      * Gets the value of the interval property.
      * 
@@ -93,7 +85,7 @@ public class TrackerResponse
      *     {@link Integer }
      *     
      */
-    public int getInterval() {
+    public Integer getInterval() {
         return interval;
     }
 
@@ -105,16 +97,8 @@ public class TrackerResponse
      *     {@link Integer }
      *     
      */
-    public void setInterval(int value) {
+    public void setInterval(Integer value) {
         this.interval = value;
-    }
-
-    public boolean isSetInterval() {
-        return (this.interval!= null);
-    }
-
-    public void unsetInterval() {
-        this.interval = null;
     }
 
 }

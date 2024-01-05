@@ -1,5 +1,7 @@
 package de.kisner.xbtjl.util;
 
+import java.util.Objects;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,7 +16,7 @@ public class XmlDebugger
     public static void info(Torrent torrent, boolean withPieces)
     {
     	Torrent xml = JDomUtil.toJaxb(JaxbUtil.toDocument(torrent),Torrent.class);
-    	if(!withPieces && torrent.isSetPieces()) {xml.getPieces().unsetPiece();}
+    	if(!withPieces && Objects.nonNull(torrent.getPieces())) {xml.getPieces().getPiece().clear();}
     	JaxbUtil.info(xml);
     }
 }

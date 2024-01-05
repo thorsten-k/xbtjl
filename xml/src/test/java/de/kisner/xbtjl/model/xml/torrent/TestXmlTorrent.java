@@ -16,7 +16,7 @@ public class TestXmlTorrent extends AbstractXmlBittorrentTest<Torrent>
     public Torrent build(boolean withChilds)
     {
     	Torrent xml = new Torrent();
-    	xml.setTotalLength(123);
+    	xml.setTotalLength(123l);
     	
     	if(withChilds)
     	{

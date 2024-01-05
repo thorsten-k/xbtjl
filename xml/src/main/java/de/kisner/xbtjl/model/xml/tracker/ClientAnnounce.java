@@ -15,17 +15,17 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;attribute name="interval" type="{http://www.w3.org/2001/XMLSchema}long" />
- *       &lt;attribute name="complete" type="{http://www.w3.org/2001/XMLSchema}long" />
- *       &lt;attribute name="minInterval" type="{http://www.w3.org/2001/XMLSchema}long" />
- *       &lt;attribute name="private" type="{http://www.w3.org/2001/XMLSchema}long" />
- *       &lt;attribute name="incomplete" type="{http://www.w3.org/2001/XMLSchema}long" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;attribute name="interval" type="{http://www.w3.org/2001/XMLSchema}long" /&gt;
+ *       &lt;attribute name="complete" type="{http://www.w3.org/2001/XMLSchema}long" /&gt;
+ *       &lt;attribute name="minInterval" type="{http://www.w3.org/2001/XMLSchema}long" /&gt;
+ *       &lt;attribute name="private" type="{http://www.w3.org/2001/XMLSchema}long" /&gt;
+ *       &lt;attribute name="incomplete" type="{http://www.w3.org/2001/XMLSchema}long" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 
@@ -57,7 +57,7 @@ public class ClientAnnounce
      *     {@link Long }
      *     
      */
-    public long getInterval() {
+    public Long getInterval() {
         return interval;
     }
 
@@ -69,16 +69,8 @@ public class ClientAnnounce
      *     {@link Long }
      *     
      */
-    public void setInterval(long value) {
+    public void setInterval(Long value) {
         this.interval = value;
-    }
-
-    public boolean isSetInterval() {
-        return (this.interval!= null);
-    }
-
-    public void unsetInterval() {
-        this.interval = null;
     }
 
     /**
@@ -89,7 +81,7 @@ public class ClientAnnounce
      *     {@link Long }
      *     
      */
-    public long getComplete() {
+    public Long getComplete() {
         return complete;
     }
 
@@ -101,16 +93,8 @@ public class ClientAnnounce
      *     {@link Long }
      *     
      */
-    public void setComplete(long value) {
+    public void setComplete(Long value) {
         this.complete = value;
-    }
-
-    public boolean isSetComplete() {
-        return (this.complete!= null);
-    }
-
-    public void unsetComplete() {
-        this.complete = null;
     }
 
     /**
@@ -121,7 +105,7 @@ public class ClientAnnounce
      *     {@link Long }
      *     
      */
-    public long getMinInterval() {
+    public Long getMinInterval() {
         return minInterval;
     }
 
@@ -133,16 +117,8 @@ public class ClientAnnounce
      *     {@link Long }
      *     
      */
-    public void setMinInterval(long value) {
+    public void setMinInterval(Long value) {
         this.minInterval = value;
-    }
-
-    public boolean isSetMinInterval() {
-        return (this.minInterval!= null);
-    }
-
-    public void unsetMinInterval() {
-        this.minInterval = null;
     }
 
     /**
@@ -153,7 +129,7 @@ public class ClientAnnounce
      *     {@link Long }
      *     
      */
-    public long getPrivate() {
+    public Long getPrivate() {
         return _private;
     }
 
@@ -165,16 +141,8 @@ public class ClientAnnounce
      *     {@link Long }
      *     
      */
-    public void setPrivate(long value) {
+    public void setPrivate(Long value) {
         this._private = value;
-    }
-
-    public boolean isSetPrivate() {
-        return (this._private!= null);
-    }
-
-    public void unsetPrivate() {
-        this._private = null;
     }
 
     /**
@@ -185,7 +153,7 @@ public class ClientAnnounce
      *     {@link Long }
      *     
      */
-    public long getIncomplete() {
+    public Long getIncomplete() {
         return incomplete;
     }
 
@@ -197,16 +165,8 @@ public class ClientAnnounce
      *     {@link Long }
      *     
      */
-    public void setIncomplete(long value) {
+    public void setIncomplete(Long value) {
         this.incomplete = value;
-    }
-
-    public boolean isSetIncomplete() {
-        return (this.incomplete!= null);
-    }
-
-    public void unsetIncomplete() {
-        this.incomplete = null;
     }
 
 }

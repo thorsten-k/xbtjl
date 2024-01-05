@@ -18,17 +18,17 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element ref="{http://xbtjl.kisner.de/torrent}file" maxOccurs="unbounded"/>
- *       &lt;/sequence>
- *       &lt;attribute name="number" type="{http://www.w3.org/2001/XMLSchema}int" />
- *       &lt;attribute name="directory" type="{http://www.w3.org/2001/XMLSchema}string" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element ref="{http://xbtjl.kisner.de/torrent}file" maxOccurs="unbounded"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="number" type="{http://www.w3.org/2001/XMLSchema}int" /&gt;
+ *       &lt;attribute name="directory" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 
@@ -79,14 +79,6 @@ public class Files
         return this.file;
     }
 
-    public boolean isSetFile() {
-        return ((this.file!= null)&&(!this.file.isEmpty()));
-    }
-
-    public void unsetFile() {
-        this.file = null;
-    }
-
     /**
      * Gets the value of the number property.
      * 
@@ -95,7 +87,7 @@ public class Files
      *     {@link Integer }
      *     
      */
-    public int getNumber() {
+    public Integer getNumber() {
         return number;
     }
 
@@ -107,16 +99,8 @@ public class Files
      *     {@link Integer }
      *     
      */
-    public void setNumber(int value) {
+    public void setNumber(Integer value) {
         this.number = value;
-    }
-
-    public boolean isSetNumber() {
-        return (this.number!= null);
-    }
-
-    public void unsetNumber() {
-        this.number = null;
     }
 
     /**
@@ -141,10 +125,6 @@ public class Files
      */
     public void setDirectory(String value) {
         this.directory = value;
-    }
-
-    public boolean isSetDirectory() {
-        return (this.directory!= null);
     }
 
 }

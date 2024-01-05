@@ -38,14 +38,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TrackerRequest }
-     * 
-     */
-    public TrackerRequest createTrackerRequest() {
-        return new TrackerRequest();
-    }
-
-    /**
      * Create an instance of {@link ClientAnnounce }
      * 
      */
@@ -59,6 +51,14 @@ public class ObjectFactory {
      */
     public TrackerResponse createTrackerResponse() {
         return new TrackerResponse();
+    }
+
+    /**
+     * Create an instance of {@link TrackerRequest }
+     * 
+     */
+    public TrackerRequest createTrackerRequest() {
+        return new TrackerRequest();
     }
 
 }

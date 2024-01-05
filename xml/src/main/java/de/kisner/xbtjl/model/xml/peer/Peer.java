@@ -17,20 +17,20 @@ import de.kisner.xbtjl.model.xml.torrent.Pieces;
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element ref="{http://xbtjl.kisner.de/torrent}pieces"/>
- *         &lt;element ref="{http://xbtjl.kisner.de/peer}statistic"/>
- *         &lt;element ref="{http://xbtjl.kisner.de/peer}info"/>
- *       &lt;/sequence>
- *       &lt;attribute name="peerId" type="{http://www.w3.org/2001/XMLSchema}string" />
- *       &lt;attribute name="listeningPort" type="{http://www.w3.org/2001/XMLSchema}int" />
- *       &lt;attribute name="listeningIp" type="{http://www.w3.org/2001/XMLSchema}string" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element ref="{http://xbtjl.kisner.de/torrent}pieces"/&gt;
+ *         &lt;element ref="{http://xbtjl.kisner.de/peer}statistic"/&gt;
+ *         &lt;element ref="{http://xbtjl.kisner.de/peer}info"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="peerId" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *       &lt;attribute name="listeningPort" type="{http://www.w3.org/2001/XMLSchema}int" /&gt;
+ *       &lt;attribute name="listeningIp" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 
@@ -84,10 +84,6 @@ public class Peer
         this.pieces = value;
     }
 
-    public boolean isSetPieces() {
-        return (this.pieces!= null);
-    }
-
     /**
      * Gets the value of the statistic property.
      * 
@@ -110,10 +106,6 @@ public class Peer
      */
     public void setStatistic(Statistic value) {
         this.statistic = value;
-    }
-
-    public boolean isSetStatistic() {
-        return (this.statistic!= null);
     }
 
     /**
@@ -140,10 +132,6 @@ public class Peer
         this.info = value;
     }
 
-    public boolean isSetInfo() {
-        return (this.info!= null);
-    }
-
     /**
      * Gets the value of the peerId property.
      * 
@@ -168,10 +156,6 @@ public class Peer
         this.peerId = value;
     }
 
-    public boolean isSetPeerId() {
-        return (this.peerId!= null);
-    }
-
     /**
      * Gets the value of the listeningPort property.
      * 
@@ -180,7 +164,7 @@ public class Peer
      *     {@link Integer }
      *     
      */
-    public int getListeningPort() {
+    public Integer getListeningPort() {
         return listeningPort;
     }
 
@@ -192,16 +176,8 @@ public class Peer
      *     {@link Integer }
      *     
      */
-    public void setListeningPort(int value) {
+    public void setListeningPort(Integer value) {
         this.listeningPort = value;
-    }
-
-    public boolean isSetListeningPort() {
-        return (this.listeningPort!= null);
-    }
-
-    public void unsetListeningPort() {
-        this.listeningPort = null;
     }
 
     /**
@@ -226,10 +202,6 @@ public class Peer
      */
     public void setListeningIp(String value) {
         this.listeningIp = value;
-    }
-
-    public boolean isSetListeningIp() {
-        return (this.listeningIp!= null);
     }
 
 }

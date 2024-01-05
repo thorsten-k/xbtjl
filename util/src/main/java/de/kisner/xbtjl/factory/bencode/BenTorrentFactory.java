@@ -62,7 +62,7 @@ public class BenTorrentFactory
             if (info.containsKey("files"))
             {            	
                 List multFiles = (List) info.get("files");
-                xml.setTotalLength(0);
+                xml.setTotalLength(0l);
                 for (int i = 0; i < multFiles.size(); i++)
                 {
                     xml.setTotalLength(xml.getTotalLength()+ ((Long) ((Map) multFiles.get(i)).get("length")).intValue());
@@ -76,16 +76,16 @@ public class BenTorrentFactory
                     
                     de.kisner.xbtjl.model.xml.torrent.File file = new de.kisner.xbtjl.model.xml.torrent.File();
                     file.setValue(sbFileName.toString());
-                    file.setLength(((Long) ((Map) multFiles.get(i)).get("length")).intValue());
+                    file.setLength(((Long) ((Map) multFiles.get(i)).get("length")));
                     xml.getFiles().getFile().add(file);
                 }
             }
             else
             {
-                xml.setTotalLength(((Long) info.get("length")).intValue());
+                xml.setTotalLength(((Long) info.get("length")));
                 de.kisner.xbtjl.model.xml.torrent.File file = new de.kisner.xbtjl.model.xml.torrent.File();
                 file.setValue(new String((byte[]) info.get("name")));
-                file.setLength(((Long) info.get("length")).intValue());
+                file.setLength((Long) info.get("length"));
                 xml.getFiles().getFile().add(file);
             }
             xml.getFiles().setNumber(xml.getFiles().getFile().size());

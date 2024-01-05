@@ -16,17 +16,17 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element ref="{http://xbtjl.kisner.de/torrent}data"/>
- *       &lt;/sequence>
- *       &lt;attribute name="file" type="{http://www.w3.org/2001/XMLSchema}int" />
- *       &lt;attribute name="offset" type="{http://www.w3.org/2001/XMLSchema}int" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element ref="{http://xbtjl.kisner.de/torrent}data"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="file" type="{http://www.w3.org/2001/XMLSchema}int" /&gt;
+ *       &lt;attribute name="offset" type="{http://www.w3.org/2001/XMLSchema}int" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 
@@ -72,10 +72,6 @@ public class Block
         this.data = value;
     }
 
-    public boolean isSetData() {
-        return (this.data!= null);
-    }
-
     /**
      * Gets the value of the file property.
      * 
@@ -84,7 +80,7 @@ public class Block
      *     {@link Integer }
      *     
      */
-    public int getFile() {
+    public Integer getFile() {
         return file;
     }
 
@@ -96,16 +92,8 @@ public class Block
      *     {@link Integer }
      *     
      */
-    public void setFile(int value) {
+    public void setFile(Integer value) {
         this.file = value;
-    }
-
-    public boolean isSetFile() {
-        return (this.file!= null);
-    }
-
-    public void unsetFile() {
-        this.file = null;
     }
 
     /**
@@ -116,7 +104,7 @@ public class Block
      *     {@link Integer }
      *     
      */
-    public int getOffset() {
+    public Integer getOffset() {
         return offset;
     }
 
@@ -128,16 +116,8 @@ public class Block
      *     {@link Integer }
      *     
      */
-    public void setOffset(int value) {
+    public void setOffset(Integer value) {
         this.offset = value;
-    }
-
-    public boolean isSetOffset() {
-        return (this.offset!= null);
-    }
-
-    public void unsetOffset() {
-        this.offset = null;
     }
 
 }

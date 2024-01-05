@@ -16,13 +16,13 @@ import javax.xml.bind.annotation.XmlValue;
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType>
- *   &lt;simpleContent>
- *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
- *       &lt;attribute name="length" type="{http://www.w3.org/2001/XMLSchema}long" />
- *     &lt;/extension>
- *   &lt;/simpleContent>
- * &lt;/complexType>
+ * &lt;complexType&gt;
+ *   &lt;simpleContent&gt;
+ *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+ *       &lt;attribute name="length" type="{http://www.w3.org/2001/XMLSchema}long" /&gt;
+ *     &lt;/extension&gt;
+ *   &lt;/simpleContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 
@@ -66,10 +66,6 @@ public class File
         this.value = value;
     }
 
-    public boolean isSetValue() {
-        return (this.value!= null);
-    }
-
     /**
      * Gets the value of the length property.
      * 
@@ -78,7 +74,7 @@ public class File
      *     {@link Long }
      *     
      */
-    public long getLength() {
+    public Long getLength() {
         return length;
     }
 
@@ -90,16 +86,8 @@ public class File
      *     {@link Long }
      *     
      */
-    public void setLength(long value) {
+    public void setLength(Long value) {
         this.length = value;
-    }
-
-    public boolean isSetLength() {
-        return (this.length!= null);
-    }
-
-    public void unsetLength() {
-        this.length = null;
     }
 
 }

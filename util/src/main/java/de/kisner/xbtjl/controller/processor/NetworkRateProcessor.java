@@ -21,7 +21,7 @@ public class NetworkRateProcessor
                 if (p.getStatistic().getRateDownload()>0)
                 {
                     rate = rate + p.getStatistic().getRateDownload();
-                    p.getStatistic().setRateDownload(0);
+                    p.getStatistic().setRateDownload(0d);
                 }
             }
             return rate / (1024*10);
@@ -39,7 +39,7 @@ public class NetworkRateProcessor
                 if (p.getStatistic().getRateUpload()>0)
                 {
                     rate = rate + p.getStatistic().getRateUpload();
-                    p.getStatistic().setRateUpload(0);
+                    p.getStatistic().setRateUpload(0d);
                 }
             }
             return rate / (1024*10);

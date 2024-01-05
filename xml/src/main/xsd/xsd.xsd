@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema targetNamespace="http://xbtjl.kisner.de"
+<xsd:schema targetNamespace="http://exlp.org"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
-    xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" jaxb:extensionBindingPrefixes="xjc"
     jaxb:version="2.0">
+    
     <xsd:import namespace="http://xbtjl.kisner.de/torrent" schemaLocation="xbtjl/torrent.xsd"/>
     <xsd:import namespace="http://xbtjl.kisner.de/peer" schemaLocation="xbtjl/peer.xsd"/>
     <xsd:import namespace="http://xbtjl.kisner.de/tracker" schemaLocation="xbtjl/tracker.xsd"/>
-    <xsd:annotation>
-        <xsd:appinfo>
-            <jaxb:globalBindings generateIsSetMethod="true">
-                <xjc:serializable uid="1"/>
-            </jaxb:globalBindings>
-        </xsd:appinfo>
-    </xsd:annotation>
+       
 </xsd:schema>

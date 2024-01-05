@@ -30,19 +30,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Statistic }
-     * 
-     */
-    public Statistic createStatistic() {
-        return new Statistic();
-    }
-
-    /**
      * Create an instance of {@link Peer }
      * 
      */
     public Peer createPeer() {
         return new Peer();
+    }
+
+    /**
+     * Create an instance of {@link Statistic }
+     * 
+     */
+    public Statistic createStatistic() {
+        return new Statistic();
     }
 
     /**

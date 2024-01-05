@@ -14,9 +14,7 @@ public class XbtjlXmlTestBootstrap
 		
 	public static void init()
 	{
-		LoggerInit loggerInit = new LoggerInit("log4j.xml");	
-		loggerInit.addAltPath("config.xbtjl-xml.test");
-		loggerInit.init();
+		LoggerInit.instance().path("xbtjl/config").init();
 		JaxbUtil.setNsPrefixMapper(new XbtjlNsPrefixMapper());
 	}
 }

@@ -30,11 +30,11 @@ public class TestXmlClientAnnounce extends AbstractXmlTrackerTest
     	
     	if(withChilds)
     	{
-    		xml.setComplete(1);
-    		xml.setIncomplete(2);
-    		xml.setInterval(12);
-    		xml.setMinInterval(123);
-    		xml.setPrivate(9);
+    		xml.setComplete(1l);
+    		xml.setIncomplete(2l);
+    		xml.setInterval(12l);
+    		xml.setMinInterval(123l);
+    		xml.setPrivate(9l);
     	}
     	return xml;
     }

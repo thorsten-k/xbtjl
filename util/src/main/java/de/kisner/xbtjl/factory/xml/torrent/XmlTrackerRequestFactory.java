@@ -45,8 +45,8 @@ public class XmlTrackerRequestFactory
 			if(key.equals(TxtTrackerRequestFactory.urlHash)){xml.getTorrent().setHash(XmlHashFactory.createFromUrl(value));}
 			if(key.equals(TxtTrackerRequestFactory.urlPort)){xml.getPeer().setListeningPort(new Integer(value));}
 			if(key.equals(TxtTrackerRequestFactory.urlPeerId)){xml.getPeer().setPeerId(urlCodec.decode(value));}
-			if(key.equals(TxtTrackerRequestFactory.urlUploaded)){xml.getPeer().getStatistic().setBytesUploaded(new Integer(value));}
-			if(key.equals(TxtTrackerRequestFactory.urlDownloaded)){xml.getPeer().getStatistic().setBytesDownloaded(new Integer(value));}
+			if(key.equals(TxtTrackerRequestFactory.urlUploaded)) {xml.getPeer().getStatistic().setBytesUploaded(Long.valueOf(value));}
+			if(key.equals(TxtTrackerRequestFactory.urlDownloaded)) {xml.getPeer().getStatistic().setBytesDownloaded(Long.valueOf(value));}
 			if(key.equals(TxtTrackerRequestFactory.urlLeft)){xml.getPeer().getStatistic().setLeft(new Long(value));}
 			if(key.equals(TxtTrackerRequestFactory.urlNumWant)){xml.setNumWant(new Integer(value));}
 		}

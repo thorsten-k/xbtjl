@@ -17,21 +17,21 @@ import de.kisner.xbtjl.model.xml.tracker.Tracker;
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element ref="{http://xbtjl.kisner.de/tracker}tracker"/>
- *         &lt;element ref="{http://xbtjl.kisner.de/torrent}hash"/>
- *         &lt;element ref="{http://xbtjl.kisner.de/torrent}file"/>
- *         &lt;element ref="{http://xbtjl.kisner.de/torrent}files"/>
- *         &lt;element ref="{http://xbtjl.kisner.de/torrent}meta"/>
- *         &lt;element ref="{http://xbtjl.kisner.de/torrent}pieces"/>
- *       &lt;/sequence>
- *       &lt;attribute name="totalLength" type="{http://www.w3.org/2001/XMLSchema}long" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element ref="{http://xbtjl.kisner.de/tracker}tracker"/&gt;
+ *         &lt;element ref="{http://xbtjl.kisner.de/torrent}hash"/&gt;
+ *         &lt;element ref="{http://xbtjl.kisner.de/torrent}file"/&gt;
+ *         &lt;element ref="{http://xbtjl.kisner.de/torrent}files"/&gt;
+ *         &lt;element ref="{http://xbtjl.kisner.de/torrent}meta"/&gt;
+ *         &lt;element ref="{http://xbtjl.kisner.de/torrent}pieces"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="totalLength" type="{http://www.w3.org/2001/XMLSchema}long" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 
@@ -90,10 +90,6 @@ public class Torrent
         this.tracker = value;
     }
 
-    public boolean isSetTracker() {
-        return (this.tracker!= null);
-    }
-
     /**
      * Gets the value of the hash property.
      * 
@@ -116,10 +112,6 @@ public class Torrent
      */
     public void setHash(Hash value) {
         this.hash = value;
-    }
-
-    public boolean isSetHash() {
-        return (this.hash!= null);
     }
 
     /**
@@ -146,10 +138,6 @@ public class Torrent
         this.file = value;
     }
 
-    public boolean isSetFile() {
-        return (this.file!= null);
-    }
-
     /**
      * Gets the value of the files property.
      * 
@@ -172,10 +160,6 @@ public class Torrent
      */
     public void setFiles(Files value) {
         this.files = value;
-    }
-
-    public boolean isSetFiles() {
-        return (this.files!= null);
     }
 
     /**
@@ -202,10 +186,6 @@ public class Torrent
         this.meta = value;
     }
 
-    public boolean isSetMeta() {
-        return (this.meta!= null);
-    }
-
     /**
      * Gets the value of the pieces property.
      * 
@@ -230,10 +210,6 @@ public class Torrent
         this.pieces = value;
     }
 
-    public boolean isSetPieces() {
-        return (this.pieces!= null);
-    }
-
     /**
      * Gets the value of the totalLength property.
      * 
@@ -242,7 +218,7 @@ public class Torrent
      *     {@link Long }
      *     
      */
-    public long getTotalLength() {
+    public Long getTotalLength() {
         return totalLength;
     }
 
@@ -254,16 +230,8 @@ public class Torrent
      *     {@link Long }
      *     
      */
-    public void setTotalLength(long value) {
+    public void setTotalLength(Long value) {
         this.totalLength = value;
-    }
-
-    public boolean isSetTotalLength() {
-        return (this.totalLength!= null);
-    }
-
-    public void unsetTotalLength() {
-        this.totalLength = null;
     }
 
 }

@@ -18,18 +18,18 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element ref="{http://xbtjl.kisner.de/torrent}hash"/>
- *         &lt;element ref="{http://xbtjl.kisner.de/torrent}block" maxOccurs="unbounded"/>
- *       &lt;/sequence>
- *       &lt;attribute name="index" type="{http://www.w3.org/2001/XMLSchema}int" />
- *       &lt;attribute name="length" type="{http://www.w3.org/2001/XMLSchema}int" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element ref="{http://xbtjl.kisner.de/torrent}hash"/&gt;
+ *         &lt;element ref="{http://xbtjl.kisner.de/torrent}block" maxOccurs="unbounded"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="index" type="{http://www.w3.org/2001/XMLSchema}int" /&gt;
+ *       &lt;attribute name="length" type="{http://www.w3.org/2001/XMLSchema}int" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 
@@ -78,10 +78,6 @@ public class Piece
         this.hash = value;
     }
 
-    public boolean isSetHash() {
-        return (this.hash!= null);
-    }
-
     /**
      * Gets the value of the block property.
      * 
@@ -111,14 +107,6 @@ public class Piece
         return this.block;
     }
 
-    public boolean isSetBlock() {
-        return ((this.block!= null)&&(!this.block.isEmpty()));
-    }
-
-    public void unsetBlock() {
-        this.block = null;
-    }
-
     /**
      * Gets the value of the index property.
      * 
@@ -127,7 +115,7 @@ public class Piece
      *     {@link Integer }
      *     
      */
-    public int getIndex() {
+    public Integer getIndex() {
         return index;
     }
 
@@ -139,16 +127,8 @@ public class Piece
      *     {@link Integer }
      *     
      */
-    public void setIndex(int value) {
+    public void setIndex(Integer value) {
         this.index = value;
-    }
-
-    public boolean isSetIndex() {
-        return (this.index!= null);
-    }
-
-    public void unsetIndex() {
-        this.index = null;
     }
 
     /**
@@ -159,7 +139,7 @@ public class Piece
      *     {@link Integer }
      *     
      */
-    public int getLength() {
+    public Integer getLength() {
         return length;
     }
 
@@ -171,16 +151,8 @@ public class Piece
      *     {@link Integer }
      *     
      */
-    public void setLength(int value) {
+    public void setLength(Integer value) {
         this.length = value;
-    }
-
-    public boolean isSetLength() {
-        return (this.length!= null);
-    }
-
-    public void unsetLength() {
-        this.length = null;
     }
 
 }

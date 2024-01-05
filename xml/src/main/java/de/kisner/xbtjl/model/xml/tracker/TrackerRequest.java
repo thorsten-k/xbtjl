@@ -18,17 +18,17 @@ import de.kisner.xbtjl.model.xml.torrent.Torrent;
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element ref="{http://xbtjl.kisner.de/torrent}torrent"/>
- *         &lt;element ref="{http://xbtjl.kisner.de/peer}peer"/>
- *       &lt;/sequence>
- *       &lt;attribute name="numWant" type="{http://www.w3.org/2001/XMLSchema}int" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element ref="{http://xbtjl.kisner.de/torrent}torrent"/&gt;
+ *         &lt;element ref="{http://xbtjl.kisner.de/peer}peer"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="numWant" type="{http://www.w3.org/2001/XMLSchema}int" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 
@@ -75,10 +75,6 @@ public class TrackerRequest
         this.torrent = value;
     }
 
-    public boolean isSetTorrent() {
-        return (this.torrent!= null);
-    }
-
     /**
      * Gets the value of the peer property.
      * 
@@ -103,10 +99,6 @@ public class TrackerRequest
         this.peer = value;
     }
 
-    public boolean isSetPeer() {
-        return (this.peer!= null);
-    }
-
     /**
      * Gets the value of the numWant property.
      * 
@@ -115,7 +107,7 @@ public class TrackerRequest
      *     {@link Integer }
      *     
      */
-    public int getNumWant() {
+    public Integer getNumWant() {
         return numWant;
     }
 
@@ -127,16 +119,8 @@ public class TrackerRequest
      *     {@link Integer }
      *     
      */
-    public void setNumWant(int value) {
+    public void setNumWant(Integer value) {
         this.numWant = value;
-    }
-
-    public boolean isSetNumWant() {
-        return (this.numWant!= null);
-    }
-
-    public void unsetNumWant() {
-        this.numWant = null;
     }
 
 }

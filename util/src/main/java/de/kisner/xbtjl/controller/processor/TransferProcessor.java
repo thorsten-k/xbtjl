@@ -21,6 +21,6 @@ public class TransferProcessor
 	public static void addUploaded(Statistic xml, int length)
 	{
 		xml.setRateUpload(xml.getRateUpload()+length);
-		xml.setRateUpload(xml.getBytesUploaded()+length);
+		xml.setRateUpload(0d+xml.getBytesUploaded()+length);
 	}
 }

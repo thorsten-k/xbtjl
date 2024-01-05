@@ -15,17 +15,17 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;attribute name="interested" type="{http://www.w3.org/2001/XMLSchema}boolean" />
- *       &lt;attribute name="choked" type="{http://www.w3.org/2001/XMLSchema}boolean" />
- *       &lt;attribute name="interesting" type="{http://www.w3.org/2001/XMLSchema}boolean" />
- *       &lt;attribute name="choking" type="{http://www.w3.org/2001/XMLSchema}boolean" />
- *       &lt;attribute name="connected" type="{http://www.w3.org/2001/XMLSchema}boolean" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;attribute name="interested" type="{http://www.w3.org/2001/XMLSchema}boolean" /&gt;
+ *       &lt;attribute name="choked" type="{http://www.w3.org/2001/XMLSchema}boolean" /&gt;
+ *       &lt;attribute name="interesting" type="{http://www.w3.org/2001/XMLSchema}boolean" /&gt;
+ *       &lt;attribute name="choking" type="{http://www.w3.org/2001/XMLSchema}boolean" /&gt;
+ *       &lt;attribute name="connected" type="{http://www.w3.org/2001/XMLSchema}boolean" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 
@@ -57,7 +57,7 @@ public class Info
      *     {@link Boolean }
      *     
      */
-    public boolean isInterested() {
+    public Boolean isInterested() {
         return interested;
     }
 
@@ -69,16 +69,8 @@ public class Info
      *     {@link Boolean }
      *     
      */
-    public void setInterested(boolean value) {
+    public void setInterested(Boolean value) {
         this.interested = value;
-    }
-
-    public boolean isSetInterested() {
-        return (this.interested!= null);
-    }
-
-    public void unsetInterested() {
-        this.interested = null;
     }
 
     /**
@@ -89,7 +81,7 @@ public class Info
      *     {@link Boolean }
      *     
      */
-    public boolean isChoked() {
+    public Boolean isChoked() {
         return choked;
     }
 
@@ -101,16 +93,8 @@ public class Info
      *     {@link Boolean }
      *     
      */
-    public void setChoked(boolean value) {
+    public void setChoked(Boolean value) {
         this.choked = value;
-    }
-
-    public boolean isSetChoked() {
-        return (this.choked!= null);
-    }
-
-    public void unsetChoked() {
-        this.choked = null;
     }
 
     /**
@@ -121,7 +105,7 @@ public class Info
      *     {@link Boolean }
      *     
      */
-    public boolean isInteresting() {
+    public Boolean isInteresting() {
         return interesting;
     }
 
@@ -133,16 +117,8 @@ public class Info
      *     {@link Boolean }
      *     
      */
-    public void setInteresting(boolean value) {
+    public void setInteresting(Boolean value) {
         this.interesting = value;
-    }
-
-    public boolean isSetInteresting() {
-        return (this.interesting!= null);
-    }
-
-    public void unsetInteresting() {
-        this.interesting = null;
     }
 
     /**
@@ -153,7 +129,7 @@ public class Info
      *     {@link Boolean }
      *     
      */
-    public boolean isChoking() {
+    public Boolean isChoking() {
         return choking;
     }
 
@@ -165,16 +141,8 @@ public class Info
      *     {@link Boolean }
      *     
      */
-    public void setChoking(boolean value) {
+    public void setChoking(Boolean value) {
         this.choking = value;
-    }
-
-    public boolean isSetChoking() {
-        return (this.choking!= null);
-    }
-
-    public void unsetChoking() {
-        this.choking = null;
     }
 
     /**
@@ -185,7 +153,7 @@ public class Info
      *     {@link Boolean }
      *     
      */
-    public boolean isConnected() {
+    public Boolean isConnected() {
         return connected;
     }
 
@@ -197,16 +165,8 @@ public class Info
      *     {@link Boolean }
      *     
      */
-    public void setConnected(boolean value) {
+    public void setConnected(Boolean value) {
         this.connected = value;
-    }
-
-    public boolean isSetConnected() {
-        return (this.connected!= null);
-    }
-
-    public void unsetConnected() {
-        this.connected = null;
     }
 
 }

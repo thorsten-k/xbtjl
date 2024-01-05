@@ -30,6 +30,54 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link Torrent }
+     * 
+     */
+    public Torrent createTorrent() {
+        return new Torrent();
+    }
+
+    /**
+     * Create an instance of {@link Hash }
+     * 
+     */
+    public Hash createHash() {
+        return new Hash();
+    }
+
+    /**
+     * Create an instance of {@link File }
+     * 
+     */
+    public File createFile() {
+        return new File();
+    }
+
+    /**
+     * Create an instance of {@link Files }
+     * 
+     */
+    public Files createFiles() {
+        return new Files();
+    }
+
+    /**
+     * Create an instance of {@link Meta }
+     * 
+     */
+    public Meta createMeta() {
+        return new Meta();
+    }
+
+    /**
+     * Create an instance of {@link Comment }
+     * 
+     */
+    public Comment createComment() {
+        return new Comment();
+    }
+
+    /**
      * Create an instance of {@link Pieces }
      * 
      */
@@ -54,14 +102,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Hash }
-     * 
-     */
-    public Hash createHash() {
-        return new Hash();
-    }
-
-    /**
      * Create an instance of {@link Block }
      * 
      */
@@ -75,46 +115,6 @@ public class ObjectFactory {
      */
     public Data createData() {
         return new Data();
-    }
-
-    /**
-     * Create an instance of {@link Files }
-     * 
-     */
-    public Files createFiles() {
-        return new Files();
-    }
-
-    /**
-     * Create an instance of {@link File }
-     * 
-     */
-    public File createFile() {
-        return new File();
-    }
-
-    /**
-     * Create an instance of {@link Comment }
-     * 
-     */
-    public Comment createComment() {
-        return new Comment();
-    }
-
-    /**
-     * Create an instance of {@link Torrent }
-     * 
-     */
-    public Torrent createTorrent() {
-        return new Torrent();
-    }
-
-    /**
-     * Create an instance of {@link Meta }
-     * 
-     */
-    public Meta createMeta() {
-        return new Meta();
     }
 
 }

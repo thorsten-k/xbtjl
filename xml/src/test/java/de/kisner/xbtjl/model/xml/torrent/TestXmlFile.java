@@ -16,7 +16,7 @@ public class TestXmlFile extends AbstractXmlBittorrentTest<de.kisner.xbtjl.model
     {
     	de.kisner.xbtjl.model.xml.torrent.File xml = new de.kisner.xbtjl.model.xml.torrent.File();
     	xml.setValue("myFileName");
-    	xml.setLength(1234);
+    	xml.setLength(1234l);
     	return xml;
     }
     

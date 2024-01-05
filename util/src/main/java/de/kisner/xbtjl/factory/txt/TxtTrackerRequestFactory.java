@@ -1,5 +1,7 @@
 package de.kisner.xbtjl.factory.txt;
 
+import java.util.Objects;
+
 import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.net.URLCodec;
 import org.slf4j.Logger;
@@ -43,7 +45,7 @@ public class TxtTrackerRequestFactory
 			sb.append("&").append(urlUploaded).append("=").append(xml.getPeer().getStatistic().getBytesUploaded());
 			sb.append("&").append(urlDownloaded).append("=").append(xml.getPeer().getStatistic().getBytesDownloaded());
 			sb.append("&").append(urlLeft).append("=").append(xml.getPeer().getStatistic().getLeft());
-			if(xml.isSetNumWant()){sb.append("&").append(urlNumWant).append("=").append(xml.getNumWant());}
+			if(Objects.nonNull(xml.getNumWant())) {sb.append("&").append(urlNumWant).append("=").append(xml.getNumWant());}
 			return sb.toString();
 		}
 		catch (EncoderException e) {throw new XbtjlException(e.getMessage());}
@@ -52,21 +54,21 @@ public class TxtTrackerRequestFactory
 	
 	private static void checkXml(TrackerRequest xml) throws XbtjlException
 	{
-		if(!xml.isSetTorrent()){throw new XbtjlException(TrackerRequest.class.getSimpleName()+" does not has a "+Torrent.class.getSimpleName());}
+		if(Objects.isNull(xml.getTorrent())) {throw new XbtjlException(TrackerRequest.class.getSimpleName()+" does not has a "+Torrent.class.getSimpleName());}
 		
-		if(!xml.getTorrent().isSetTracker()){throw new XbtjlException(TrackerRequest.class.getSimpleName()+"."+Torrent.class.getSimpleName()+" does not has a "+Tracker.class.getSimpleName());}
-		if(!xml.getTorrent().getTracker().isSetUrl()){throw new XbtjlException(TrackerRequest.class.getSimpleName()+"."+Torrent.class.getSimpleName()+"."+Tracker.class.getSimpleName()+" does not has a @annoucne");}
+		if(Objects.isNull(xml.getTorrent().getTracker())) {throw new XbtjlException(TrackerRequest.class.getSimpleName()+"."+Torrent.class.getSimpleName()+" does not has a "+Tracker.class.getSimpleName());}
+		if(Objects.isNull(xml.getTorrent().getTracker().getUrl())) {throw new XbtjlException(TrackerRequest.class.getSimpleName()+"."+Torrent.class.getSimpleName()+"."+Tracker.class.getSimpleName()+" does not has a @annoucne");}
 		
-		if(!xml.getTorrent().isSetHash()){throw new XbtjlException(TrackerRequest.class.getSimpleName()+"."+Torrent.class.getSimpleName()+" does not has a "+Hash.class.getSimpleName());}
-		if(!xml.getTorrent().getHash().isSetValue()){throw new XbtjlException(TrackerRequest.class.getSimpleName()+"."+Torrent.class.getSimpleName()+"."+Hash.class.getSimpleName()+" does not has a value");}
+		if(Objects.isNull(xml.getTorrent().getHash())) {throw new XbtjlException(TrackerRequest.class.getSimpleName()+"."+Torrent.class.getSimpleName()+" does not has a "+Hash.class.getSimpleName());}
+		if(Objects.isNull(xml.getTorrent().getHash().getValue())) {throw new XbtjlException(TrackerRequest.class.getSimpleName()+"."+Torrent.class.getSimpleName()+"."+Hash.class.getSimpleName()+" does not has a value");}
 		
-		if(!xml.isSetPeer()){throw new XbtjlException(TrackerRequest.class.getSimpleName()+" does not has a "+Peer.class.getSimpleName());}
-		if(!xml.getPeer().isSetPeerId()){throw new XbtjlException(TrackerRequest.class.getSimpleName()+"."+Peer.class.getSimpleName()+" does not has a @peerId");}
-		if(!xml.getPeer().isSetListeningPort()){throw new XbtjlException(TrackerRequest.class.getSimpleName()+"."+Peer.class.getSimpleName()+" does not has a @listeningPort");}
+		if(Objects.isNull(xml.getPeer())) {throw new XbtjlException(TrackerRequest.class.getSimpleName()+" does not has a "+Peer.class.getSimpleName());}
+		if(Objects.isNull(xml.getPeer().getPeerId())) {throw new XbtjlException(TrackerRequest.class.getSimpleName()+"."+Peer.class.getSimpleName()+" does not has a @peerId");}
+		if(Objects.isNull(xml.getPeer().getListeningPort())) {throw new XbtjlException(TrackerRequest.class.getSimpleName()+"."+Peer.class.getSimpleName()+" does not has a @listeningPort");}
 		
-		if(!xml.getPeer().isSetStatistic()){throw new XbtjlException(Peer.class.getSimpleName()+"."+Statistic.class.getSimpleName()+" is not set");}
-		if(!xml.getPeer().getStatistic().isSetBytesDownloaded()){throw new XbtjlException(Peer.class.getSimpleName()+"."+Statistic.class.getSimpleName()+" does not has a @sumDl");}
-		if(!xml.getPeer().getStatistic().isSetBytesUploaded()){throw new XbtjlException(Peer.class.getSimpleName()+"."+Statistic.class.getSimpleName()+" does not has a @sumUl");}
-		if(!xml.getPeer().getStatistic().isSetLeft()){throw new XbtjlException(Peer.class.getSimpleName()+"."+Statistic.class.getSimpleName()+" does not has a @left");}
+		if(Objects.isNull(xml.getPeer().getStatistic())) {throw new XbtjlException(Peer.class.getSimpleName()+"."+Statistic.class.getSimpleName()+" is not set");}
+		if(Objects.isNull(xml.getPeer().getStatistic().getBytesDownloaded())) {throw new XbtjlException(Peer.class.getSimpleName()+"."+Statistic.class.getSimpleName()+" does not has a @sumDl");}
+		if(Objects.isNull(xml.getPeer().getStatistic().getBytesUploaded())) {throw new XbtjlException(Peer.class.getSimpleName()+"."+Statistic.class.getSimpleName()+" does not has a @sumUl");}
+		if(Objects.isNull(xml.getPeer().getStatistic().getLeft())) {throw new XbtjlException(Peer.class.getSimpleName()+"."+Statistic.class.getSimpleName()+" does not has a @left");}
 	}
 }

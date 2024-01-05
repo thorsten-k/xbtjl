@@ -18,18 +18,18 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element ref="{http://xbtjl.kisner.de/torrent}bitfield"/>
- *         &lt;element ref="{http://xbtjl.kisner.de/torrent}piece" maxOccurs="unbounded"/>
- *       &lt;/sequence>
- *       &lt;attribute name="length" type="{http://www.w3.org/2001/XMLSchema}int" />
- *       &lt;attribute name="number" type="{http://www.w3.org/2001/XMLSchema}int" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element ref="{http://xbtjl.kisner.de/torrent}bitfield"/&gt;
+ *         &lt;element ref="{http://xbtjl.kisner.de/torrent}piece" maxOccurs="unbounded"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="length" type="{http://www.w3.org/2001/XMLSchema}int" /&gt;
+ *       &lt;attribute name="number" type="{http://www.w3.org/2001/XMLSchema}int" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 
@@ -78,10 +78,6 @@ public class Pieces
         this.bitfield = value;
     }
 
-    public boolean isSetBitfield() {
-        return (this.bitfield!= null);
-    }
-
     /**
      * Gets the value of the piece property.
      * 
@@ -111,14 +107,6 @@ public class Pieces
         return this.piece;
     }
 
-    public boolean isSetPiece() {
-        return ((this.piece!= null)&&(!this.piece.isEmpty()));
-    }
-
-    public void unsetPiece() {
-        this.piece = null;
-    }
-
     /**
      * Gets the value of the length property.
      * 
@@ -127,7 +115,7 @@ public class Pieces
      *     {@link Integer }
      *     
      */
-    public int getLength() {
+    public Integer getLength() {
         return length;
     }
 
@@ -139,16 +127,8 @@ public class Pieces
      *     {@link Integer }
      *     
      */
-    public void setLength(int value) {
+    public void setLength(Integer value) {
         this.length = value;
-    }
-
-    public boolean isSetLength() {
-        return (this.length!= null);
-    }
-
-    public void unsetLength() {
-        this.length = null;
     }
 
     /**
@@ -159,7 +139,7 @@ public class Pieces
      *     {@link Integer }
      *     
      */
-    public int getNumber() {
+    public Integer getNumber() {
         return number;
     }
 
@@ -171,16 +151,8 @@ public class Pieces
      *     {@link Integer }
      *     
      */
-    public void setNumber(int value) {
+    public void setNumber(Integer value) {
         this.number = value;
-    }
-
-    public boolean isSetNumber() {
-        return (this.number!= null);
-    }
-
-    public void unsetNumber() {
-        this.number = null;
     }
 
 }
