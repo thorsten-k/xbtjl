@@ -71,6 +71,7 @@
 			<artifactId>exlp-xml</artifactId>
 			<type>jar</type>
 			<scope>compile</scope>
+			<classifier>javax</classifier>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>

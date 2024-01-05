@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema targetNamespace="http://xbtjl.kisner.de"
-    xmlns:bt="http://xbtjl.kisner.de/torrent"
-    xmlns:p="http://xbtjl.kisner.de/peer"
-    xmlns:t="http://xbtjl.kisner.de/tracker"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
     xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" jaxb:extensionBindingPrefixes="xjc"

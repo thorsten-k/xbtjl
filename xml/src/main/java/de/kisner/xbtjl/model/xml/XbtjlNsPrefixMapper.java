@@ -1,6 +1,6 @@
 package de.kisner.xbtjl.model.xml;
 
-import net.sf.exlp.xml.ns.NsPrefixMapperInterface;
+import org.exlp.interfaces.io.NsPrefixMapperInterface;
 
 import com.sun.xml.bind.marshaller.NamespacePrefixMapper;
 

@@ -18,9 +18,7 @@ public class XbtjlBootstrap
 	
 	public static Configuration init(String configFile)
 	{
-		LoggerInit loggerInit = new LoggerInit("log4j.xml");
-			loggerInit.addAltPath("config.xbtjl-client");
-			loggerInit.init();
+		LoggerInit.instance().path("xbtjl/system/io/log").init();
 			
 		return null;
 	}
