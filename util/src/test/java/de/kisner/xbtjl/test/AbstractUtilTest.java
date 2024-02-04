@@ -3,14 +3,14 @@ package de.kisner.xbtjl.test;
 import java.io.File;
 
 import org.exlp.util.io.StringUtil;
+import org.exlp.util.io.log.LoggerInit;
+import org.exlp.util.jx.JaxbUtil;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import de.kisner.xbtjl.model.xml.XbtjlNsPrefixMapper;
-import net.sf.exlp.util.io.LoggerInit;
-import net.sf.exlp.util.xml.JaxbUtil;
 
 public abstract class AbstractUtilTest
 {

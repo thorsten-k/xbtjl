@@ -1,13 +1,13 @@
 package de.kisner.xbtjl.test;
 
+import org.exlp.util.io.log.LoggerInit;
+import org.exlp.util.jx.JaxbUtil;
 import org.junit.BeforeClass;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import de.kisner.xbtjl.model.xml.XbtjlNsPrefixMapper;
 import net.sf.ahtutils.test.AbstractAhtUtilsXmlTest;
-import net.sf.exlp.util.io.LoggerInit;
-import net.sf.exlp.util.xml.JaxbUtil;
 
 public abstract class AbstractXmlTest <T extends Object> extends AbstractAhtUtilsXmlTest<T>
 {

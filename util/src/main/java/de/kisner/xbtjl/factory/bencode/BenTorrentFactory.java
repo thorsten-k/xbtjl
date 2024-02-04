@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.codec.binary.Hex;
+import org.exlp.util.system.DateUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,7 +25,6 @@ import de.kisner.xbtjl.model.xml.torrent.Meta;
 import de.kisner.xbtjl.model.xml.torrent.Piece;
 import de.kisner.xbtjl.model.xml.torrent.Pieces;
 import de.kisner.xbtjl.model.xml.torrent.Torrent;
-import net.sf.exlp.util.DateUtil;
 import net.sf.exlp.util.io.FileIO;
 
 public class BenTorrentFactory

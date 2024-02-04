@@ -2,12 +2,12 @@ package de.kisner.xbtjl.util;
 
 import java.util.Objects;
 
+import org.exlp.util.jx.JaxbUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import de.kisner.xbtjl.model.xml.torrent.Torrent;
 import net.sf.exlp.util.xml.JDomUtil;
-import net.sf.exlp.util.xml.JaxbUtil;
 
 public class XmlDebugger
 {

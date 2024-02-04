@@ -1,5 +1,6 @@
 package de.kisner.xbtjl.factory.xml.bittorrent;
 
+import org.exlp.util.jx.JaxbUtil;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,7 +13,6 @@ import de.kisner.xbtjl.factory.txt.TxtTrackerRequestFactory;
 import de.kisner.xbtjl.factory.xml.torrent.XmlTrackerRequestFactory;
 import de.kisner.xbtjl.model.xml.tracker.TrackerRequest;
 import de.kisner.xbtjl.test.AbstractUtilTest;
-import net.sf.exlp.util.xml.JaxbUtil;
 
 public class TestXmlTrackerRequestFactory extends AbstractUtilTest
 {

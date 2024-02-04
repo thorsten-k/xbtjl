@@ -2,6 +2,7 @@ package de.kisner.xbtjl.model.xml.tracker;
 
 import java.io.FileNotFoundException;
 
+import org.exlp.util.jx.JaxbUtil;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -10,7 +11,6 @@ import org.slf4j.LoggerFactory;
 import de.kisner.xbtjl.model.xml.peer.TestXmlPeer;
 import de.kisner.xbtjl.model.xml.torrent.TestXmlTorrent;
 import de.kisner.xbtjl.test.XbtjlXmlTestBootstrap;
-import net.sf.exlp.util.xml.JaxbUtil;
 
 public class TestXmlTrackerRequest extends AbstractXmlTrackerTest
 {

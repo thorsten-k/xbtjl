@@ -1,10 +1,9 @@
 package de.kisner.xbtjl;
 
 import org.apache.commons.configuration.Configuration;
+import org.exlp.util.io.log.LoggerInit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import net.sf.exlp.util.io.LoggerInit;
 
 public class XbtjlBootstrap
 {

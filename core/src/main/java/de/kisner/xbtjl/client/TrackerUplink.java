@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
+import org.exlp.util.jx.JaxbUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,7 +16,6 @@ import de.kisner.xbtjl.model.xml.peer.Statistic;
 import de.kisner.xbtjl.model.xml.torrent.Torrent;
 import de.kisner.xbtjl.model.xml.tracker.TrackerResponse;
 import de.kisner.xbtjl.processor.net.client.ClientTrackerRequest;
-import net.sf.exlp.util.xml.JaxbUtil;
 
 public class TrackerUplink extends Thread
 {

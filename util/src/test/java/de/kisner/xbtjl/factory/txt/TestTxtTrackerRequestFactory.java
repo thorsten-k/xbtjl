@@ -2,6 +2,7 @@ package de.kisner.xbtjl.factory.txt;
 
 import java.io.File;
 
+import org.exlp.util.jx.JaxbUtil;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -17,7 +18,6 @@ import de.kisner.xbtjl.model.xml.tracker.TrackerRequest;
 import de.kisner.xbtjl.test.AbstractUtilTest;
 import de.kisner.xbtjl.test.XbtjlUtilTestBootstrap;
 import net.sf.exlp.util.io.StringIO;
-import net.sf.exlp.util.xml.JaxbUtil;
 
 public class TestTxtTrackerRequestFactory extends AbstractUtilTest
 {

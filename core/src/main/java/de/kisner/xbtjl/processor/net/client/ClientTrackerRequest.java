@@ -9,6 +9,7 @@ import java.net.URLConnection;
 import java.net.UnknownHostException;
 
 import org.apache.commons.io.IOUtils;
+import org.exlp.util.jx.JaxbUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,7 +23,6 @@ import de.kisner.xbtjl.model.xml.peer.Statistic;
 import de.kisner.xbtjl.model.xml.torrent.Torrent;
 import de.kisner.xbtjl.model.xml.tracker.TrackerResponse;
 import net.sf.exlp.util.io.ByteUtil;
-import net.sf.exlp.util.xml.JaxbUtil;
 
 public class ClientTrackerRequest
 {
